@@ -1,33 +1,16 @@
+import { vrrem, modularscalerem } from './utils';
+
 const base = 18; // base font-size
 const ratio = 1.3; // line-height
 
 const containerMaxWidth = '768px';
+const breakpoints = ['500px', '768px', '1000px'];
 
-const breakpoints = [
-	'500px',
-	'768px',
-	'1000px'
-];
+const space = [...Array(10)].map((_, i) => 
+		vrrem(base, ratio, i));
 
-const space = [
-	'1rem',
-	'1.3rem',
-	'2.6rem',
-	'3.9rem',
-	'5.2rem',
-	'6.5rem',
-	'7.8rem'
-];
-
-const fontSizes = [
-	'0.8rem',
-	'1rem',
-	'1.3rem',
-	'1.7rem',
-	'2.2rem',
-	'2.8rem',
-	'3.7rem'
-];
+const fontSizes = [...Array(10)].map((_, i) => 
+		modularscalerem(base, ratio, i));
 
 const colors = {
 	black: '#000',
