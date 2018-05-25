@@ -6,6 +6,7 @@ import theme from '../../theme';
 const { base, ratio } = theme;
 
 const Hero = styled('section')`
+	${props => console.log(props.theme)}
 	background: linear-gradient(-45deg, 
 		${({theme: { colors }}) => colors.aquamarine}, 
 		${({theme: { colors }}) => colors.scienceBlue});
@@ -15,7 +16,7 @@ const Hero = styled('section')`
 	font-size: ${modularscalerem(base, ratio, 1)}
 `;
 
-export default () => (
+export default (props) => (
 	<Hero>
 		<p>A px and (r)em unit converter for style sheets.</p>
 	</Hero>
