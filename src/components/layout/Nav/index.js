@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Hamburger } from '../../ui';
-
+import Hamburger from './Hamburger';
 import StyledContainer from './StyledContainer';
 import Menu from './Menu';
 
