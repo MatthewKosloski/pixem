@@ -38,12 +38,10 @@ class Nav extends Component {
 	}
 
 	render() {
-		const { items } = this.props;
+		const { items, id } = this.props;
 		const { viewportWidth, isMobileMenuVisible } = this.state;
 
 		const isMobile = viewportWidth <= 500;
-
-		const id = 'navigation';
 
 		return (
 			<StyledContainer>
@@ -61,11 +59,16 @@ class Nav extends Component {
 	}
 }
 
+Nav.defaultProps = {
+	id: 'navigation'
+};
+
 Nav.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		link: PropTypes.string,
 		text: PropTypes.string
-	})).isRequired
+	})).isRequired,
+	id: PropTypes.string.isRequired
 };
 
 export default Nav;
