@@ -1,27 +1,8 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import StyledHamburger from './StyledHamburger';
-
-const State = styled.input.attrs({
-	type: 'checkbox'
-})`
-	display: none;
-	&:checked ~ div span {
-		background: transparent;
-	}
-	&:checked ~ div span::before,
-	&:checked ~ div span::after {
-		top: 0;
-	}
-	&:checked ~ div span::before {
-		transform: rotate(-45deg);
-	}
-	&:checked ~ div span::after {
-		transform: rotate(45deg);
-	}
-`;
+import StyledState from './StyledState';
 
 class Hamburger extends Component {
 
@@ -49,7 +30,7 @@ class Hamburger extends Component {
 				aria-controls={ariaControls}
 				aria-expanded={ariaExpanded}
 				isMobileMenuVisible={isMobileMenuVisible}>
-				<State onChange={this.handleClick} />
+				<StyledState onChange={this.handleClick} />
 	 			<div aria-hidden="true">
 	 				<span></span>
 	 			</div>
