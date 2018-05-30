@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Row, Column } from '../../grid';
 
-import Nav from '../Nav';
+import Nav from './Nav';
 
 import StyledLogo from './StyledLogo';
 import StyledHeader from './StyledHeader';

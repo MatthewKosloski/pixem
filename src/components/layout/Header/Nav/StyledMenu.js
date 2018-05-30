@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { _rem } from '../../../util-wrappers';
+import { _rem } from '../../../../util-wrappers';
 
 export default styled.nav.attrs({
 	id: props => props.id
