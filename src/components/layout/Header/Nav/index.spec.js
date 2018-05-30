@@ -10,18 +10,6 @@ import Hamburger from './Hamburger';
 import Menu from './Menu';
 import StyledState from './StyledState';
 
-/*
-*	Changes the value of a state key
-*	on a particular component.
-*	
-*	@param component {ShallowWrapper}
-*	@param key {String}
-*	@param value {Any}
-*/
-const setState = (component, key, value) => {
-	component().instance().state[key] = value;
-}
-
 describe('<Nav />', () => {
 	let props;
 	let renderedComponent;
