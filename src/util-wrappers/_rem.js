@@ -3,7 +3,5 @@ import theme from '../theme';
 
 const { base } = theme;
 
-const _rem = step =>
+export default step =>
 	rem(base, step);
-
-export default _rem;
