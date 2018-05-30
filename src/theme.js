@@ -12,6 +12,10 @@ const space = [...Array(10)].map((_, i) =>
 const fontSizes = [...Array(10)].map((_, i) => 
 		modularscalerem(base, ratio, i));
 
+const fonts = {
+	sans: 'Open Sans, sans-serif'
+};
+
 const colors = {
 	black: '#000',
 	white: '#fff',
@@ -31,5 +35,6 @@ export default {
 	breakpoints,
 	space,
 	fontSizes,
+	fonts,
 	colors
 };

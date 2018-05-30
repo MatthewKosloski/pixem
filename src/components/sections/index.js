@@ -1,2 +1,2 @@
-import { default as Hero } from './Hero';
+import { default as Hero } from './Hero/index';
 export { Hero };
