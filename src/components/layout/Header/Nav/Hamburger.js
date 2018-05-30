@@ -22,12 +22,17 @@ class Hamburger extends Component {
 	}
 
 	render() {
-		const { ariaControls, isMobileMenuVisible } = this.props;
+		const { 
+			ariaControls, 
+			ariaLabel,
+			isMobileMenuVisible 
+		} = this.props;
 		const { ariaExpanded } = this.state;
 		return (
 			<StyledHamburger
 				role="button"
 				aria-controls={ariaControls}
+				aria-label={ariaLabel}
 				aria-expanded={ariaExpanded}
 				isMobileMenuVisible={isMobileMenuVisible}>
 				<StyledState onChange={this.handleClick} />
@@ -40,8 +45,13 @@ class Hamburger extends Component {
 
 }
 
+Hamburger.defaultProps = {
+	ariaLabel: 'Toggle mobile navigation'
+};
+
 Hamburger.propTypes = {
 	ariaControls: PropTypes.string.isRequired,
+	ariaLabel: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
 	isMobileMenuVisible: PropTypes.bool.isRequired
 };
