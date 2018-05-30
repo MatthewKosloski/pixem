@@ -10,6 +10,22 @@ import Hamburger from './Hamburger';
 import Menu from './Menu';
 import StyledState from './StyledState';
 
+/*
+*	Generates a specified quantity of objects
+*	for props.items.
+*
+*	@param quantity {Number}
+*	@return [Array]
+*/
+const generateItems = quantity => {
+	return [...Array(quantity)].map((_, i) => {
+		return {
+			link: `#link${i + 1}`,
+			text: `This is link ${i + 1}`
+		}
+	});
+}
+
 describe('<Nav />', () => {
 	let props;
 	let renderedComponent;
@@ -32,10 +48,7 @@ describe('<Nav />', () => {
 
 	test(`If viewport has a width of 500 pixels or less, 
 		the Hamburger component is rendered`, () => {
-		props.items = [
-			{link: '#a', text: 'A'},
-			{link: '#b', text: 'B'}
-		];
+		props.items = generateItems(2);
 		component().setState({'viewportWidth': 500});
 		expect(component().find(Hamburger).length).toBe(1);
 		component().setState({'viewportWidth': 499});
@@ -44,28 +57,19 @@ describe('<Nav />', () => {
 
 	test(`If viewport has a width greater than 500 pixels, 
 		the Hamburger component is NOT rendered`, () => {
-		props.items = [
-			{link: '#a', text: 'A'},
-			{link: '#b', text: 'B'}
-		];
+		props.items = generateItems(2);
 		component().setState({'viewportWidth': 501});
 		expect(component().find(Hamburger).length).toBe(0);
 	});
 
 	test(`Menu component should always be rendered`, () => {
-		props.items = [
-			{link: '#a', text: 'A'},
-			{link: '#b', text: 'B'}
-		];
+		props.items = generateItems(2);
 		expect(component().find(Menu).length).toBe(1);
 	});
 
 	test(`When the Hamburger is clicked, 
 		the isMobileMenuVisible state attribute should change`, () => {
-		props.items = [
-			{link: '#a', text: 'A'},
-			{link: '#b', text: 'B'}
-		];
+		props.items = generateItems(2);
 
 		// Simulate mobile device to access Hamburger
 		component().setState({'viewportWidth': 500});
