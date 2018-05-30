@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Hero } from './components/sections';
+import { Hero, Stylesheet } from './components/sections';
 
 export default () => (
 	<Fragment>

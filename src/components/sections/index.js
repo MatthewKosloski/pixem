@@ -1,2 +1,7 @@
 import { default as Hero } from './Hero/index';
-export { Hero };
+import { default as Stylesheet } from './Stylesheet/index';
+
+export {
+	Hero,
+	Stylesheet
+};
