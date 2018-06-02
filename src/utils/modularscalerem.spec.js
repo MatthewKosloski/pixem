@@ -11,7 +11,7 @@ describe('modularscalerem() boundary', () => {
 		expect(modularscalerem(base, ratio, 1)).toBe('1.3rem');
 	});
 
-	test('returns a rem value from a half step', () => {
+	test('returns a rem value from two steps', () => {
 		expect(modularscalerem(base, ratio, 2)).toBe('1.69rem');
 	});
 });
