@@ -1,3 +1,5 @@
+/* eslint no-undef: "off" */
+
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -11,25 +13,18 @@ import StyledDesktopMenu from './StyledDesktopMenu';
 /*
 *	Returns an object of props (default values).
 * 
-*	@param ariaControls {String}
-*	@param ariaLabel {String}
-*	@param onClick {Function}
-*	@param isMobileMenuVisible {Boolean}
+*	@param overrides {Object}
 *	@return {Object}
 */
-const getPropsForTest = (
-	items = [{link: '#link', text: 'text'}],
-	isMobileMenuVisible = false,
-	isMobile = false,
-	id = 'navigation'
-) => ({
-	items,
-	isMobileMenuVisible,
-	isMobile,
-	id
-});
-
-/* eslint no-undef: "off" */
+const getPropsForTest = (overrides = {}) => {
+	const defaults = {
+		items: [{link: '#link', text: 'text'}],
+		isMobileMenuVisible: false,
+		isMobile: false,
+		id: 'navigation'
+	};
+	return Object.assign(defaults, overrides);
+};
 
 describe('<Menu />', () => {
 
@@ -64,11 +59,19 @@ describe('<Menu />', () => {
 
 	test('If prop isMobile is true, the child should be an instance of StyledMobileMenu', () => {
 		// set isMobile prop to true
-		props = getPropsForTest(null, null, true, null);
+		props = getPropsForTest({isMobile: true});
 
 		const rootComponent = component().children().childAt(0);
 
 		expect(rootComponent.instance(StyledMobileMenu)).toBeTruthy();
+	});
+
+	test('If prop isMobile is false, the child should be an instance of StyledDesktopMenu', () => {
+		props = getPropsForTest();
+
+		const rootComponent = component().children().childAt(0);
+
+		expect(rootComponent.instance(StyledDesktopMenu)).toBeTruthy();
 	});
 
 });
