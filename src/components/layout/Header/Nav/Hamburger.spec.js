@@ -11,23 +11,18 @@ import StyledState from './StyledState';
 /*
 *	Returns an object of props (default values).
 * 
-*	@param ariaControls {String}
-*	@param ariaLabel {String}
-*	@param onClick {Function}
-*	@param isMobileMenuVisible {Boolean}
+*	@param overrides {Object}
 *	@return {Object}
 */
-const getPropsForTest = (
-	ariaControls = 'navigation',
-	ariaLabel = 'label text',
-	onClick = jest.fn(),
-	isMobileMenuVisible = false
-) => ({
-	ariaControls,
-	ariaLabel,
-	onClick,
-	isMobileMenuVisible
-});
+const getPropsForTest = (overrides = {}) => {
+	const defaults = {
+		ariaControls: 'navigation',
+		ariaLabel: 'label text',
+		onClick: jest.fn(),
+		isMobileMenuVisible: false
+	};
+	return Object.assign(defaults, overrides);
+};
 
 describe('<Hamburger />', () => {
 	let props;
