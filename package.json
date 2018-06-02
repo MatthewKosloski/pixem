@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "webpack-dev-server --config webpack.dev.babel.js",
     "build": "webpack --config webpack.prod.babel.js --progress",
     "lint": "./node_modules/.bin/eslint ."
