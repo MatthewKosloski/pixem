@@ -26,7 +26,10 @@ const Menu = ({items, isMobileMenuVisible, isMobile, id}) => {
 };
 
 Menu.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.object).isRequired,
+	items: PropTypes.arrayOf(PropTypes.shape({
+		link: PropTypes.string,
+		text: PropTypes.string
+	})).isRequired,
 	isMobileMenuVisible: PropTypes.bool.isRequired,
 	isMobile: PropTypes.bool.isRequired,
 	id: PropTypes.string.isRequired
