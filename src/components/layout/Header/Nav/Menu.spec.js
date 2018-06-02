@@ -29,6 +29,8 @@ const getPropsForTest = (
 	id
 });
 
+/* eslint no-undef: "off" */
+
 describe('<Menu />', () => {
 
 	let props;
@@ -41,7 +43,7 @@ describe('<Menu />', () => {
 			);
 		}
 		return renderedComponent;
-	}
+	};
 
 	beforeEach(() => {
 		props = {
