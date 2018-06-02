@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -39,7 +40,7 @@ describe('<Hamburger />', () => {
 			);
 		}
 		return renderedComponent;
-	}
+	};
 
 	beforeEach(() => {
 		props = {
@@ -67,8 +68,8 @@ describe('<Hamburger />', () => {
 		props = getPropsForTest();
 		expect(component().contains(
 			<div aria-hidden="true">
-	 			<span></span>
-	 		</div>)).toBeTruthy();
+				<span></span>
+			</div>)).toBeTruthy();
 	});
 
 	test(`The ariaControls prop is supplied to the aria-controls 
