@@ -10,7 +10,8 @@
 	},
 	"plugins": ["react"],
 	"rules": {
-		"semi": 2
+		"semi": 2,
+		"react/display-name": 0
 	},
 	"env": {
 		"browser": true,
