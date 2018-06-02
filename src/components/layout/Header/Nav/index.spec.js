@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -5,7 +6,6 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 import Nav from './';
-import StyledContainer from './StyledContainer';
 import Hamburger from './Hamburger';
 import Menu from './Menu';
 import StyledState from './StyledState';
@@ -22,9 +22,9 @@ const generateItems = (quantity = 3) => {
 		return {
 			link: `#link${i + 1}`,
 			text: `This is link ${i + 1}`
-		}
+		};
 	});
-}
+};
 
 describe('<Nav />', () => {
 	let props;
@@ -37,7 +37,7 @@ describe('<Nav />', () => {
 			);
 		}
 		return renderedComponent;
-	}
+	};
 
 	beforeEach(() => {
 		props = {
