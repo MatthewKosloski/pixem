@@ -26,6 +26,19 @@ const generateItems = (quantity = 3) => {
 	});
 };
 
+/*
+*	Returns an object of props (default values).
+* 
+*	@param overrides {Object}
+*	@return {Object}
+*/
+const getPropsForTest = (overrides = {}) => {
+	const defaults = {
+		items: generateItems()
+	};
+	return Object.assign(defaults, overrides);
+};
+
 describe('<Nav />', () => {
 	let props;
 	let renderedComponent;
@@ -47,14 +60,14 @@ describe('<Nav />', () => {
 	});
 
 	test(`All children are contained within a div element`, () => {
-		props.items = generateItems();
+		props = getPropsForTest();
 		expect(component().children().length).toBe(1);
 		expect(component().children().childAt(0).is('div')).toBeTruthy();
 	});
 
 	test(`If viewport has a width of 500 pixels or less, 
 		the Hamburger component is rendered`, () => {
-		props.items = generateItems();
+		props = getPropsForTest();
 		component().setState({'viewportWidth': 500});
 		expect(component().find(Hamburger).length).toBe(1);
 		component().setState({'viewportWidth': 499});
@@ -63,19 +76,19 @@ describe('<Nav />', () => {
 
 	test(`If viewport has a width greater than 500 pixels, 
 		the Hamburger component is NOT rendered`, () => {
-		props.items = generateItems();
+		props = getPropsForTest();
 		component().setState({'viewportWidth': 501});
 		expect(component().find(Hamburger).length).toBe(0);
 	});
 
 	test(`Menu component should always be rendered`, () => {
-		props.items = generateItems();
+		props = getPropsForTest();
 		expect(component().find(Menu).length).toBe(1);
 	});
 
 	test(`When the Hamburger is clicked, 
 		the isMobileMenuVisible state attribute should change`, () => {
-		props.items = generateItems();
+		props = getPropsForTest();
 
 		// Simulate mobile device to access Hamburger
 		component().setState({'viewportWidth': 500});
