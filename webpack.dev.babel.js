@@ -8,7 +8,7 @@ import common from './webpack.common.babel.js';
 
 const config = merge(common, {
 	mode: 'development',
-	devtool: 'inline-source-map',
+	devtool: 'eval-source-map',
 	output: {
 		filename: 'js/[name].js'
 	},
