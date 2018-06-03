@@ -36,9 +36,9 @@ class Hamburger extends Component {
 				aria-expanded={ariaExpanded}
 				isMobileMenuVisible={isMobileMenuVisible}>
 				<StyledState onChange={this.handleClick} />
-	 			<div aria-hidden="true">
-	 				<span></span>
-	 			</div>
+				<div aria-hidden="true">
+					<span></span>
+				</div>
 			</StyledHamburger>
 		);
 	}
