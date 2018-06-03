@@ -1,9 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import { _vrrem } from '../../../util-wrappers';
+import { _vrrem, _modularscalerem } from '../../../util-wrappers';
+import media from '../../../media';
 
 export default styled('p')`
 	text-align: center;
 	margin-bottom: ${_vrrem(4)};
+	${media.md`
+		font-size: ${_modularscalerem(1)};
+	`}
 `;
