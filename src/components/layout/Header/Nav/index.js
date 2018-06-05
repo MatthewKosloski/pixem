@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Hamburger from './Hamburger';
+import Hamburger from './Hamburger/index';
+import Menu from './Menu/index';
+
 import StyledContainer from './StyledContainer';
-import Menu from './Menu';
 
 class Nav extends Component {
 

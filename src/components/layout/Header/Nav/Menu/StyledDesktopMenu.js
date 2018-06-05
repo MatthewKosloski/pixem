@@ -1,9 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import { _vrrem } from '../../../../../util-wrappers';
+import theme from '../../../../../theme';
 
 import StyledMenu from './StyledMenu';
-import { _rem, _vrrem } from '../../../../util-wrappers';
-import theme from '../../../../theme';
 
 const { white } = theme.colors;
 
