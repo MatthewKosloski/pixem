@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 import { Container, Row, Column } from '../../grid';
-
-import Label from './Label';
-import InputText from './InputText';
-import InputCheckbox from './InputCheckbox'; 
-import InputRadio from './InputRadio';
+import { Label, InputText, InputCheckbox, InputRadio } from '../../ui';
 
 class Stylesheet extends Component {
 
