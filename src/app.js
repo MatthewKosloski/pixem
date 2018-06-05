@@ -4,7 +4,7 @@ import { injectGlobal } from 'styled-components';
 import { Provider } from 'rebass';
 
 import theme from './theme';
-import Pixem from './Pixem';
+import { Hero, Stylesheet } from './components/sections';
 
 injectGlobal`
 	
@@ -29,7 +29,8 @@ injectGlobal`
 
 const app = (
 	<Provider theme={theme}>
-		<Pixem />
+		<Hero />
+		<Stylesheet />
 	</Provider>
 );
 
