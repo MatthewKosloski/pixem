@@ -3,7 +3,11 @@ import { vrrem, modularscalerem } from './utils';
 const base = 18; // base font-size
 const ratio = 1.3; // line-height
 
-const containerMaxWidth = '768px';
+const containerWidths = {
+	small: '500px',
+	large: '768px'
+};
+
 const breakpoints = ['500px', '768px', '1000px'];
 
 const space = [...Array(10)].map((_, i) => 
@@ -31,7 +35,7 @@ const colors = {
 export default {
 	base,
 	ratio,
-	containerMaxWidth,
+	containerWidths,
 	breakpoints,
 	space,
 	fontSizes,
