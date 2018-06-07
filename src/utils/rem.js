@@ -12,6 +12,6 @@ import dynamicPrecision from './dynamicPrecision';
 const rem = (base, px) => {
 	const num = dynamicPrecision(px / base);
 	return `${num}rem`;
-}
+};
 
 export default rem;
