@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container } from 'rebass';
+import styled from 'styled-components';
 
-import theme from '../../theme';
+const StyledContainer = styled(Container)`
+	max-width: ${({small, theme: {containerWidths}}) => small 
+		? containerWidths.small 
+		: containerWidths.large};
+`;
 
 export default (props) => (
-	<Container {...props}
-		maxWidth={theme.containerMaxWidth}
+	<StyledContainer {...props}
 		px={1}/>
 );
