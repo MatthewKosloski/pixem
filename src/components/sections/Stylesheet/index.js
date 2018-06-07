@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-
 import { Container, Row, Column } from '../../grid';
-import { Label, InputText, InputCheckbox, InputRadio } from '../../ui';
+import { 
+	Label, 
+	InputText, 
+	InputCheckbox, 
+	InputRadio, 
+	StyledShakespeareButton
+} from '../../ui';
+
+import StyledStylesheet from './StyledStylesheet';
+
+const StyledSubmit = StyledShakespeareButton.withComponent('input');
 
 class Stylesheet extends Component {
 
@@ -12,7 +21,7 @@ class Stylesheet extends Component {
 		this.state = {
 			base: '16',
 			unit: '0', // 0 = EMs, 1 = REMs
-			shouldPreserveOriginalValues: false
+			shouldPreserveOriginalValues: true
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -35,60 +44,80 @@ class Stylesheet extends Component {
 	}
 
 	render() {
-		const {base, unit, shouldPreserveOriginalValues} = this.state;
+		
+		const {
+			base, 
+			unit, 
+			shouldPreserveOriginalValues
+		} = this.state;
+
 		return (
-			<Container>
-				<Row>
-					<Column width={1}>
-						<form onSubmit={this.handleSubmit}>
-							<Label
-								htmlFor="base"
-								title="Base Pixel Size"
-								tooltipText="This is tooltip text" />
-							<InputText 
-								id="base"
-								name="base"
-								value={base}
-								onChange={this.handleChange} />
-							
-							<br/>
-
-							<Label
-								htmlFor="shouldPreserveOriginalValues"
-								title="Preserve Original Values"
-								tooltipText="This is tooltip text"/>	
-							<InputCheckbox
-								id="shouldPreserveOriginalValues"
-								name="shouldPreserveOriginalValues"
-								checked={shouldPreserveOriginalValues}
-								onChange={this.handleChange} />
-							
-							<br/>
-
-							<p>Conversion Unit</p>
-
-							<InputRadio
-								title="EMs"
-								name="unit"
-								value="0"
-								checked={unit === '0'}
-								onChange={this.handleChange} />
-							<InputRadio
-								title="REMs"
-								name="unit"
-								value="1"
-								checked={unit === '1'}
-								onChange={this.handleChange} />
-
-							<br/>
-
-							<input 
-								type="submit" 
-								value="Convert" />
-						</form>
-					</Column>
-				</Row>
-			</Container>
+			<StyledStylesheet>
+				<Container small="true">
+					<Row>
+						<Column width={1}>
+							<form onSubmit={this.handleSubmit}>
+								<Row alignItems="center" mb={1}>
+									<Column width={[1, 8/12]}>
+										<Label
+											htmlFor="base"
+											title="Base Pixel Size"
+											tooltipText="This is tooltip text" />	
+									</Column>
+									<Column width={[1, 4/12]}>
+										<InputText 
+											id="base"
+											name="base"
+											value={base}
+											onChange={this.handleChange} />
+									</Column>
+								</Row>
+								<Row alignItems="center" mb={1}>
+									<Column width={[1, 8/12]}>
+										<Label
+											htmlFor="shouldPreserveOriginalValues"
+											title="Preserve Original Values"
+											tooltipText="This is tooltip text" />	
+									</Column>
+									<Column width={[1, 4/12]}>
+										<InputCheckbox
+											id="shouldPreserveOriginalValues"
+											name="shouldPreserveOriginalValues"
+											checked={shouldPreserveOriginalValues}
+											onChange={this.handleChange} />
+									</Column>
+								</Row>
+								<Row alignItems="center" mb={2}>
+									<Column width={[1, 8/12]}>
+										<Label
+											title="Conversion Unit"
+											tooltipText="This is tooltip text"/>	
+									</Column>
+									<Column width={[1, 4/12]}>
+										<InputRadio
+											title="EMs"
+											name="unit"
+											value="0"
+											checked={unit === '0'}
+											onChange={this.handleChange} />
+										<InputRadio
+											title="REMs"
+											name="unit"
+											value="1"
+											checked={unit === '1'}
+											onChange={this.handleChange} />
+									</Column>
+								</Row>
+								<Row justifyContent="center">
+									<Column>
+										<StyledSubmit type="submit" value="Convert" />
+									</Column>
+								</Row>
+							</form>
+						</Column>
+					</Row>
+				</Container>
+			</StyledStylesheet>
 		);
 	}
 }
