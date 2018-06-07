@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import vr from './vr';
 
 describe('vr() boundary', () => {

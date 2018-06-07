@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import modularscale from './modularscale';
 
 describe.only('modularscale() boundary', () => {

@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 import Nav from './';
 import Hamburger from './Hamburger';
 import Menu from './Menu';
-import StyledState from './StyledState';
+import StyledState from './Hamburger/StyledState';
 
 /*
 *	Generates a specified quantity of objects

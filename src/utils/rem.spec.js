@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import rem from './rem';
 
 describe('rem() boundary', () => {

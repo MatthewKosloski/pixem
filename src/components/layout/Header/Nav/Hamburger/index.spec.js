@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-import Hamburger from './Hamburger';
+import Hamburger from './';
 import StyledState from './StyledState';
 
 /*

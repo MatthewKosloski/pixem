@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import vrrem from './vrrem';
 
 describe('vrrem() boundary', () => {

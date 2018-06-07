@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import modularscalerem from './modularscalerem';
 
 describe('modularscalerem() boundary', () => {
