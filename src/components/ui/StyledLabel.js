@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { _rem } from '../../util-wrappers';
+import { _rem, _vrrem } from '../../util-wrappers';
 
-export default styled('label')`
-    font-weight: 700;
-    font-size: ${_rem(14)};
-    text-transform: uppercase;
-    color: ${props => props.theme.colors.cadetBlue};
-`;
+export default styled('label')`${
+    ({theme: {colors: {cadetBlue}}}) => css`
+        font-weight: 700;
+        font-size: ${_rem(14)};
+        text-transform: uppercase;
+        color: ${cadetBlue};
+    `
+}`;
