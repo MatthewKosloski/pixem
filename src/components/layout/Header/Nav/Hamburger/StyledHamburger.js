@@ -1,38 +1,50 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import theme from '../../../../../theme';
+const StyledHamburger = styled('label')`${
+	({isMobileMenuVisible, theme: {colors: {cadetBlue, white}}}) => css`
+		div {
+			position: relative;
+			width: 32px;
+			height: 25px;
+			cursor: pointer;
+			z-index: 2;
+			span {
+				top: 10px;
+				&::before {
+					content: '';
+					top: -10px;
+				}
+				&::after {
+					content: '';
+					bottom: -10px;
+				}
+			}
+			span,
+			span::before,
+			span::after {
+				background-color: ${isMobileMenuVisible ? cadetBlue : white};
+				transition: 0.15s ease-in-out;
+				width: 100%;
+				height: 4px;
+				display: block;
+				position: absolute;
+			}
+		}
+	`
+}`;
 
-const { colors } = theme;
+/**
+ * Provide a default prop for each one you use above. 
+ * This is so we don't have to wrap the component
+ * in a ThemeProvider during testing.
+ */
+StyledHamburger.defaultProps = {
+	theme: {
+		colors: {
+			cadetBlue: 'blue',
+			white: 'white'
+		}
+	}
+};
 
-export default styled('label')`
-	div {
-		position: relative;
-		width: 32px;
-		height: 25px;
-		cursor: pointer;
-		z-index: 1;
-	}
-	div span,
-	div span::before,
-	div span::after {
-		background-color: ${props => props.isMobileMenuVisible 
-			? colors.cadetBlue 
-			: colors.white};
-		transition: 0.15s ease-in-out;
-		width: 100%;
-		height: 4px;
-		display: block;
-		position: absolute;
-	}
-	div span {
-		top: 10px;
-	}
-	div span::before {
-		content: '';
-		top: -10px;
-	}
-	div span::after {
-		content: '';
-		bottom: -10px;
-	}
-`;
+export default StyledHamburger;
