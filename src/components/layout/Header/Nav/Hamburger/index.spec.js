@@ -1,12 +1,12 @@
 /* eslint no-undef: "off" */
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 import Hamburger from './';
 import StyledState from './StyledState';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 /*
 *	Returns an object of props (default values).
@@ -30,7 +30,7 @@ describe('<Hamburger />', () => {
 
 	const component = () => {
 		if (!renderedComponent) {
-			renderedComponent = mount(
+			renderedComponent = shallow(
 				<Hamburger {...props} />
 			);
 		}
@@ -49,8 +49,7 @@ describe('<Hamburger />', () => {
 
 	test(`All children are contained within a label element`, () => {
 		props = getPropsForTest();
-		expect(component().children().length).toBe(1);
-		expect(component().children().childAt(0).is('label')).toBeTruthy();
+		expect(component().name()).toBe('styled.label');
 	});
 
 	test(`One StyledState component should always be rendered`, () => {
@@ -70,22 +69,19 @@ describe('<Hamburger />', () => {
 	test(`The ariaControls prop is supplied to the aria-controls 
 		attribute of the root component`, () => {
 		props = getPropsForTest();
-		const rootComponent = component().children().childAt(0);
-		expect(rootComponent.prop('aria-controls')).toBe(props.ariaControls);
+		expect(component().prop('aria-controls')).toBe(props.ariaControls);
 	});
 
 	test(`The ariaLabel prop is supplied to the aria-label 
 		attribute of the root component`, () => {
 		props = getPropsForTest();
-		const rootComponent = component().children().childAt(0);
-		expect(rootComponent.prop('aria-label')).toBe(props.ariaLabel);
+		expect(component().prop('aria-label')).toBe(props.ariaLabel);
 	});
 
 	test(`The ariaExpanded state is supplied to the aria-expanded 
 		attribute of the root component`, () => {
 		props = getPropsForTest();
-		const rootComponent = component().children().childAt(0);
-		expect(rootComponent.prop('aria-expanded')).toBe(component().state('ariaExpanded'));
+		expect(component().prop('aria-expanded')).toBe(component().state('ariaExpanded'));
 	});
 
 	test(`When clicked, the ariaExpanded state should change`, () => {
