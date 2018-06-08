@@ -23,7 +23,7 @@ const fonts = {
 const colors = {
 	black: '#000',
 	white: '#fff',
-	aquamarine: '#90FEC8',
+	aquamarine: '#53FFAB',
 	shakespeare: '#4CACCD',
 	shark: '#292C33',
 	mystic: '#E9ECF3',
