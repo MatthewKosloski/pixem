@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'rebass';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledContainer = styled(Container)`
-	max-width: ${({small, theme: {containerWidths}}) => small 
-		? containerWidths.small 
-		: containerWidths.large};
-`;
+const StyledContainer = styled(Container)`${
+	({small, theme: {containerWidths}}) => css`
+		max-width: ${small ? containerWidths.small : containerWidths.large};
+	`
+}`;
 
 export default (props) => (
 	<StyledContainer {...props}
