@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export default styled.input.attrs({
+const StyledCheckbox = styled.input.attrs({
     type: 'checkbox'
 })`${
     ({theme: {colors: {shakespeare, shark}}}) => css`
@@ -18,3 +18,14 @@ export default styled.input.attrs({
         }
     `
 }`;
+
+StyledCheckbox.defaultProps = {
+    theme: {
+        colors: {
+            shark: 'charcoal',
+            shakespeare: 'blue'
+        }
+    }
+};
+
+export default StyledCheckbox;
