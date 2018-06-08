@@ -5,7 +5,7 @@ import media from '../../../media';
 
 export default styled('p')`
 	text-align: center;
-	margin-bottom: ${_vrrem(4)};
+	margin-bottom: ${_vrrem(12)};
 	${media.md`
 		font-size: ${_modularscalerem(1)};
 	`}
