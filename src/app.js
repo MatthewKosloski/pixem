@@ -6,8 +6,10 @@ import { Provider } from 'rebass';
 import theme from './theme';
 import { Hero, Stylesheet } from './components/sections';
 
+import './img/curve.svg';
+
 injectGlobal`
-	
+
 	*,
 	*::before,
 	*::after {
