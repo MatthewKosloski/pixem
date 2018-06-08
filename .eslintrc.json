@@ -11,7 +11,8 @@
 	"plugins": ["react"],
 	"rules": {
 		"semi": 2,
-		"react/display-name": 0
+		"react/display-name": 0,
+		"react/prop-types": [2, {"ignore": ["children"]}]
 	},
 	"env": {
 		"browser": true,

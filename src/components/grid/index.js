@@ -6,4 +6,4 @@ export {
 	Container,
 	Row,
 	Column
-}
+};
