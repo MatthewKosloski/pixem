@@ -1,7 +1,7 @@
 /* eslint no-undef: "off" */
 
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -36,7 +36,7 @@ describe('<Menu />', () => {
 
 	const component = () => {
 		if (!renderedComponent) {
-			renderedComponent = mount(
+			renderedComponent = shallow(
 				<Menu {...props} />
 			);
 		}
@@ -50,9 +50,7 @@ describe('<Menu />', () => {
 
 	test(`All children are contained within a nav element`, () => {
 		props = getPropsForTest();
-		const rootComponent = component().children().childAt(0);
-		expect(component().children().length).toBe(1);
-		expect(rootComponent.is('nav')).toBeTruthy();
+		expect(component().name()).toBe('styled.nav');
 	});
 
 	test(`For mobile, the component should be 
@@ -72,20 +70,20 @@ describe('<Menu />', () => {
 		expect(component().find(StyledDesktopMenu).length).toBe(1);
 	});
 
-	test(`For mobile, the child should be 
+	test(`For mobile, the component should be 
 	provided with an id and isMobileMenuVisible prop`, () => {
 		props = getPropsForTest({isMobile: true});
 
-		expect(component().childAt(0).prop('id')).toBeDefined();
-		expect(component().childAt(0).prop('isMobileMenuVisible')).toBeDefined();
+		expect(component().prop('id')).toBeDefined();
+		expect(component().prop('isMobileMenuVisible')).toBeDefined();
 	});
 
-	test(`For desktop, the child should be 
+	test(`For desktop, the component should be 
 	provided with an id and no isMobileMenuVisible prop`, () => {
 		props = getPropsForTest();
 
-		expect(component().childAt(0).prop('id')).toBeDefined();
-		expect(component().childAt(0).prop('isMobileMenuVisible')).toBeUndefined();
+		expect(component().prop('id')).toBeDefined();
+		expect(component().prop('isMobileMenuVisible')).toBeUndefined();
 	});
 
 	test(`The component should render one ul element`, () => {
@@ -94,7 +92,7 @@ describe('<Menu />', () => {
 		expect(component().find('ul').length).toBe(1);
 	});
 
-	test(`The child should render a li for each 
+	test(`The child ul should render a li for each 
 	item within the items prop,`, () => {
 		props = getPropsForTest();
 		const expectedLiQuantity = defaultPropsForTest.items.length;
