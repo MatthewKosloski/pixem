@@ -17,13 +17,13 @@ const InputCheckbox = ({id, name, checked, onChange}) => {
             />
             <StyledCheckboxLabel htmlFor={id}>
                 <svg 
-                    width="21" 
-                    height="16" 
-                    viewBox="0 0 21 16" 
+                    width="16" 
+                    height="13" 
+                    viewBox="0 0 16 13" 
                     xmlns="http://www.w3.org/2000/svg">
-                        <title>Shape</title>
+                        <title>Checkbox</title>
                         <path 
-                            d="M6.69 12.363l-4.742-4.74L.333 9.224 6.69 15.58 20.332 1.938 18.73.333" 
+                            d="M5.085 9.624L1.292 5.83 0 7.114l5.085 5.085L16 1.283 14.717 0" 
                             fill="#FFF" 
                             fillRule="evenodd" />
                 </svg>
