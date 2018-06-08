@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import StyledContainer from './StyledContainer';
 import StyledCheckbox from './StyledCheckbox';
-import StyledCheckboxLabel from './StyledCheckboxLabel'
+import StyledCheckboxLabel from './StyledCheckboxLabel';
 
 const InputCheckbox = ({id, name, checked, onChange}) => {
     return (
