@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export default styled('label')`${
+const StyledCheckboxLabel = styled('label')`${
     ({theme: {colors: {cadetBlue}}}) => css`
         cursor: pointer;
         width: 32px;
@@ -23,3 +23,13 @@ export default styled('label')`${
         }
     `
 }`;
+
+StyledCheckboxLabel.defaultProps = {
+    theme: {
+        colors: {
+            cadetBlue: 'blue'
+        }
+    }
+};
+
+export default StyledCheckboxLabel;
