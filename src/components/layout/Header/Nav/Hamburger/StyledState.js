@@ -4,17 +4,21 @@ export default styled.input.attrs({
 	type: 'checkbox'
 })`
 	display: none;
-	&:checked ~ div span {
-		background: transparent;
-	}
-	&:checked ~ div span::before,
-	&:checked ~ div span::after {
-		top: 0;
-	}
-	&:checked ~ div span::before {
-		transform: rotate(-45deg);
-	}
-	&:checked ~ div span::after {
-		transform: rotate(45deg);
+	&:checked {
+		~ div {
+			span {
+				background: transparent;
+				&::before {
+					transform: rotate(-45deg);
+				}
+				&::after {
+					transform: rotate(45deg);
+				}
+				&::before,
+				&::after {
+					top: 0;
+				}
+			}
+		}
 	}
 `;
