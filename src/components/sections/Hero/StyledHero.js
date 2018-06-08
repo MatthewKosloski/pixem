@@ -7,6 +7,7 @@ export default styled('section')`${
 		background: linear-gradient(-45deg, ${aquamarine}, ${scienceBlue});
 		color: ${white};
 		padding: ${_vrrem(2)} 0;
+		height: 550px;
 		font-size: ${_modularscalerem(0)};
 		position: relative;
 		&::after {
