@@ -14,5 +14,6 @@ export default StyledLabel.extend`
         position: relative;
         top: -${_em(4)};
         margin-right: ${_vrrem(0.5)};
+        cursor: pointer;
     }
 `;
