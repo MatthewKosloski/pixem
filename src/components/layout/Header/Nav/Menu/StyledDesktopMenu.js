@@ -1,18 +1,29 @@
+import { css } from 'styled-components';
+
 import { _vrrem } from '../../../../../util-wrappers';
-import theme from '../../../../../theme';
 
 import StyledMenu from './StyledMenu';
 
-const { white } = theme.colors;
+const StyledDesktopMenu = StyledMenu.extend`${
+	({theme: {colors: {white}}}) => css`
+		li {
+			display: inline-block;
+			&:not(:last-child) {
+				margin-right: ${_vrrem(1)};
+			}
+			a {
+				color: ${white};
+			}
+		}	
+	`
+}`;
 
-export default StyledMenu.extend`
-	li {
-		display: inline-block;
-		&:not(:last-child) {
-			margin-right: ${_vrrem(1)};
+StyledDesktopMenu.defaultProps = {
+	theme: {
+		colors: {
+			white: 'white'
 		}
-		a {
-			color: ${white};
-		}
-	}	
-`;
+	}
+};
+
+export default StyledDesktopMenu;
