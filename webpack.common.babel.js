@@ -37,14 +37,14 @@ const config = {
 				use: { loader: 'babel-loader' }
 			},
 			{
-				test: /\.(png|jpg|jpeg|gif|svg)$/,
+				test: /\.(png|jpe?g|gif|svg)$/,
 				use: {
 					loader:
 						'file-loader?publicPath=../&name=assets/img/[name].[ext]'
 				}
 			},
 			{
-				test: /\.(eot|svg|ttf|woff|woff2)$/,
+				test: /\.(eot|ttf|woff|woff2)$/,
 				use: {
 					loader:
 						'file-loader?publicPath=../&name=assets/fonts/[name].[ext]'
