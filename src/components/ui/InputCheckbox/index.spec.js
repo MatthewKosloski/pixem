@@ -54,6 +54,7 @@ describe('<InputCheckbox />', () => {
 		const checkbox = component().find(StyledCheckbox);
 		expect(checkbox.length).toBe(1);
 		expect(checkbox.name()).toBe('styled.input');
+		expect(checkbox.prop('type')).toBe('checkbox');
 	});
 
 	test(`The component renders one styled label`, () => {
