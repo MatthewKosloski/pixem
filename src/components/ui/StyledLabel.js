@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { _rem, _vrrem } from '../../util-wrappers';
+import { _rem } from '../../util-wrappers';
 
 export default styled('label')`${
     ({theme: {colors: {cadetBlue}}}) => css`
