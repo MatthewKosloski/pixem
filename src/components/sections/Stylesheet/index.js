@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Flex } from 'rebass';
+
 import { Container, Row, Column } from '../../grid';
 import { 
 	Label, 
@@ -9,9 +11,22 @@ import {
 } from '../../ui';
 
 import StyledStylesheet from './StyledStylesheet';
+import StyledTextarea from './StyledTextarea';
 
 const StyledSubmit = StyledShakespeareButton.withComponent('input');
 
+const EM_UNIT = '0', REM_UNIT = '1';
+
+/**
+ * Tests:
+ * 
+ * - Renders one checkbox input with a name and id attr of "shouldPreserveOriginalValues"
+ * - The checkbox with a name attr of "shouldPreserveOriginalValues" is in sync with the component's "shouldPreserveOriginalValues" state property
+ * - The checkbox with a name attr of "shouldPreserveOriginalValues" is associated with a label
+ * - 
+ * - Renders two radio inputs with a name attr of "unit"
+ * - The radio inputs with a name attr of "unit" are in sync with the component's "unit" state property
+ */
 class Stylesheet extends Component {
 
 	
@@ -20,7 +35,7 @@ class Stylesheet extends Component {
 
 		this.state = {
 			base: '16',
-			unit: '0', // 0 = EMs, 1 = REMs
+			unit: EM_UNIT,
 			shouldPreserveOriginalValues: true
 		};
 
@@ -40,7 +55,6 @@ class Stylesheet extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log('Convert stuff...');
 	}
 
 	render() {
@@ -53,18 +67,25 @@ class Stylesheet extends Component {
 
 		return (
 			<StyledStylesheet>
+				<Container>
+					<Row mb={3}>
+						<Column width={1}>
+							<StyledTextarea />
+						</Column>
+					</Row>
+				</Container>
 				<Container small="true">
 					<Row>
 						<Column width={1}>
 							<form onSubmit={this.handleSubmit}>
-								<Row alignItems="center" mb={1}>
-									<Column width={[1, 8/12]}>
+								<Row alignItems="center" mb={2}>
+									<Column width={[1, 7/12]} mb={[1, 0]}>
 										<Label
 											htmlFor="base"
 											title="Base Pixel Size"
 											tooltipText="This is tooltip text" />	
 									</Column>
-									<Column width={[1, 4/12]}>
+									<Column width={[1, 5/12]}>
 										<InputText 
 											id="base"
 											name="base"
@@ -72,14 +93,14 @@ class Stylesheet extends Component {
 											onChange={this.handleChange} />
 									</Column>
 								</Row>
-								<Row alignItems="center" mb={1}>
-									<Column width={[1, 8/12]}>
+								<Row alignItems="center" mb={2}>
+									<Column width={[1, 7/12]} mb={[1, 0]}>
 										<Label
 											htmlFor="shouldPreserveOriginalValues"
 											title="Preserve Original Values"
 											tooltipText="This is tooltip text" />	
 									</Column>
-									<Column width={[1, 4/12]}>
+									<Column width={[1, 5/12]}>
 										<InputCheckbox
 											id="shouldPreserveOriginalValues"
 											name="shouldPreserveOriginalValues"
@@ -88,24 +109,31 @@ class Stylesheet extends Component {
 									</Column>
 								</Row>
 								<Row alignItems="center" mb={2}>
-									<Column width={[1, 8/12]}>
+									<Column width={[1, 7/12]} mb={[1, 0]}>
 										<Label
 											title="Conversion Unit"
 											tooltipText="This is tooltip text"/>	
 									</Column>
-									<Column width={[1, 4/12]}>
-										<InputRadio
-											title="EMs"
-											name="unit"
-											value="0"
-											checked={unit === '0'}
-											onChange={this.handleChange} />
-										<InputRadio
-											title="REMs"
-											name="unit"
-											value="1"
-											checked={unit === '1'}
-											onChange={this.handleChange} />
+									<Column width={[1, 5/12]}>
+										<Flex>
+											<div style={{flex: '1'}}>
+												<InputRadio
+													title="EMs"
+													name="unit"
+													value={EM_UNIT}
+													checked={unit === EM_UNIT}
+													onChange={this.handleChange} />
+											</div>
+									
+											<div style={{flex: '1'}}>
+												<InputRadio
+													title="REMs"
+													name="unit"
+													value={REM_UNIT}
+													checked={unit === REM_UNIT}
+													onChange={this.handleChange} />
+											</div>
+										</Flex>
 									</Column>
 								</Row>
 								<Row justifyContent="center">
