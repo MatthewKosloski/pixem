@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { InputText, Label, InputCheckbox, InputRadio } from '../../ui';
 
 import Stylesheet from './';
+import StyledTextarea from './StyledTextarea';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -58,16 +59,16 @@ describe('<Stylesheet />', () => {
 			.find(InputText)
 			.filterWhere(node => nodeHasIdAndName(node, 'base'));
 
-		expect(component().state('base')).toBe('16');
+		const expectedUpdatedState = '1782378158742385738457823542';
 
 		input.simulate('change', {
 			target: {
-				value: '17',
+				value: expectedUpdatedState,
 				name: input.prop('name')
 			}
 		});
 
-		expect(component().state('base')).toBe('17');
+		expect(component().state('base')).toBe(expectedUpdatedState);
 
 	});
 
@@ -163,21 +164,6 @@ describe('<Stylesheet />', () => {
 			.find(InputRadio)
 			.filterWhere(n => n.props().value === '0');
 
-		const radioVal1 = component()
-			.find(InputRadio)
-			.filterWhere(n => n.props().value === '1');
-
-		expect(component().state('unit')).toBe('0');
-
-		radioVal1.simulate('change', {
-			target: {
-				value: '1',
-				name: radioVal1.prop('name')
-			}
-		});
-
-		expect(component().state('unit')).toBe('1');
-
 		radioVal0.simulate('change', {
 			target: {
 				value: '0',
@@ -186,6 +172,19 @@ describe('<Stylesheet />', () => {
 		});
 
 		expect(component().state('unit')).toBe('0');
+
+		const radioVal1 = component()
+			.find(InputRadio)
+			.filterWhere(n => n.props().value === '1');
+			
+		radioVal1.simulate('change', {
+			target: {
+				value: '1',
+				name: radioVal1.prop('name')
+			}
+		});
+
+		expect(component().state('unit')).toBe('1');
 
 	});
 
@@ -209,6 +208,47 @@ describe('<Stylesheet />', () => {
 			expect(radioVal0.prop('checked')).toBeFalsy();
 			expect(radioVal1.prop('checked')).toBeTruthy();
 		}
+		
+	});
+
+	test(`Renders one textarea with a name attr of "textareaContents"`, () => {
+		const textarea = component()
+			.find(StyledTextarea)
+			.filterWhere(n => n.props().name === 'textareaContents');
+		
+		expect(textarea.length).toBe(1);
+	});
+
+	test(`The textarea with a name attr of "textareaContents" can 
+	update the component's state`, () => {
+		const textarea = component()
+			.find(StyledTextarea)
+			.filterWhere(n => n.props().name === 'textareaContents');
+
+		const expectedUpdatedState = 'some text';
+
+		textarea.simulate('change', {
+			target: {
+				value: expectedUpdatedState,
+				name: textarea.prop('name')
+			}
+		});
+
+		expect(component().state('textareaContents'))
+			.toBe(expectedUpdatedState);
+
+	});
+
+	test(`The textarea with a name attr of "textareaContents"
+	is in sync with the component's state`, () => {
+
+		const textarea = component()
+			.find(StyledTextarea)
+			.filterWhere(n => n.props().name === 'textareaContents');
+		
+		const state = component().state('textareaContents');
+
+		expect(textarea.prop('value')).toBe(state);
 		
 	});
     
