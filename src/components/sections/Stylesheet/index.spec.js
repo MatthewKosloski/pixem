@@ -127,7 +127,20 @@ describe('<Stylesheet />', () => {
 		expect(component().state('shouldPreserveOriginalValues')).toBeFalsy();
 	});
 
-	test.only(`Renders two radio inputs with a name attr of "unit"`, () => {
+	test(`The checkbox input with a name and id attr of "shouldPreserveOriginalValues" 
+	has a value attr that is in sync with the component's state`, () => {
+		const input = component()
+			.find(InputCheckbox)
+			.filterWhere(node => nodeHasIdAndName(node, 
+				'shouldPreserveOriginalValues'));
+
+		const state = component().state('shouldPreserveOriginalValues');
+
+		expect(input.prop('checked')).toBe(state);
+
+	});
+
+	test(`Renders two radio inputs with a name attr of "unit"`, () => {
 		const input = component()
 			.find(InputRadio)
 			.filterWhere(n => {
@@ -137,6 +150,45 @@ describe('<Stylesheet />', () => {
 			});
 		
 		expect(input.length).toBe(2);
+	});
+
+	test.only(`The two radio inputs with a name attr of "unit" can 
+	update the component's state`, () => {
+		
+		const radioVal1 = component()
+			.find(InputRadio)
+			.filterWhere(n => {
+				const { value } = n.props();
+				return value === '1';
+			});
+
+		const radioVal0 = component()
+			.find(InputRadio)
+			.filterWhere(n => {
+				const { value } = n.props();
+				return value === '0';
+			});
+
+		expect(component().state('unit')).toBe('0');
+
+		radioVal1.simulate('change', {
+			target: {
+				value: '1',
+				name: radioVal1.prop('name')
+			}
+		});
+
+		expect(component().state('unit')).toBe('1');
+
+		radioVal0.simulate('change', {
+			target: {
+				value: '0',
+				name: radioVal0.prop('name')
+			}
+		});
+
+		expect(component().state('unit')).toBe('0');
+
 	});
     
 });
