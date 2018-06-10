@@ -6,6 +6,7 @@ import { default as modularscalerem } from './modularscalerem';
 import { default as rem } from './rem';
 import { default as vr } from './vr';
 import { default as vrrem } from './vrrem';
+import { default as vrem } from './vrem';
 
 export { 
 	dynamicPrecision,
@@ -15,5 +16,6 @@ export {
 	modularscalerem,
 	rem,
 	vr,
-	vrrem
+	vrrem,
+	vrem
 };
