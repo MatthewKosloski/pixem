@@ -11,6 +11,6 @@ import dynamicPrecision from './dynamicPrecision';
 *	@return {Number} A font-size in pixels
 */
 const modularscale = (base, ratio, step) =>
-	dynamicPrecision(base * ratio**step);
+	dynamicPrecision(base * Math.pow(ratio, step));
 
 export default modularscale;
