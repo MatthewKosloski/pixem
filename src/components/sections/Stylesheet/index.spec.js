@@ -115,7 +115,9 @@ describe('<Stylesheet />', () => {
 			.filterWhere(node => nodeHasIdAndName(node, 
 				'shouldPreserveOriginalValues'));
 
-		expect(component().state('shouldPreserveOriginalValues')).toBeTruthy();
+		const stateBeforeChange = component().state('shouldPreserveOriginalValues');
+
+		expect(stateBeforeChange).toBeDefined();
 
 		input.simulate('change', {
 			target: {
@@ -124,7 +126,9 @@ describe('<Stylesheet />', () => {
 			}
 		});
 
-		expect(component().state('shouldPreserveOriginalValues')).toBeFalsy();
+		expect(component()
+			.state('shouldPreserveOriginalValues') === !stateBeforeChange)
+		.toBeTruthy();
 	});
 
 	test(`The checkbox input with a name and id attr of "shouldPreserveOriginalValues" 
@@ -152,22 +156,16 @@ describe('<Stylesheet />', () => {
 		expect(input.length).toBe(2);
 	});
 
-	test.only(`The two radio inputs with a name attr of "unit" can 
+	test(`The two radio inputs with a name attr of "unit" can 
 	update the component's state`, () => {
-		
-		const radioVal1 = component()
-			.find(InputRadio)
-			.filterWhere(n => {
-				const { value } = n.props();
-				return value === '1';
-			});
 
 		const radioVal0 = component()
 			.find(InputRadio)
-			.filterWhere(n => {
-				const { value } = n.props();
-				return value === '0';
-			});
+			.filterWhere(n => n.props().value === '0');
+
+		const radioVal1 = component()
+			.find(InputRadio)
+			.filterWhere(n => n.props().value === '1');
 
 		expect(component().state('unit')).toBe('0');
 
@@ -189,6 +187,29 @@ describe('<Stylesheet />', () => {
 
 		expect(component().state('unit')).toBe('0');
 
+	});
+
+	test(`The two radio inputs with a name attr of "unit" 
+	are in sync with the component's state`, () => {
+
+		const radioVal0 = component()
+			.find(InputRadio)
+			.filterWhere(n => n.props().value === '0');
+
+		const radioVal1 = component()
+			.find(InputRadio)
+			.filterWhere(n => n.props().value === '1');
+		
+		const state = component().state('unit');
+
+		if(state === '0') {
+			expect(radioVal0.prop('checked')).toBeTruthy();
+			expect(radioVal1.prop('checked')).toBeFalsy();
+		} else if(state === '1') {
+			expect(radioVal0.prop('checked')).toBeFalsy();
+			expect(radioVal1.prop('checked')).toBeTruthy();
+		}
+		
 	});
     
 });
