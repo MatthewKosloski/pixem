@@ -15,27 +15,24 @@ import StyledTextarea from './StyledTextarea';
 
 const StyledSubmit = StyledShakespeareButton.withComponent('input');
 
-const EM_UNIT = '0', REM_UNIT = '1';
-
 /**
  * Tests:
  * 
- * - Renders one checkbox input with a name and id attr of "shouldPreserveOriginalValues"
- * - The checkbox with a name attr of "shouldPreserveOriginalValues" is in sync with the component's "shouldPreserveOriginalValues" state property
- * - The checkbox with a name attr of "shouldPreserveOriginalValues" is associated with a label
+ * - Renders one textarea with a name attr of "textareaContents"
  * - 
- * - Renders two radio inputs with a name attr of "unit"
- * - The radio inputs with a name attr of "unit" are in sync with the component's "unit" state property
  */
 class Stylesheet extends Component {
 
-	
 	constructor(props) {
 		super(props);
 
+		this.EM_UNIT = '0';
+		this.REM_UNIT = '1';
+
 		this.state = {
+			textareaContents: '',
 			base: '16',
-			unit: EM_UNIT,
+			unit: this.EM_UNIT,
 			shouldPreserveOriginalValues: true
 		};
 
@@ -62,7 +59,8 @@ class Stylesheet extends Component {
 		const {
 			base, 
 			unit, 
-			shouldPreserveOriginalValues
+			shouldPreserveOriginalValues,
+			textareaContents
 		} = this.state;
 
 		return (
@@ -70,7 +68,11 @@ class Stylesheet extends Component {
 				<Container>
 					<Row mb={3}>
 						<Column width={1}>
-							<StyledTextarea />
+							<StyledTextarea 
+								placeholder="// paste your CSS style sheet here"
+								name="textareaContents"
+								value={textareaContents}
+								onChange={this.handleChange} />
 						</Column>
 					</Row>
 				</Container>
@@ -120,8 +122,8 @@ class Stylesheet extends Component {
 												<InputRadio
 													title="EMs"
 													name="unit"
-													value={EM_UNIT}
-													checked={unit === EM_UNIT}
+													value={this.EM_UNIT}
+													checked={unit === this.EM_UNIT}
 													onChange={this.handleChange} />
 											</div>
 									
@@ -129,8 +131,8 @@ class Stylesheet extends Component {
 												<InputRadio
 													title="REMs"
 													name="unit"
-													value={REM_UNIT}
-													checked={unit === REM_UNIT}
+													value={this.REM_UNIT}
+													checked={unit === this.REM_UNIT}
 													onChange={this.handleChange} />
 											</div>
 										</Flex>
