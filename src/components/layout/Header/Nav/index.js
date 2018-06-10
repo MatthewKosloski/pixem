@@ -18,7 +18,7 @@ class Nav extends Component {
 		this.onResize = this.onResize.bind(this);
 	}
 
-	onHamburgerClick(e) {
+	onHamburgerClick() {
 		this.setState({
 			isMobileMenuVisible: !this.state.isMobileMenuVisible
 		});
