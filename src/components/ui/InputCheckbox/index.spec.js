@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import InputCheckbox from './';
 import StyledCheckbox from './StyledCheckbox';
 import StyledCheckboxLabel from './StyledCheckboxLabel';
+import Icon from './Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -67,7 +68,7 @@ describe('<InputCheckbox />', () => {
 
 	test(`The component's label renders one SVG`, () => {
 		props = getPropsForTest();
-		expect(component().find(StyledCheckboxLabel).children().find('svg').length).toBe(1);
+		expect(component().find(StyledCheckboxLabel).children().find(Icon).length).toBe(1);
 	});
 	
 	test(`The component's styled label is associated with the 
