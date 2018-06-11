@@ -1,4 +1,4 @@
-import { default as Link } from './Link';
+import { default as Link } from './Link/index';
 import { default as InputCheckbox } from './InputCheckbox/index';
 import { default as InputRadio } from './InputRadio/index';
 import { default as InputText } from './InputText/index';
