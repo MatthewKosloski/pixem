@@ -16,13 +16,13 @@ To install the dependencies, run `npm install`.
 
 ## Test
 
-## All tests
+### All tests
 
 ```
   $ npm test
 ```
 
-## Test a directory
+### Test a directory
 
 ```
   $ npm run test src/utils
