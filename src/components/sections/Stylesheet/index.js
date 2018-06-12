@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Flex } from 'rebass';
 
+import { dynamicPrecision, modifyQuantityNodes } from '../../../utils';
 import { Container, Row, Column } from '../../grid';
 import { 
 	Label, 
@@ -15,30 +16,40 @@ import StyledTextarea from './StyledTextarea';
 
 const StyledSubmit = StyledShakespeareButton.withComponent('input');
 
-/**
- * Tests:
- * 
- * - Renders one textarea with a name attr of "textareaContents"
- * - 
- */
+const testTextareaContents = `
+.title {
+  font-size: 23.4px;
+  line-height: 1.3;
+  width: 80%; 
+}`;
+
 class Stylesheet extends Component {
 
 	constructor(props) {
 		super(props);
 
-		this.EM_UNIT = '0';
-		this.REM_UNIT = '1';
+		this.units = [
+			{name: 'em', value: '0'},
+			{name: 'rem', value: '1'}
+		];
 
 		this.state = {
-			textareaContents: '',
+			textareaContents: testTextareaContents,
 			base: '16',
-			unit: this.EM_UNIT,
+			unit: this.units[0].value,
 			shouldPreserveOriginalValues: true
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.getCurrentUnitName = this.getCurrentUnitName.bind(this);
 
+	}
+
+	getCurrentUnitName() {
+		return this.units.filter(unit => 
+			unit.value === this.state.unit
+		)[0].name;
 	}
 
 	handleChange(e) {
@@ -52,6 +63,29 @@ class Stylesheet extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
+		const newTextareaContents = modifyQuantityNodes(
+			this.state.textareaContents, 
+			(node, quantity) => {
+
+				const newNumber = dynamicPrecision(
+					quantity.number / this.state.base
+				);
+
+				const newUnit = this.getCurrentUnitName();
+
+				if(/px/.test(quantity.unit)) {
+					node.value = `${newNumber}${newUnit}; ${
+						this.state.shouldPreserveOriginalValues
+							? `/* ${node.value} */`
+							: ``
+					}`;
+				}
+
+		});
+
+		this.setState({textareaContents: newTextareaContents});
+
 	}
 
 	render() {
@@ -122,8 +156,8 @@ class Stylesheet extends Component {
 												<InputRadio
 													title="EMs"
 													name="unit"
-													value={this.EM_UNIT}
-													checked={unit === this.EM_UNIT}
+													value={this.units[0].value}
+													checked={unit === this.units[0].value}
 													onChange={this.handleChange} />
 											</div>
 									
@@ -131,8 +165,8 @@ class Stylesheet extends Component {
 												<InputRadio
 													title="REMs"
 													name="unit"
-													value={this.REM_UNIT}
-													checked={unit === this.REM_UNIT}
+													value={this.units[1].value}
+													checked={unit === this.units[1].value}
 													onChange={this.handleChange} />
 											</div>
 										</Flex>
@@ -140,7 +174,9 @@ class Stylesheet extends Component {
 								</Row>
 								<Row justifyContent="center">
 									<Column>
-										<StyledSubmit type="submit" value="Convert" />
+										<StyledSubmit 
+											type="submit" 
+											value="Convert" />
 									</Column>
 								</Row>
 							</form>

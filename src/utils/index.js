@@ -7,6 +7,7 @@ import { default as rem } from './rem';
 import { default as vr } from './vr';
 import { default as vrrem } from './vrrem';
 import { default as vrem } from './vrem';
+import { default as modifyQuantityNodes } from './modifyQuantityNodes';
 
 export { 
 	dynamicPrecision,
@@ -17,5 +18,6 @@ export {
 	rem,
 	vr,
 	vrrem,
-	vrem
+	vrem,
+	modifyQuantityNodes
 };
