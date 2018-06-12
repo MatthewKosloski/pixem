@@ -43,6 +43,7 @@
     "randomstring": "^1.1.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-modal": "^3.4.5",
     "rebass": "^2.0.0-2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
