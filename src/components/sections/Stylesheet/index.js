@@ -3,7 +3,7 @@ import { Flex } from 'rebass';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 
-import { dynamicPrecision, modifyQuantityNodes } from '../../../utils';
+import { convertPixelNodes } from '../../../utils';
 import { Container, Row, Column } from '../../grid';
 import { 
 	Label, 
@@ -80,23 +80,17 @@ class Stylesheet extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		const convertedStylesheet = modifyQuantityNodes(
-			this.state.textareaContents, 
-			(node, quantity) => {
+		const { 
+			textareaContents,
+			base,
+			shouldPreserveOriginalValues
+		} = this.state;
 
-				const newNumber = dynamicPrecision(
-					quantity.number / this.state.base
-				);
-
-				const newUnit = this.getCurrentUnitName();
-
-				if(/px/.test(quantity.unit)) {
-					node.value = `${newNumber}${newUnit}; ${
-						this.state.shouldPreserveOriginalValues
-							? `/* ${node.value} */`
-							: ``
-					}`;
-				}
+		const convertedStylesheet = convertPixelNodes({
+			stylesheet: textareaContents,
+			base,
+			toUnit: this.getCurrentUnitName(),
+			shouldPreserveOriginalValues
 		});
 
 		this.setState({ convertedStylesheet });
@@ -121,9 +115,11 @@ class Stylesheet extends Component {
 					isOpen={isModalOpen}
 					onRequestClose={this.closeModal}
 					{...this.props.reactModal}>
+					<p>Here is your converted Stylesheet!</p>
 					<textarea 
 						value={convertedStylesheet}
 						readOnly />
+					<a onClick={this.closeModal}>Close</a>
 				</ReactModal>
 				<StyledStylesheet>
 					<Container>
