@@ -1,9 +1,11 @@
 import valueParser from 'postcss-value-parser';
 
-/**
- * Walks each node within the stylesheet, performing
- * a callback on each node of type "word" that has
- * a quantity as the property value.
+import { isQuantityNode } from './';
+
+ /**
+ * Walks through each node within the stylesheet, 
+ * performing a callback on each node of type "word" 
+ * whose property has a quantity value.
  * 
  * See the definition of the "word" node type here:
  * https://github.com/TrySound/postcss-value-parser#word
@@ -23,10 +25,8 @@ export default (stylesheet, cb) => {
 
         const quantity = valueParser.unit(node.value);
 
-        if(
-            node.type === 'word' && 
-            node.hasOwnProperty('value') && 
-            quantity) {
+        // We only care about nodes that have quantities
+        if(isQuantityNode(node, quantity)) {
             cb(node, quantity);
         }
     });
