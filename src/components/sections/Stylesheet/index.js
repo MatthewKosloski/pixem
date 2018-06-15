@@ -20,8 +20,7 @@ const StyledSubmit = StyledShakespeareButton.withComponent('input');
 
 ReactModal.setAppElement(document.getElementById('app'));
 
-const testTextareaContents = `
-.title {
+const testTextareaContents = `.title {
   font-size: 23.4px;
   line-height: 1.3;
   width: 80%; 
