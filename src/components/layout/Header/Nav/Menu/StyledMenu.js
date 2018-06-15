@@ -10,5 +10,8 @@ export default styled.nav.attrs({
 		font-size: ${_rem(14)};
 		text-transform: uppercase;
 		font-size: 700;
+		a:hover {
+			text-decoration: underline;
+		}
 	}
 `;
