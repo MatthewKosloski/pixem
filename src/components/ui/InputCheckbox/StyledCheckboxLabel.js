@@ -20,6 +20,8 @@ const StyledCheckboxLabel = styled('label')`${
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 0;
+            transition: width 0.15s ease-in-out;
         }
     `
 }`;

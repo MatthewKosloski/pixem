@@ -12,9 +12,16 @@ const StyledCheckbox = styled.input.attrs({
             background-color: ${shakespeare};
             border-color: ${shakespeare};
             text-indent: 0%;
+
         }
         &:focus + label {
             border-color: ${shark};
+        }
+        &:checked + label,
+        &:focus + label {
+            svg {
+                width: 16px;
+            }
         }
     `
 }`;
