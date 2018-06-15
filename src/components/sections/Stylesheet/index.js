@@ -88,9 +88,9 @@ class Stylesheet extends Component {
 
 		const convertedStylesheet = convertPixelNodes({
 			stylesheet: textareaContents,
-			base,
 			toUnit: this.getCurrentUnitName(),
-			shouldPreserveOriginalValues
+			shouldPreserveOriginalValues,
+			base
 		});
 
 		this.setState({ convertedStylesheet });
@@ -115,11 +115,14 @@ class Stylesheet extends Component {
 					isOpen={isModalOpen}
 					onRequestClose={this.closeModal}
 					{...this.props.reactModal}>
-					<p>Here is your converted Stylesheet!</p>
+					<p>Here are your converted styles!</p>
 					<textarea 
 						value={convertedStylesheet}
 						readOnly />
-					<a onClick={this.closeModal}>Close</a>
+					<span 
+						ariaLabel="Close Modal"
+						onClick={this.closeModal}>
+					</span>
 				</ReactModal>
 				<StyledStylesheet>
 					<Container>
