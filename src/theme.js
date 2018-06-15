@@ -8,13 +8,25 @@ const containerWidths = {
 	large: '768px'
 };
 
-const breakpoints = ['500px', '768px', '1000px'];
+const breakpoints = [
+	'500px', 
+	'768px', 
+	'1000px'
+];
+
+const [ sm, md, lg ] = breakpoints;
+
+const media = {
+    sm: `(min-width: ${sm})`,
+    md: `(min-width: ${md})`,
+    lg: `(min-width: ${lg})`
+};
 
 const space = [...Array(10)].map((_, i) => 
-		vrrem(base, ratio, i));
+	vrrem(base, ratio, i));
 
 const fontSizes = [...Array(10)].map((_, i) => 
-		modularscalerem(base, ratio, i));
+	modularscalerem(base, ratio, i));
 
 const fonts = {
 	sans: 'Open Sans, sans-serif'
@@ -37,6 +49,7 @@ export default {
 	ratio,
 	containerWidths,
 	breakpoints,
+	media,
 	space,
 	fontSizes,
 	fonts,

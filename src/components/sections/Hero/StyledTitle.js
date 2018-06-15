@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { _modularscalerem } from '../../../util-wrappers';
-import media from '../../../media';
 
-export default styled('p')`
-	text-align: center;
-	${media.md`
-		font-size: ${_modularscalerem(1)};
-	`}
-`;
+export default styled('p')`${
+	({theme: {media: {md}}}) => css`
+		text-align: center;
+		@media ${md} {
+			font-size: ${_modularscalerem(1)};
+		}
+	`
+}`;
