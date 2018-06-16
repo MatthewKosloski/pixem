@@ -3,10 +3,9 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { InputText, Label, InputCheckbox, InputRadio } from '../../ui';
+import { InputText, Label, InputCheckbox, InputRadio, StyledTextarea } from '../../ui';
 
 import Stylesheet from './';
-import StyledTextarea from './StyledTextarea';
 
 Enzyme.configure({ adapter: new Adapter() });
 

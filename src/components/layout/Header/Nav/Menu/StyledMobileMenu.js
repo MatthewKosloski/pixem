@@ -16,7 +16,7 @@ const StyledMobileMenu = StyledMenu.extend`${
 		transition: transform 0.15s ease-in-out;
 		background-color: ${white};
 		padding: ${_vrrem(4)} 0;
-		z-index: 1;
+		z-index: 7;
 		ul {
 			font-size: ${_rem(18)};
 			li {

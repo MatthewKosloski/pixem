@@ -21,6 +21,7 @@
     "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "codemirror": "^5.38.0",
     "css-loader": "^0.28.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -42,8 +43,8 @@
     "prop-types": "^15.6.1",
     "randomstring": "^1.1.5",
     "react": "^16.3.2",
+    "react-codemirror2": "^5.0.4",
     "react-dom": "^16.3.2",
-    "react-modal": "^3.4.5",
     "rebass": "^2.0.0-2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
@@ -56,7 +57,5 @@
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
-  "dependencies": {
-    "normalize.css": "^8.0.0"
-  }
+  "dependencies": {}
 }

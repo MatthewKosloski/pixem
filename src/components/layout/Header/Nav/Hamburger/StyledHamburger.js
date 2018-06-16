@@ -7,7 +7,7 @@ const StyledHamburger = styled('label')`${
 			width: 32px;
 			height: 25px;
 			cursor: pointer;
-			z-index: 2;
+			z-index: 8;
 			span {
 				top: 10px;
 				&::before {

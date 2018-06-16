@@ -16,7 +16,7 @@ const config = {
 				use: { loader: 'html-loader' }
 			},
 			{
-				test: /\.scss$/,
+				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					use: [
 						{

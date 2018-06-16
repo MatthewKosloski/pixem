@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { _rem, _vrrem } from '../../../util-wrappers';
+import { _rem, _vrrem } from '../../util-wrappers';
 
 export default styled('textarea')`${
 	({theme: {colors: {shark, white}}}) => css`

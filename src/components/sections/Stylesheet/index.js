@@ -1,26 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { Flex } from 'rebass';
-import PropTypes from 'prop-types';
-import ReactModal from 'react-modal';
 
 import { convertPixelNodes } from '../../../utils';
 import { Container, Row, Column } from '../../grid';
-import { 
-	Label, 
-	InputText, 
-	InputCheckbox, 
-	InputRadio, 
-	StyledShakespeareButton
-} from '../../ui';
+import * as ui from '../../ui';
 
 import StyledStylesheet from './StyledStylesheet';
-import StyledTextarea from './StyledTextarea';
 
-const StyledSubmit = StyledShakespeareButton.withComponent('input');
+const StyledSubmit = ui.StyledShakespeareButton.withComponent('input');
 
-ReactModal.setAppElement(document.getElementById('app'));
-
-const testTextareaContents = `.title {
+const defaultEditorValue = `.title {
   font-size: 23.4px;
   line-height: 1.3;
   width: 80%; 
@@ -37,28 +26,18 @@ class Stylesheet extends Component {
 		];
 
 		this.state = {
-			textareaContents: testTextareaContents,
+			editorValue: defaultEditorValue,
 			convertedStylesheet: '',
 			base: '16',
 			unit: this.units[0].value,
-			shouldPreserveOriginalValues: true,
-			isModalOpen: false
+			shouldPreserveOriginalValues: true
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
 		this.getCurrentUnitName = this.getCurrentUnitName.bind(this);
+		this.handleEditorChange = this.handleEditorChange.bind(this);
 
-	}
-
-	openModal() {
-		this.setState({isModalOpen: true});
-	}
-
-	closeModal() {
-		this.setState({isModalOpen: false});
 	}
 
 	getCurrentUnitName() {
@@ -80,21 +59,25 @@ class Stylesheet extends Component {
 		e.preventDefault();
 
 		const { 
-			textareaContents,
+			editorValue,
 			base,
 			shouldPreserveOriginalValues
 		} = this.state;
 
 		const convertedStylesheet = convertPixelNodes({
-			stylesheet: textareaContents,
+			stylesheet: editorValue,
 			toUnit: this.getCurrentUnitName(),
 			shouldPreserveOriginalValues,
 			base
 		});
 
 		this.setState({ convertedStylesheet });
-		this.openModal();
+	}
 
+	handleEditorChange(editor, data, value) {
+		this.setState({
+			editorValue: value
+		});
 	}
 
 	render() {
@@ -103,51 +86,45 @@ class Stylesheet extends Component {
 			base, 
 			unit, 
 			shouldPreserveOriginalValues,
-			textareaContents,
-			isModalOpen,
+			editorValue,
 			convertedStylesheet
 		} = this.state;
 
 		return (
 			<Fragment>
-				<ReactModal
-					isOpen={isModalOpen}
-					onRequestClose={this.closeModal}
-					{...this.props.reactModal}>
-					<p>Here are your converted styles!</p>
-					<textarea 
-						value={convertedStylesheet}
-						readOnly />
-					<span 
-						ariaLabel="Close Modal"
-						onClick={this.closeModal}>
-					</span>
-				</ReactModal>
 				<StyledStylesheet>
-					<Container>
+					<Container size="large">
 						<Row mb={3}>
-							<Column width={1}>
-								<StyledTextarea 
-									placeholder="// paste your CSS style sheet here"
-									name="textareaContents"
-									value={textareaContents}
-									onChange={this.handleChange} />
+							<Column width={[1, 1, 6/12]}>
+								<ui.Editor 
+									value={editorValue}
+									onBeforeChange={this.handleEditorChange}
+									autoFocus={true}
+								/>
+							</Column>
+							<Column width={[1, 1, 6/12]}>
+								<ui.Editor 
+									value={convertedStylesheet}
+									onBeforeChange={this.handleEditorChange}
+									readOnly={true}
+									cursorBlinkRate={-1}
+								/>
 							</Column>
 						</Row>
 					</Container>
-					<Container small="true">
+					<Container size="small">
 						<Row>
 							<Column width={1}>
 								<form onSubmit={this.handleSubmit}>
 									<Row alignItems="center" mb={2}>
 										<Column width={[1, 7/12]} mb={[1, 0]}>
-											<Label
+											<ui.Label
 												htmlFor="base"
 												title="Base Pixel Size"
 												tooltipText="This is tooltip text" />	
 										</Column>
 										<Column width={[1, 5/12]}>
-											<InputText 
+											<ui.InputText 
 												id="base"
 												name="base"
 												value={base}
@@ -156,13 +133,13 @@ class Stylesheet extends Component {
 									</Row>
 									<Row alignItems="center" mb={2}>
 										<Column width={[1, 7/12]} mb={[1, 0]}>
-											<Label
+											<ui.Label
 												htmlFor="shouldPreserveOriginalValues"
 												title="Preserve Original Values"
 												tooltipText="This is tooltip text" />	
 										</Column>
 										<Column width={[1, 5/12]}>
-											<InputCheckbox
+											<ui.InputCheckbox
 												id="shouldPreserveOriginalValues"
 												name="shouldPreserveOriginalValues"
 												checked={shouldPreserveOriginalValues}
@@ -171,14 +148,14 @@ class Stylesheet extends Component {
 									</Row>
 									<Row alignItems="center" mb={2}>
 										<Column width={[1, 7/12]} mb={[1, 0]}>
-											<Label
+											<ui.Label
 												title="Conversion Unit"
 												tooltipText="This is tooltip text"/>	
 										</Column>
 										<Column width={[1, 5/12]}>
 											<Flex>
 												<div style={{flex: '1'}}>
-													<InputRadio
+													<ui.InputRadio
 														title="EMs"
 														name="unit"
 														value={this.units[0].value}
@@ -187,7 +164,7 @@ class Stylesheet extends Component {
 												</div>
 										
 												<div style={{flex: '1'}}>
-													<InputRadio
+													<ui.InputRadio
 														title="REMs"
 														name="unit"
 														value={this.units[1].value}
@@ -213,28 +190,5 @@ class Stylesheet extends Component {
 		);
 	}
 }
-
-Stylesheet.propTypes = {
-	reactModal: PropTypes.shape({
-		closeTimeoutMS: PropTypes.number,
-		portalClassName: PropTypes.string,
-		className: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.shape({
-				base: PropTypes.string,
-				afterOpen: PropTypes.string,
-				beforeClose: PropTypes.string
-			})
-		]),
-		overlayClassName: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.shape({
-				base: PropTypes.string,
-				afterOpen: PropTypes.string,
-				beforeClose: PropTypes.string
-			})
-		])
-	})
-};
 
 export default Stylesheet;
