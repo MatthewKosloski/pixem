@@ -7,6 +7,7 @@
   * @param quantity {Object} An object with
   * number and unit keys. See docs here: 
   * https://goo.gl/AWzZoC
+  * @return {Boolean}
   */
  export default (node, quantity) =>
     node.type === 'word' && 
