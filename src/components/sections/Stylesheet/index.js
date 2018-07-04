@@ -105,7 +105,6 @@ class Stylesheet extends Component {
 							<Column width={[1, 1, 6/12]}>
 								<ui.Editor 
 									value={convertedStylesheet}
-									onBeforeChange={this.handleEditorChange}
 									readOnly={true}
 									cursorBlinkRate={-1}
 								/>
