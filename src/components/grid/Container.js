@@ -11,6 +11,10 @@ const StyledContainer = styled(Container)`${
 	`
 }`;
 
+StyledContainer.defaultProps = {
+	size: 'default'
+};
+
 StyledContainer.propTypes = {
 	size: PropTypes.oneOf(Object.keys(
 		theme.containerWidths))
