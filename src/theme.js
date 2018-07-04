@@ -6,7 +6,8 @@ const ratio = 1.3; // line-height
 const containerWidths = {
 	default: '768px',
 	small: '500px',
-	large: '1200px'
+	large: '1200px',
+	full: '100%'
 };
 
 const breakpoints = [
