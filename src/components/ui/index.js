@@ -5,8 +5,7 @@ import { default as InputText } from './InputText/index';
 import { default as Label } from './Label/index';
 import { default as StyledButton } from './StyledButton';
 import { default as StyledShakespeareButton } from './StyledShakespeareButton';
-import { default as StyledTextarea } from './StyledTextarea';
-import { default as Editor } from './Editor/index';
+import { default as Editor } from './Editor'; 
 
 export {
 	Link,
@@ -16,6 +15,5 @@ export {
 	Label,
 	StyledButton,
 	StyledShakespeareButton,
-	StyledTextarea,
 	Editor
 };

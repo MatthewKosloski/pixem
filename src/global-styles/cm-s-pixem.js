@@ -7,11 +7,9 @@ export default `
 .cm-s-pixem {
 
 	&.CodeMirror {
-		box-shadow: 0 4px 32px 6px rgba(0, 0, 0, 0.33);
     	background-color: ${colors.shark};
 		color: ${colors.porcelain};
-		height: 475px;
-		border-radius: 6px;
+		height: 100%;
 		overflow-x: hidden !important;
   	}
 
