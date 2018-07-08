@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = {
 	entry: {
-		bundle: './src/app.js'
+		bundle: './src/index.js'
 	},
 	output: {
 		path: path.join(__dirname, 'public')
