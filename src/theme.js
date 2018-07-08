@@ -40,6 +40,7 @@ const colors = {
 	aquamarine: '#53FFAB',
 	shakespeare: '#4CACCD',
 	shark: '#292C33',
+	darkShark: '#212329',
 	mystic: '#E9ECF3',
 	shuttleGray: '#656C7C',
 	cadetBlue: '#B4BAC8',
