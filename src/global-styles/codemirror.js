@@ -1,6 +1,8 @@
+import theme from "../theme";
+
 export default `
     .gutter {
-        background-color: #434854;
+        background-color: ${theme.colors.mako};
         &.gutter-horizontal {
             cursor: ew-resize;
         }
