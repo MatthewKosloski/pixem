@@ -14,7 +14,14 @@ export default `
     }
 
     a {
-        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    input,
+    textarea {
+        font-family: inherit;
     }
     
 `;
