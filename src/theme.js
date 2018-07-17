@@ -53,7 +53,8 @@ const colors = {
 	yellowGreen: '#C3E88D',
 	goldenTainoi: '#FFCB6B',
 	wildWatermelon: '#ff5370',
-	mandy: '#EC5F67'
+	mandy: '#EC5F67',
+	mako: '#434854'
 };
 
 export default {
