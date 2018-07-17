@@ -24,7 +24,8 @@ const config = merge(common, {
 				port: 3000,
 				proxy: 'http://localhost:8080/',
 				open: false,
-				ui: false
+				ui: false,
+				notify: false
 			},
 			{
 				reload: false
