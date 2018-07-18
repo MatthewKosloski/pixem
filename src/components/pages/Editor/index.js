@@ -11,7 +11,7 @@ import PanelManager from './PanelManager';
 import Textarea from './Textarea';
 
 const defaultUserInput = `.title {
-	font-size: 23.4px;
+	font-size: 16px;
 	line-height: 1.3;
 	width: 80%; 
   }`;  
@@ -34,7 +34,7 @@ class Editor extends Component {
 			result: '',
 			base: '16',
 			unit: 'em',
-			shouldPreserveOriginalValues: true,
+			shouldPreserveOriginalValues: false,
 			modal: {
 				isOpen: false,
 				activeChild: 'help'
@@ -43,18 +43,25 @@ class Editor extends Component {
 
 		this.handleUserInputChange = this.handleUserInputChange.bind(this);
 		this.renderModalChildren = this.renderModalChildren.bind(this);
-		this.setResult = this.setResult.bind(this);
+		this.getResult = this.getResult.bind(this);
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.renderColumnOne = this.renderColumnOne.bind(this);
+		this.renderColumnTwo = this.renderColumnTwo.bind(this);
 	}
 
 	handleUserInputChange(editor, data, value) {
-		this.setState({userInput: value});
-		this.setResult();
+		this.setState({
+			userInput: value
+		}, () => {
+			this.setState({
+				result: this.getResult()
+			});
+		});
 	}
 
-	setResult() {
+	getResult() {
 		const { 
 			userInput, 
 			base, 
@@ -62,14 +69,12 @@ class Editor extends Component {
 			shouldPreserveOriginalValues 
 		} = this.state;
 
-		const result = this.convertPixelNodes({
+		return this.convertPixelNodes({
 			stylesheet: userInput,
 			toUnit: unit,
 			shouldPreserveOriginalValues,
 			base
 		});
-
-		this.setState({ result });
 	}
 
 	/**
@@ -174,27 +179,35 @@ class Editor extends Component {
 	}
 
 	handleChange(e) {
-		console.log(e);
+		const { type, checked, value, name } = e.target;
+		this.setState({
+			[name]: type === 'checkbox' ? checked : value,
+		}, () => {
+			this.setState({
+				result: this.getResult()
+			});
+		});
 	}
 
-	render() {
-		const { 
-			userInput,
-			result,
-			modal,
+	renderColumnOne() {
+		const {
 			base,
 			unit,
 			shouldPreserveOriginalValues
 		} = this.state;
 
-		const ColumnOne = () => 
+		return (
 			<Sidebar 
 				base={base}
 				unit={unit}
 				shouldPreserveOriginalValues={shouldPreserveOriginalValues}
-				handleChange={this.handleChange}/>;
+				handleChange={this.handleChange}/>
+		);
+	}
 
-		const ColumnTwo = () => (
+	renderColumnTwo() {
+		const { userInput, result } = this.state;
+		return (
 			<PanelManager>
 				<Textarea 
 					value={userInput}
@@ -208,17 +221,19 @@ class Editor extends Component {
 				/>
 			</PanelManager>
 		);
+	}
 
+	render() {
 		return(
 			<Fragment>
 				<Modal
-					isOpen={modal.isOpen}
+					isOpen={this.state.modal.isOpen}
 					onRequestClose={this.closeModal}>
 					{this.renderModalChildren()}
 				</Modal>
 				<TwoColumn 
-					columnOneNode={<ColumnOne/>}
-					columnTwoNode={<ColumnTwo/>}/>
+					columnOneNode={this.renderColumnOne()}
+					columnTwoNode={this.renderColumnTwo()}/>
 			</Fragment>
 		);
 	}
