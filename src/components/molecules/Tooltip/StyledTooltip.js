@@ -4,7 +4,7 @@ import { _vrem, _vrrem, _rem } from '../../../util-wrappers';
 
 export default styled('div')`${
 
-    ({theme: {colors: { darkShark, white }}}) => css`
+    ({theme: {colors: { black, white }}}) => css`
     
         position: relative;
         top: 4px;
@@ -32,7 +32,7 @@ export default styled('div')`${
             width: 150px;
             margin-left: -75px;
             padding: ${_vrem(1)};
-            background-color: ${darkShark};
+            background-color: ${black};
             border-radius: 3px;
             text-transform: none;
             font-weight: 400;
@@ -44,7 +44,7 @@ export default styled('div')`${
                 height: 0; 
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent;
-                border-top: 8px solid ${darkShark};
+                border-top: 8px solid ${black};
                 position: absolute;
                 left: calc(50% - 8px);
                 bottom: -8px;
