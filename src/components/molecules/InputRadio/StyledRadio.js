@@ -5,13 +5,13 @@ import { _em } from '../../../util-wrappers';
 import { Radio } from '../../atoms';
 
 export default styled(Radio)`${
-    ({theme: {colors: {shakespeare, white}}}) => css`
+    ({theme: {colors: {shakespeare, shark}}}) => css`
         position: absolute;
         opacity: 0;
         &:checked + label {
             &::before {
                 background-color: ${shakespeare};
-                box-shadow: inset 0 0 0 ${_em(3)} ${white};
+                box-shadow: inset 0 0 0 ${_em(3)} ${shark};
             }
         }
     `
