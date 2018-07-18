@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 
 const StyledCheckboxLabel = styled('label')`${
-    ({theme: {colors: {cadetBlue}}}) => css`
+    ({theme: {colors: {shakespeare}}}) => css`
         cursor: pointer;
         width: 32px;
         height: 32px;
         top: 0;
         left: 0;
         background: transparent;
-        border: 1px solid ${cadetBlue};
+        border: 1px solid ${shakespeare};
         border-radius: 3px;
         text-indent: 100%;
         text-align: center;
