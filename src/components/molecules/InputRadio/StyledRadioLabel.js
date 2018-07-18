@@ -3,10 +3,12 @@ import Label from '../../atoms/Label';
 import { _em, _vrrem } from '../../../util-wrappers';
 
 export default Label.extend`
+    margin: 0;
+    display: inline-block;
     &::before {
         content: '';
-        width: ${_em(32)};
-        height: ${_em(32)};
+        width: ${_em(45)};
+        height: ${_em(45)};
         border: ${_em(1)} solid ${props => props.theme.colors.shakespeare};
         box-shadow: inset 0 0 0 ${_em(1)} transparent;
         transition: box-shadow 0.15s ease-in-out;
@@ -14,7 +16,7 @@ export default Label.extend`
         border-radius: 100%;
         vertical-align: top;
         position: relative;
-        top: -${_em(4)};
+        top: -${_em(10)};
         margin-right: ${_vrrem(0.5)};
         cursor: pointer;
     }
