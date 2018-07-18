@@ -7,17 +7,19 @@ import Tooltip from '../Tooltip';
 class TooltipLabel extends PureComponent {
     render() {
         const { htmlFor, title, tooltipText } = this.props;
-        return (
-            <Label htmlFor={htmlFor}>
-                    {title} 
-                    {tooltipText && <Tooltip text={tooltipText} />}
-            </Label>
+        return React.createElement(
+            htmlFor ? Label : Label.withComponent('div'),
+            htmlFor ? {htmlFor} : {},
+            title,
+            tooltipText ? React.createElement(Tooltip, 
+                {text: tooltipText}
+            ) : null
         );
     }
 }
 
 TooltipLabel.propTypes = {
-    htmlFor: PropTypes.string.isRequired,
+    htmlFor: PropTypes.string,
     title: PropTypes.string.isRequired,
     tooltipText: PropTypes.string
 };
