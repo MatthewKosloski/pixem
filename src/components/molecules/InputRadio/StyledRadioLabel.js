@@ -10,7 +10,7 @@ export default Label.extend`
         width: ${_em(45)};
         height: ${_em(45)};
         border: ${_em(1)} solid ${props => props.theme.colors.shakespeare};
-        box-shadow: inset 0 0 0 ${_em(1)} transparent;
+        box-shadow: inset 0 0 0 ${_em(8)} transparent;
         transition: box-shadow 0.15s ease-in-out;
         display: inline-block;
         border-radius: 100%;

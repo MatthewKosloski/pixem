@@ -11,7 +11,7 @@ export default styled(Radio)`${
         &:checked + label {
             &::before {
                 background-color: ${shakespeare};
-                box-shadow: inset 0 0 0 ${_em(3)} ${shark};
+                box-shadow: inset 0 0 0 ${_em(5)} ${shark};
             }
         }
     `
