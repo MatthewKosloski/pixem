@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { _vrem, _vrrem, _rem } from '../../../util-wrappers';
+import { hexToRgba } from '../../../utils';
 
 export default styled('div')`${
 
@@ -32,19 +33,20 @@ export default styled('div')`${
             width: 150px;
             margin-left: -75px;
             padding: ${_vrem(1)};
-            background-color: ${black};
+            background-color: ${hexToRgba(black, 0.85)};
             border-radius: 3px;
             text-transform: none;
             font-weight: 400;
             color: ${white};
             font-size: ${_rem(12)};
+            z-index: 4;
             &::after {
                 content: '';
                 width: 0; 
                 height: 0; 
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent;
-                border-top: 8px solid ${black};
+                border-top: 8px solid ${hexToRgba(black, 0.85)};
                 position: absolute;
                 left: calc(50% - 8px);
                 bottom: -8px;
