@@ -7,15 +7,19 @@ import Headings from './Headings';
 import Form from './Form';
 
 const StyledSidebar = styled('aside')`${
-    ({theme: {colors: {shark, white, mako}}}) => css`
+    ({theme: {media: {md}, colors: {shark, white, mako}}}) => css`
         background-color: ${shark};
-        border-right: 2px solid ${mako};
+        border-bottom: 2px solid ${mako};
         height: 100vh;
         color: ${white};
         font-size: ${_rem(16)};
         padding: ${_vrrem(1)};
         a {
             color: ${white};
+        }
+        @media ${md} {
+            border-bottom: none;
+            border-right: 2px solid ${mako};
         }
 `}`;
 
