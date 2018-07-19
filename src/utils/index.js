@@ -13,6 +13,8 @@ import { default as isEm } from './isEm';
 import { default as stripWhiteSpace } from './stripWhiteSpace';
 import { default as getIdSequence } from './getIdSequence';
 import { default as removeSemicolons } from './removeSemicolons';
+import { default as hexToRgb } from './hexToRgb';
+import { default as hexToRgba } from './hexToRgba';
 
 export { 
 	dynamicPrecision,
@@ -29,5 +31,7 @@ export {
 	isEm,
 	stripWhiteSpace,
 	getIdSequence,
-	removeSemicolons
+	removeSemicolons,
+	hexToRgb,
+	hexToRgba
 };
