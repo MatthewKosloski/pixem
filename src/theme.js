@@ -35,8 +35,8 @@ const fonts = {
 };
 
 const colors = {
-	black: '#000',
-	white: '#fff',
+	black: '#000000',
+	white: '#ffffff',
 	aquamarine: '#53FFAB',
 	shakespeare: '#4CACCD',
 	shark: '#292C33',
