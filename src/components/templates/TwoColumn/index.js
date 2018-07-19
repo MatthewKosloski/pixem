@@ -33,8 +33,8 @@ TwoColumn.propTypes = {
 };
 
 TwoColumn.defaultProps = {
-    columnOneWidths: [1, 1, 1/5],
-    columnTwoWidths: [1, 1, 4/5]
+    columnOneWidths: [1, 1, '300px'],
+    columnTwoWidths: [1, 1, 'calc(100vw - 300px)']
 };
 
 export default TwoColumn;
