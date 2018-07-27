@@ -1,5 +1,5 @@
-import { default as TwoColumn } from './TwoColumn';
+import { default as TwoColumnTemplate } from './TwoColumnTemplate';
 
 export {
-    TwoColumn
+    TwoColumnTemplate
 };
