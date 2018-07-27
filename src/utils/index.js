@@ -15,6 +15,9 @@ import { default as getIdSequence } from './getIdSequence';
 import { default as removeSemicolons } from './removeSemicolons';
 import { default as hexToRgb } from './hexToRgb';
 import { default as hexToRgba } from './hexToRgba';
+import { default as stripSemicolons } from './stripSemicolons';
+import { default as getLastArrayItem } from './getLastArrayItem';
+
 
 export { 
 	dynamicPrecision,
@@ -33,5 +36,7 @@ export {
 	getIdSequence,
 	removeSemicolons,
 	hexToRgb,
-	hexToRgba
+	hexToRgba,
+	stripSemicolons,
+	getLastArrayItem
 };
