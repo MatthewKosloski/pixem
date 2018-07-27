@@ -1,8 +1,7 @@
 {
 	"extends": [
 		"eslint:recommended", 
-		"plugin:react/recommended",
-		"plugin:flowtype/recommended"
+		"plugin:react/recommended"
 	],
 	"parserOptions": {
 		"ecmaVersion": 6,
@@ -12,7 +11,7 @@
 			"jsx": true
 		}
 	},
-	"plugins": ["react", "flowtype"],
+	"plugins": ["react"],
 	"rules": {
 		"semi": 2,
 		"react/display-name": 0,
