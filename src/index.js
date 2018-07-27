@@ -4,4 +4,7 @@ import App from './App';
 import './global-styles';
 import './img/curve.svg';
 
-render(App, document.getElementById('app'));
+const root = document.getElementById('app');
+if(root !== null) {
+    render(App, root);
+}
