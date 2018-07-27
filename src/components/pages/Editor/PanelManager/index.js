@@ -24,16 +24,6 @@ const getPanelIds = (quantity, hasHash = false) => {
 
 class PanelManager extends Component {
 
-    constructor() {
-        super();
-        this.viewportWidth = window.innerWidth;
-        this.isMobile = this.isMobile.bind(this);
-    }
-
-    isMobile() {
-        return this.viewportWidth < 768;
-    }
-
     componentDidMount() {
         const elements = getPanelIds(
             React.Children.count(this.props.children), true);
@@ -41,7 +31,7 @@ class PanelManager extends Component {
         const options = {
             gutterSize: 2,
             minSize: 200,
-            direction: this.isMobile() ? 'vertical' : 'horizontal',
+            direction: 'vertical',
             elementStyle: (_, size, gutterSize) => ({
                 'flex-basis': `calc(${size}% - ${gutterSize}px)`
             }),
@@ -58,7 +48,7 @@ class PanelManager extends Component {
             React.Children.count(this.props.children));
 
         return (
-            <StyledContainer isMobile={this.isMobile()}>
+            <StyledContainer>
                 {React.Children.map(this.props.children, (child, index) =>
                     Panel({child, id: panelIds[index]}))}
             </StyledContainer>  

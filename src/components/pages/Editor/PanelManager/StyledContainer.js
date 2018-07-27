@@ -1,9 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export default styled('div')`${
-    ({isMobile}) => css`
-        display: flex;
-        flex-direction: ${isMobile ? 'column' : 'row'};
-        height: 100vh;
-    `
-}`;
+export default styled('div')`
+    display: flex;
+    flex-direction: column
+    height: 100vh;
+`;
