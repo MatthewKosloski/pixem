@@ -4,11 +4,14 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = {
 	entry: {
-		bundle: './src/index.js'
+		bundle: './src/index.tsx'
 	},
 	output: {
 		path: path.join(__dirname, 'public')
 	},
+	resolve: {
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
 	module: {
 		rules: [
 			{
@@ -34,7 +37,13 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: { loader: 'babel-loader' }
+				use: { loader: 'source-map-loader' },
+				enforce: 'pre'
+			},
+			{
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				use: { loader: 'awesome-typescript-loader' }
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg)$/,
