@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-export default (props) => {
-    return (
-        <input type="radio" {...props}/>
-    );
-};
+class Radio extends PureComponent {
+    render() {
+        return (
+            <input type="radio" {...this.props}/>
+        );
+    }
+}
+
+export default Radio;

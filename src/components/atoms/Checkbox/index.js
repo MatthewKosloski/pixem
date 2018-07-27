@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
-    return (
-        <input type="checkbox" {...props}/>
-    );
+class Checkbox extends PureComponent {
+
+    componentDidUpdate() {
+        console.log('Checkbox update', this.props);
+    }
+
+    render() {
+        return (
+            <input type="checkbox" {...this.props}/>
+        );
+    }
+}
+
+Checkbox.propTypes = {
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
 };
+
+export default Checkbox;

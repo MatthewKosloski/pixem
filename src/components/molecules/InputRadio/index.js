@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import random from 'randomstring';
-import { Flex } from 'rebass';
+import styled from 'styled-components';
+
+import { _vrrem } from '../../../util-wrappers';
 
 import StyledRadio from './StyledRadio';
 import StyledRadioLabel from './StyledRadioLabel';
 
-class InputRadio extends Component {
+const StyledContainer = styled('div')`
+    display: inline-block;
+    margin-right: ${_vrrem(1)};
+`;
+
+class InputRadio extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -15,11 +22,15 @@ class InputRadio extends Component {
         };
     }
 
+    componentDidUpdate() {
+        console.log('InputRadio update');
+    }
+
     render() {
         const {title, name, value, checked, onChange} = this.props;
         const { id } = this.state;
         return (
-            <Flex alignItems="center">
+            <StyledContainer>
                 <StyledRadio 
                     id={id}
                     name={name}
@@ -31,7 +42,7 @@ class InputRadio extends Component {
                     htmlFor={id}>
                     {title}
                 </StyledRadioLabel>
-            </Flex>
+            </StyledContainer>
         );
     }
 
