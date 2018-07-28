@@ -1,14 +1,14 @@
 {
-  "compilerOptions": {
-      "outDir": "./public/",
-      "sourceMap": true,
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "lib": ["es6", "dom"]
-  },
-  "include": [
-      "./src/**/*"
-  ]
+    "compilerOptions": {
+        "outDir": "./public/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "lib": ["es6", "dom"]
+    },
+    "include": [
+        "./src/**/*"
+    ]
 }
