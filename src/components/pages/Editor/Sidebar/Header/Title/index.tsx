@@ -1,9 +1,17 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { _modularscalerem, _vrrem } from '../../../../../../util-wrappers';
+import { _modularscalerem, _vrrem } from '@util-wrappers';
 
-const StyledTitle = styled('h1')`${
+interface IPropTypes {
+    isMobile?: boolean;
+}
+
+interface IDefaultProps {
+    isMobile: boolean;
+}
+
+const StyledTitle = styled('h1')<IPropTypes>`${
     ({isMobile}) => css`
         font-size: ${_modularscalerem(2)};
         font-weight: 700;
@@ -15,10 +23,11 @@ const StyledTitle = styled('h1')`${
     `
 }`;
 
-class Title extends PureComponent {
+const Title: React.ComponentClass<IPropTypes> =
+  class extends React.PureComponent<IPropTypes & IDefaultProps> {
 
-    componentDidUpdate() {
-        console.log('Title update', this.props);
+    static defaultProps: IDefaultProps = {
+        isMobile: false
     }
 
     render() {
@@ -28,7 +37,6 @@ class Title extends PureComponent {
             </StyledTitle>
         );
     }
-
 }
 
 export default Title;

@@ -13,10 +13,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/codemirror": "0.0.58",
     "@types/grid-styled": "^4.2.0",
+    "@types/randomstring": "^1.1.6",
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
     "@types/rebass": "^0.2.22",
+    "@types/split.js": "^1.3.1",
     "awesome-typescript-loader": "^5.2.0",
     "babel-core": "^6.24.1",
     "babel-eslint": "^8.2.6",

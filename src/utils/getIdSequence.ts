@@ -6,7 +6,14 @@
  * // returns ["foo1", "foo2", "foo3"]
  * getIdSequence(3, "foo")
  */
-const getIdSequence = (quantity: number, str: string): string[] =>
-    [...Array(quantity)].map((_, i) => `${str}${i+1}`);
+const getIdSequence = (quantity: number, str: string): string[] => {
+    let arr: string[] = [];
+
+    for(let i = 0; i < quantity; i++) {
+        arr.push(`${str}${i+1}`);
+    }
+
+    return arr;
+}
 
 export default getIdSequence;

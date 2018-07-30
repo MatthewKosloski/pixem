@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Checkbox } from '../../atoms';
+import { Checkbox } from '@atoms';
 
 const StyledCheckbox = styled(Checkbox)`${
     ({theme: {colors: {shakespeare, shark}}}) => css`

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { _vrem, _vrrem, _rem } from '../../../util-wrappers';
-import { hexToRgba } from '../../../utils';
+import { _vrem, _vrrem, _rem } from '@util-wrappers';
+import { hexToRgba } from '@utils';
 
 export default styled('div')`${
 

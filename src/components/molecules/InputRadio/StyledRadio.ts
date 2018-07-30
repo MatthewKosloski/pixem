@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { _em } from '../../../util-wrappers';
-
-import { Radio } from '../../atoms';
+import { _em } from '@util-wrappers';
+import { Radio } from '@atoms';
 
 export default styled(Radio)`${
     ({theme: {colors: {shakespeare, shark}}}) => css`

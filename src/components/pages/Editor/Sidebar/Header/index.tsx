@@ -1,27 +1,31 @@
-import React, { Fragment, PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { _vrrem } from '../../../../../util-wrappers';
-import { Hamburger } from '../../../../molecules';
-import { Row, Column } from '../../../../atoms';
+import { _vrrem } from '@util-wrappers';
+import { Hamburger } from '@molecules';
+import { Row, Column } from '@atoms';
 
 import Title from './Title';
 import Subtitle from './Subtitle';
 
 const StyledHeader = styled('div')`${
-    ({theme: {media: {md}}}) => css`
+    ({
+        theme: {
+            media: { md }
+        }
+    }) => css`
         @media ${md} {
             margin-bottom: ${_vrrem(1.5)};
         }
     `
 }`;
 
-class Header extends PureComponent {
+interface IPropTypes {
+    isMobile: boolean;
+    onHamburgerClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    componentDidUpdate() {
-        console.log('Header update', this.props);
-    }
+class Header extends React.PureComponent<IPropTypes> {
 
     render() {
         const {isMobile, onHamburgerClick} = this.props;
@@ -30,10 +34,10 @@ class Header extends PureComponent {
         return (
             <StyledHeader>
                 {isDesktop ? (
-                    <Fragment>
+                    <React.Fragment>
                         <Title />
                         <Subtitle />
-                    </Fragment>
+                    </React.Fragment>
                 ) : (
                     <Row alignItems="center">
                         <Column width={[1/2]}>
@@ -56,10 +60,5 @@ class Header extends PureComponent {
         );
     }
 }
-
-Header.propTypes = {
-    onHamburgerClick: PropTypes.func.isRequired,
-    isMobile: PropTypes.bool.isRequired
-};
 
 export default Header;

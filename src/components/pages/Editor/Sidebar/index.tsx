@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { _vrrem, _rem } from '../../../../util-wrappers';
+import { _vrrem, _rem } from '@util-wrappers';
 
 import Header from './Header';
 import Form from './Form';
@@ -27,9 +27,21 @@ const StyledSidebar = styled('aside')`${
         }
 `}`;
 
-class Sidebar extends Component {
+interface IPropTypes {
+    base: string;
+    unit: string;
+    shouldPreserveOriginalValues: boolean;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    constructor(props) {
+interface IState {
+    viewportWidth: number;
+    isHamburgerOpen: boolean;
+}
+
+class Sidebar extends React.Component<IPropTypes, IState> {
+
+    constructor(props: IPropTypes) {
         super(props);
         this.state = {
             viewportWidth: window.innerWidth,

@@ -1,19 +1,26 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import random from 'randomstring';
+import * as React from 'react';
+import * as random from 'randomstring';
 
-import { HelpIcon } from '../../atoms';
+import { HelpIcon } from '@atoms';
 
 import StyledTooltip from './StyledTooltip';
 import StyledIconContainer from './StyledIconContainer';
 
-class Tooltip extends PureComponent {
+interface IPropTypes {
+    text: string;
+}
 
-    constructor(props) {
+interface IState {
+    id: string;
+}
+
+class Tooltip extends React.PureComponent<IPropTypes, IState> {
+
+    constructor(props: IPropTypes) {
         super(props);
         this.state = {
             id: random.generate()
-        };
+        }
     }
 
     render() {
@@ -33,11 +40,6 @@ class Tooltip extends PureComponent {
             </StyledTooltip>
         );
     }
-
 }
-
-Tooltip.propTypes = {
-    text: PropTypes.string.isRequired
-};
 
 export default Tooltip;

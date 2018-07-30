@@ -6,9 +6,19 @@
         "module": "commonjs",
         "target": "es5",
         "jsx": "react",
-        "lib": ["es6", "dom"]
+        "lib": ["es6", "dom"],
+        "keyofStringsOnly": true,
+        "baseUrl": "./",
+        "paths": {
+            "@utils": ["src/utils"],
+            "@util-wrappers": ["src/util-wrappers"],
+            "@atoms": ["src/components/atoms"],
+            "@molecules": ["src/components/molecules"],
+            "@pages": ["src/components/pages"],
+            "@templates": ["src/components/templates"]
+        }
     },
     "include": [
-        "./src/**/*"
+        "src"
     ]
 }

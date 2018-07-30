@@ -1,13 +1,19 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-import { CheckboxIcon } from '../../atoms';
+import { CheckboxIcon } from '@atoms';
 
 import StyledContainer from './StyledContainer';
 import StyledCheckbox from './StyledCheckbox';
 import StyledCheckboxLabel from './StyledCheckboxLabel';
 
-class InputCheckbox extends PureComponent {
+interface IPropTypes {
+    id: string;
+    name: string;
+    checked: boolean;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+class InputCheckbox extends React.PureComponent<IPropTypes, {}> {
     render() {
         const { id, name, checked, onChange } = this.props;
         return (
@@ -25,12 +31,5 @@ class InputCheckbox extends PureComponent {
         );
     }
 }
-
-InputCheckbox.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    checked: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
-};
 
 export default InputCheckbox;

@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import styled, { css, StyledComponentClass } from 'styled-components';
 
-import { _vrrem } from '../../../util-wrappers';
-import { Label } from '../../atoms';
+import { _vrrem } from '@util-wrappers';
+import { Label } from '@atoms';
+
 import Tooltip from '../Tooltip';
 
 const MobileLabel = Label.extend`${
@@ -22,22 +22,24 @@ const Paragraph = styled('p')`
     margin-bottom: ${_vrrem(1)};
 `;
 
-/**
- * Calls withComponent on $styledComponent with  
- * $component if $condition is true.
- * 
- * @param {StyledComponent} styledComponent 
- * @param {string} component 
- * @param {boolean} condition 
- * @returns {StyledComponent}
- */
-const withComponentConditional = (styledComponent, component, condition) => {
-    return condition 
-        ? styledComponent.withComponent(component)
-        : styledComponent;
-};
+interface IPropTypes {
+    title: string;
+    htmlFor?: string;
+    tooltipText?: string;
+    useParagraph?: boolean;
+}
 
-class TooltipLabel extends PureComponent {
+interface IDefaultProps {
+    useParagraph: boolean;
+}
+
+export const TooltipLabel: React.ComponentClass<IPropTypes> =
+  class extends React.Component<IPropTypes & IDefaultProps> {
+
+    static defaultProps: IDefaultProps = {
+        useParagraph: false
+    };
+
     render() {
         const { 
             htmlFor, 
@@ -46,11 +48,16 @@ class TooltipLabel extends PureComponent {
             useParagraph, 
         } = this.props;
 
-        const type = withComponentConditional(MobileLabel, 'div', !htmlFor);
-        const props = htmlFor ? {htmlFor} : null;
-        let children = [title];
+        const props = htmlFor ? {htmlFor} : {};
+        let children: any = [
+            React.createElement('span', {children: title}),
+        ];
 
         const TooltipComponent = React.createElement(Tooltip, {text: tooltipText});
+
+        const type = htmlFor 
+            ? MobileLabel 
+            : MobileLabel.withComponent('div');
 
         if(useParagraph) {
             return React.createElement(
@@ -68,16 +75,5 @@ class TooltipLabel extends PureComponent {
 
     }
 }
-
-TooltipLabel.propTypes = {
-    htmlFor: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    tooltipText: PropTypes.string,
-    useParagraph: PropTypes.bool
-};
-
-TooltipLabel.defaultProps = {
-    useParagraph: false
-};
 
 export default TooltipLabel;

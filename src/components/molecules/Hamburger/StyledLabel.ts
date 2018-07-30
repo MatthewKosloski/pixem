@@ -1,7 +1,22 @@
 import styled, { css } from 'styled-components';
 
-const StyledLabel = styled('label')`${
-	({isMobileMenuVisible, theme: {colors: {cadetBlue, white}}}) => css`
+interface IPropTypes {
+	isMobileMenuVisible: boolean;
+	theme?: {
+		colors: {
+			cadetBlue: string;
+			white: string;
+		}
+	}
+}
+
+const StyledLabel = styled('label')<IPropTypes>`${
+	({
+		isMobileMenuVisible, 
+		theme: {
+			colors: {cadetBlue, white}
+		}
+	}) => css`
 		div {
 			position: relative;
 			width: 32px;

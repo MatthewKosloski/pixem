@@ -1,20 +1,14 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
-import { _rem } from '../../../../../../util-wrappers';
+import { _rem } from '@util-wrappers';
 
 const StyledSubtitle = styled('h2')`
     font-size: ${_rem(14)};
     font-weight: 400;
 `;
 
-class Subtitle extends PureComponent {
-
-    componentDidUpdate() {
-        console.log('Subtitle update', this.props);
-    }
-
-
+class Subtitle extends React.PureComponent {
     render() {
         return (
             <StyledSubtitle>

@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { Container } from 'rebass';
+import { Container as RebassContainer } from 'rebass';
 import styled, { css } from 'styled-components';
 
-interface IStyledContainerProps {
-	size: string;
-	theme: { containerWidths: string[]; };
-	px: number;
+interface IPropTypes {
+	size?: string;
+	theme?: { containerWidths: string[]; };
 }
 
-const StyledContainer = styled(Container)<IStyledContainerProps>`${
+const StyledContainer = styled(RebassContainer)<IPropTypes>`${
 	({size, theme: {containerWidths}}) => css`
 		max-width: ${containerWidths[size]};
 	`
@@ -18,11 +17,11 @@ StyledContainer.defaultProps = {
 	size: 'default'
 };
 
-const Component: React.SFC<{}> = (props) => {
+const Container: React.SFC<IPropTypes> = (props) => {
 	return (
 		<StyledContainer {...props}
 		px={1}/>
 	);
 }
 
-export default Component;
+export default Container;

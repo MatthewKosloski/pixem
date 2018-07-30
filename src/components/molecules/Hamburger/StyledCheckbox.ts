@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Checkbox } from '../../atoms';
+import { Checkbox } from '@atoms';
 
 export default styled(Checkbox)`
 	display: none;

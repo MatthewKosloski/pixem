@@ -1,6 +1,6 @@
 import Label from '../../atoms/Label';
 
-import { _em, _vrrem } from '../../../util-wrappers';
+import { _em, _vrrem } from '@util-wrappers';
 
 export default Label.extend`
     margin: 0;

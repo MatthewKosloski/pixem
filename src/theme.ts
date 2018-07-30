@@ -1,4 +1,5 @@
 import { vrrem, modularscalerem } from './utils';
+import { Theme as IRebassTheme } from 'rebass';
 
 const base = 18; // base font-size
 const ratio = 1.3; // line-height
@@ -57,14 +58,53 @@ const colors = {
 	mako: '#434854'
 };
 
-export default {
+interface ITheme {
+	base: number;
+	ratio: number;
+	containerWidths: {
+		default: string;
+		small: string;
+		large: string;
+		full: string;
+	}
+	breakpoints: string[];
+	media: {
+		sm: string;
+		md: string;
+		lg: string;
+	}
+	colors: {
+		black: string;
+		white: string;
+		aquamarine: string;
+		shakespeare: string;
+		shark: string;
+		darkShark: string;
+		mystic: string;
+		shuttleGray: string;
+		cadetBlue: string;
+		scienceBlue: string;
+		porcelain: string;
+		springWood: string;
+		bilobaFlower: string;
+		malibu: string;
+		froly: string;
+		yellowGreen: string;
+		goldenTainoi: string;
+		wildWatermelon: string;
+		mandy: string;
+		mako: string;
+	}
+}
+
+const theme: IRebassTheme & ITheme = {
 	base,
 	ratio,
 	containerWidths,
 	breakpoints,
 	media,
-	space,
-	fontSizes,
 	fonts,
 	colors
 };
+
+export default theme;

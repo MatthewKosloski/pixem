@@ -1,8 +1,8 @@
-import React, { Fragment, PureComponent } from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { _vrrem } from '../../../../../util-wrappers';
-import { TooltipLabel } from '../../../../molecules';
+import { _vrrem } from '@util-wrappers';
+import { TooltipLabel } from '@molecules';
 
 import BaseInput from './BaseInput';
 import UnitInput from './UnitInput';
@@ -24,7 +24,16 @@ const StyledFormItem = styled('div')`${
     `
 }`;
 
-const StyledMobileForm = styled('div')`${
+interface IPropTypes {
+    isMobile: boolean;
+    isMobileFormVisible: boolean;
+    base: string;
+    unit: string;
+    shouldPreserveOriginalValues: boolean;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const StyledMobileForm = styled('div')<IPropTypes>`${
     ({
         isMobileFormVisible,
         theme: {
@@ -46,14 +55,14 @@ const StyledMobileForm = styled('div')`${
     `
 }`;
 
-class Form extends PureComponent {
+class Form extends React.PureComponent<IPropTypes> {
 
-    constructor(props) {
+    constructor(props: IPropTypes) {
         super(props);
         this.renderChildren = this.renderChildren.bind(this);
     }
 
-    renderChildren() {
+    private renderChildren() {
         const {
             base,
             unit,
@@ -62,7 +71,7 @@ class Form extends PureComponent {
             isMobile  
         } = this.props;
         return(
-            <Fragment>
+            <React.Fragment>
                 <StyledFormItem>
                     <TooltipLabel
                         htmlFor="base"
@@ -92,23 +101,23 @@ class Form extends PureComponent {
                         checked={shouldPreserveOriginalValues}
                         onChange={handleChange} />
                 </StyledFormItem>
-            </Fragment>
+            </React.Fragment>
         );
     }
 
     render() {
         return (
-            <Fragment>
+            <React.Fragment>
                 {this.props.isMobile ? (
                     <StyledMobileForm {...this.props}>
                         {this.renderChildren()}
                     </StyledMobileForm>
                     ) : (
-                     <Fragment>
+                     <React.Fragment>
                         {this.renderChildren()}
-                    </Fragment>
+                    </React.Fragment>
                 )}
-            </Fragment>
+            </React.Fragment>
         );
     }
 }

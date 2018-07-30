@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { _vrrem, _rem } from '../../../util-wrappers';
-
-import { Text } from '../../atoms';
+import { _vrrem, _rem } from '@util-wrappers';
+import { Text } from '@atoms';
 
 export default styled(Text)`${
     ({theme: {colors: {white, shark, darkShark}}}) => css`

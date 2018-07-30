@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import random from 'randomstring';
+import * as React from 'react';
+import * as random from 'randomstring';
 import styled from 'styled-components';
 
-import { _vrrem } from '../../../util-wrappers';
+import { _vrrem } from '@util-wrappers';
 
 import StyledRadio from './StyledRadio';
 import StyledRadioLabel from './StyledRadioLabel';
@@ -13,17 +12,25 @@ const StyledContainer = styled('div')`
     margin-right: ${_vrrem(1)};
 `;
 
-class InputRadio extends PureComponent {
+interface IPropTypes {
+    title: string;
+    name: string;
+    value: string;
+    checked: boolean;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    constructor(props) {
+interface IState {
+    readonly id: string;
+}
+
+class InputRadio extends React.PureComponent<IPropTypes, IState> {
+    
+    constructor(props: IPropTypes) {
         super(props);
         this.state = {
             id: random.generate()
         };
-    }
-
-    componentDidUpdate() {
-        console.log('InputRadio update');
     }
 
     render() {
@@ -47,13 +54,5 @@ class InputRadio extends PureComponent {
     }
 
 }
-
-InputRadio.propTypes = {
-    title: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    checked: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
-};
 
 export default InputRadio;
