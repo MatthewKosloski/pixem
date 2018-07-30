@@ -33,7 +33,7 @@ class InputRadio extends React.PureComponent<IPropTypes, IState> {
         };
     }
 
-    render() {
+    public render() {
         const {title, name, value, checked, onChange} = this.props;
         const { id } = this.state;
         return (

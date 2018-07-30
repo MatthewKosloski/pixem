@@ -3,5 +3,5 @@ import { default as Shakespeare } from './Shakespeare';
 
 export default {
     Default,
-    Shakespeare
+    Shakespeare,
 };

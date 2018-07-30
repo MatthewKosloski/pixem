@@ -14,7 +14,7 @@ const StyledContainer = styled(RebassContainer)<IPropTypes>`${
 }`;
 
 StyledContainer.defaultProps = {
-	size: 'default'
+	size: 'default',
 };
 
 const Container: React.SFC<IPropTypes> = (props) => {
@@ -22,6 +22,6 @@ const Container: React.SFC<IPropTypes> = (props) => {
 		<StyledContainer {...props}
 		px={1}/>
 	);
-}
+};
 
 export default Container;

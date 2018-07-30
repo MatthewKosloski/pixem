@@ -3,9 +3,9 @@ import { Box } from 'grid-styled';
 
 /**
  * Adding types for this component
- * is rather tedious.  See here for types: 
+ * is rather tedious.  See here for types:
  * https://goo.gl/MNZBhD
- * 
+ *
  * As you consume values, just add them to the
  * interface.
  */
@@ -28,17 +28,18 @@ interface IDefaultProps {
 const Column: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps> {
 
-	static defaultProps: IDefaultProps = {
-		px: 1
-	}
+	public static defaultProps: IDefaultProps = {
+		px: 1,
 
-	render() {
+	};
+
+	public render() {
 		return (
 			<Box {...this.props}>
 				{this.props.children}
 			</Box>
 		);
 	}
-}
+};
 
 export default Column;

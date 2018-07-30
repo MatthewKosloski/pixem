@@ -4,6 +4,10 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "quotemark": [false, "single", "jsx-single"],
+        "indent": [false, "tabs", 4],
+        "ordered-imports": [false, "any"]
+    },
     "rulesDirectory": []
 }

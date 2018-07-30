@@ -8,7 +8,7 @@ interface IPropTypes {
 }
 
 class Checkbox extends React.PureComponent<IPropTypes, {}> {
-    render() {
+    public render() {
         return (
             <input type="checkbox" {...this.props}/>
         );
