@@ -50,7 +50,7 @@ const StyledMobileForm = styled('div')<IPropTypes>`${
         transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
         transform: translateY(${isMobileFormVisible ? '0' : '-100%'});
         opacity: ${isMobileFormVisible ? '1' : '0'};
-        z-index: 5;
+        z-index: 6;
         visiblity: ${isMobileFormVisible ? 'visible' : 'hidden'};
     `
 }`;
@@ -76,7 +76,7 @@ class Form extends React.PureComponent<IPropTypes> {
                     <TooltipLabel
                         htmlFor="base"
                         title="Base Pixel Size"
-                        tooltipText={'Tooltip text here'}
+                        tooltipText={'This should be the same as the root font-size on your webpage.  The default for most web browsers is 16 pixels.'}
                         useParagraph={isMobile} />
                     <BaseInput
                         value={base}
@@ -85,7 +85,7 @@ class Form extends React.PureComponent<IPropTypes> {
                 <StyledFormItem>
                     <TooltipLabel
                         title="Conversion Unit"
-                        tooltipText={'Tooltip text here'}
+                        tooltipText={'Choose a unit to convert pixel values to—em or rem.  The former is relative to the font-size of the direct parent and the latter is relative to the font-size of the root element.'}
                         useParagraph={isMobile} />
                     <UnitInput
                         unit={unit}
@@ -94,8 +94,8 @@ class Form extends React.PureComponent<IPropTypes> {
                 <StyledFormItem>
                     <TooltipLabel
                         htmlFor="shouldPreserveOriginalValues"
-                        title="Conversion Unit"
-                        tooltipText={'Tooltip text here'}
+                        title="Preserve Original Values"
+                        tooltipText={'Check whether to preserve original values with CSS comments.  This simply means that the original pixel value before the conversion is preserved in a comment next to the converted value.'}
                         useParagraph={isMobile} />
                     <ShouldPreserveOriginalValuesInput
                         checked={shouldPreserveOriginalValues}

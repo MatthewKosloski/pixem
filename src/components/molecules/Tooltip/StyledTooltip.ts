@@ -30,16 +30,16 @@ export default styled('div')`${
             position: absolute;
             bottom: 150%;
             left: 50%;
-            width: 150px;
-            margin-left: -75px;
+            width: 225px;
+            margin-left: -112.5px;
             padding: ${_vrem(1)};
-            background-color: ${hexToRgba(black, 0.85)};
-            border-radius: 3px;
+            background-color: ${hexToRgba(black, 0.92)};
+            border-radius: 4px;
             text-transform: none;
             font-weight: 400;
             color: ${white};
             font-size: ${_rem(12)};
-            z-index: 4;
+            z-index: 6;
             &::after {
                 content: '';
                 width: 0; 

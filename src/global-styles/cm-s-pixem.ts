@@ -12,7 +12,7 @@ export default `
 		color: ${colors.porcelain};
 		height: 100%;
 		overflow-x: hidden !important;
-		padding-top: ${_vrrem(1.5)};
+		padding-top: ${_vrrem(2)};
   	}
 
 	.CodeMirror-gutters {

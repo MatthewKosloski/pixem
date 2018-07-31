@@ -19,7 +19,7 @@ const StyledTitle = styled('p')`${
         width: 100%;
         color: ${white};
         font-size: ${_rem(14)};
-        padding: ${_vrrem(0.5)} 0 ${_vrrem(0.5)} ${_vrrem(1)};
+        padding: ${_vrrem(1)} 0 ${_vrrem(1)} ${_vrrem(1)};
     `
 }`
 
