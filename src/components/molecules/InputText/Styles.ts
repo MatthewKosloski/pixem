@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 import { _vrrem, _rem } from '@util-wrappers';
-import { Text } from '@atoms';
+import { Text as AtomText } from '@atoms';
 
-export default styled(Text)`${
+export const Text = styled(AtomText)`${
     ({theme: {colors: {white, shark, darkShark}}}) => css`
         background-color: ${darkShark};
         border: none;

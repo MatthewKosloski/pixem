@@ -1,5 +1,6 @@
 import * as React from 'react';
-import StyledInputText from './StyledInputText';
+
+import { Text } from './Styles';
 
 interface IPropTypes {
     id: string;
@@ -12,7 +13,7 @@ const InputText: React.SFC<IPropTypes> = ({
     name, id, value, onChange
 }) => {
     return (
-        <StyledInputText 
+        <Text 
             name={name}
             id={id}
             value={value}

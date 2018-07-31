@@ -1,19 +1,13 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
-import { _rem } from '@util-wrappers';
-
-const StyledSubtitle = styled('h2')`
-    font-size: ${_rem(14)};
-    font-weight: 400;
-`;
+import { Container } from './Styles';
 
 class Subtitle extends React.PureComponent {
     render() {
         return (
-            <StyledSubtitle>
+            <Container>
                 A tool made by <a href="#">Matthew Kosloski</a>
-            </StyledSubtitle>
+            </Container>
         );
     }
 }

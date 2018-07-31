@@ -1,22 +1,38 @@
 import styled, { css } from 'styled-components';
 
-interface IPropTypes {
-	isMobileMenuVisible: boolean;
+import { Checkbox as AtomCheckbox } from '@atoms';
+
+interface ILabelPropTypes {
 	theme?: {
-		colors: {
-			cadetBlue: string;
-			white: string;
-		}
+		colors: { shakespeare: string; }
 	}
 }
 
-const StyledLabel = styled('label')<IPropTypes>`${
-	({
-		isMobileMenuVisible, 
-		theme: {
-			colors: {cadetBlue, white}
+export const Checkbox = styled(AtomCheckbox)`
+	display: none;
+	&:checked {
+		~ div {
+			span {
+				background: transparent;
+				&::before {
+					transform: rotate(-45deg);
+				}
+				&::after {
+					transform: rotate(45deg);
+				}
+				&::before,
+				&::after {
+					top: 0;
+				}
+			}
 		}
-	}) => css`
+	}
+`;
+
+export const Label = styled('label')<ILabelPropTypes>`${
+	({theme: {
+		colors: {shakespeare}
+	}}) => css`
 		div {
 			position: relative;
 			width: 32px;
@@ -37,7 +53,7 @@ const StyledLabel = styled('label')<IPropTypes>`${
 			span,
 			span::before,
 			span::after {
-				background-color: ${isMobileMenuVisible ? cadetBlue : white};
+				background-color: ${shakespeare};
 				transition: 0.15s ease-in-out;
 				width: 100%;
 				height: 4px;
@@ -53,13 +69,10 @@ const StyledLabel = styled('label')<IPropTypes>`${
  * This is so we don't have to wrap the component
  * in a ThemeProvider during testing.
  */
-StyledLabel.defaultProps = {
+Label.defaultProps = {
 	theme: {
 		colors: {
-			cadetBlue: 'blue',
-			white: 'white'
+			shakespeare: 'blue',
 		}
 	}
 };
-
-export default StyledLabel;

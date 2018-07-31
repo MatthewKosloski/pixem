@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled('div')`
+export const Container = styled('div')`
     display: flex;
     flex-direction: column
     height: 100vh;

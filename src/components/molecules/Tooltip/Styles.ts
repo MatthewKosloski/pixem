@@ -3,10 +3,28 @@ import styled, { css } from 'styled-components';
 import { _vrem, _vrrem, _rem } from '@util-wrappers';
 import { hexToRgba } from '@utils';
 
-export default styled('div')`${
+export const IconContainer = styled('div')`${
+    ({theme: {
+        colors: {shakespeare}
+    }}) => css`
+        background-color: ${shakespeare};
+        border-radius: 100%;
+        width: 18px;
+        height: 18px;
+        position: relative;
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    `
+}`;
 
-    ({theme: {colors: { black, white }}}) => css`
-    
+export const Container = styled('div')`${
+    ({theme: {
+        colors: { black, white }
+    }}) => css`
         position: relative;
         top: 4px;
         display: inline-block;
@@ -52,7 +70,5 @@ export default styled('div')`${
                 bottom: -8px;
             }
         }
-    
     `
-
 }`;

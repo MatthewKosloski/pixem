@@ -9,7 +9,12 @@ import Sidebar from './Sidebar';
 import PanelManager from './PanelManager';
 import Textarea from './Textarea';
 
-const defaultUserInput = ``;  
+const defaultUserInput = `.foo {
+	margin: 16px 148px;
+	font-size: 14px;
+	color: #fff;
+	padding: 5px;
+}`;  
 
 interface IValueParserNode {
 	type:

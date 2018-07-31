@@ -1,26 +1,8 @@
 import * as React from 'react';
-import styled, { css, StyledComponentClass } from 'styled-components';
-
-import { _vrrem } from '@util-wrappers';
-import { Label } from '@atoms';
 
 import Tooltip from '../Tooltip';
 
-const MobileLabel = Label.extend`${
-    ({theme: {colors: {white}, media: {md}}}) => css`
-        color: ${white};
-        margin-bottom: ${_vrrem(0.25)};
-        @media ${md} {
-            margin-bottom: ${_vrrem(1)};
-            color: inherit;
-        }
-    `
-}
-`;
-
-const Paragraph = styled('p')`
-    margin-bottom: ${_vrrem(1)};
-`;
+import { MobileLabel, Paragraph } from './Styles';
 
 interface IPropTypes {
     title: string;

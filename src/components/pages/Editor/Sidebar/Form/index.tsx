@@ -1,30 +1,13 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
 
-import { _vrrem } from '@util-wrappers';
 import { TooltipLabel } from '@molecules';
 
 import BaseInput from './BaseInput';
 import UnitInput from './UnitInput';
 import ShouldPreserveOriginalValuesInput from './ShouldPreserveOriginalValuesInput';
+import { FormItem, MobileForm } from './Styles';
 
-const StyledFormItem = styled('div')`${
-    ({theme: {
-        colors: {mako},
-        media: {md}
-    }}) => css`
-        border-bottom: 2px solid ${mako};
-        margin-bottom: ${_vrrem(1.5)};
-        padding: 0 ${_vrrem(1)} ${_vrrem(1)} ${_vrrem(1)};
-        @media ${md} {
-            border-bottom: none;
-            padding-left: 0;
-            padding-right: 0;
-        }
-    `
-}`;
-
-interface IPropTypes {
+export interface IPropTypes {
     isMobile: boolean;
     isMobileFormVisible: boolean;
     base: string;
@@ -32,28 +15,6 @@ interface IPropTypes {
     shouldPreserveOriginalValues: boolean;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-
-const StyledMobileForm = styled('div')<IPropTypes>`${
-    ({
-        isMobileFormVisible,
-        theme: {
-            colors: {shark}
-        }
-    }) => css`
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: ${shark};
-        width: 100%;
-        height: 100%;
-        padding: ${_vrrem(4)} 0;
-        transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
-        transform: translateY(${isMobileFormVisible ? '0' : '-100%'});
-        opacity: ${isMobileFormVisible ? '1' : '0'};
-        z-index: 6;
-        visiblity: ${isMobileFormVisible ? 'visible' : 'hidden'};
-    `
-}`;
 
 class Form extends React.PureComponent<IPropTypes> {
 
@@ -72,7 +33,7 @@ class Form extends React.PureComponent<IPropTypes> {
         } = this.props;
         return(
             <React.Fragment>
-                <StyledFormItem>
+                <FormItem>
                     <TooltipLabel
                         htmlFor="base"
                         title="Base Pixel Size"
@@ -81,8 +42,8 @@ class Form extends React.PureComponent<IPropTypes> {
                     <BaseInput
                         value={base}
                         onChange={handleChange} />	
-                </StyledFormItem>
-                <StyledFormItem>
+                </FormItem>
+                <FormItem>
                     <TooltipLabel
                         title="Conversion Unit"
                         tooltipText={'Choose a unit to convert pixel values to—em or rem.  The former is relative to the font-size of the direct parent and the latter is relative to the font-size of the root element.'}
@@ -90,8 +51,8 @@ class Form extends React.PureComponent<IPropTypes> {
                     <UnitInput
                         unit={unit}
                         onChange={handleChange} />
-                </StyledFormItem>
-                <StyledFormItem>
+                </FormItem>
+                <FormItem>
                     <TooltipLabel
                         htmlFor="shouldPreserveOriginalValues"
                         title="Preserve Original Values"
@@ -100,7 +61,7 @@ class Form extends React.PureComponent<IPropTypes> {
                     <ShouldPreserveOriginalValuesInput
                         checked={shouldPreserveOriginalValues}
                         onChange={handleChange} />
-                </StyledFormItem>
+                </FormItem>
             </React.Fragment>
         );
     }
@@ -109,9 +70,11 @@ class Form extends React.PureComponent<IPropTypes> {
         return (
             <React.Fragment>
                 {this.props.isMobile ? (
-                    <StyledMobileForm {...this.props}>
+                    <MobileForm 
+                        id="sidebar-mobile-form"
+                        {...this.props}>
                         {this.renderChildren()}
-                    </StyledMobileForm>
+                    </MobileForm>
                     ) : (
                      <React.Fragment>
                         {this.renderChildren()}

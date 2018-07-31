@@ -1,24 +1,11 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
 
-import { _vrrem } from '@util-wrappers';
 import { Hamburger } from '@molecules';
 import { Row, Column } from '@atoms';
 
 import Title from './Title';
 import Subtitle from './Subtitle';
-
-const StyledHeader = styled('div')`${
-    ({
-        theme: {
-            media: { md }
-        }
-    }) => css`
-        @media ${md} {
-            margin-bottom: ${_vrrem(1.5)};
-        }
-    `
-}`;
+import { Container } from './Styles';
 
 interface IPropTypes {
     isMobile: boolean;
@@ -32,7 +19,7 @@ class Header extends React.PureComponent<IPropTypes> {
         const isDesktop = !isMobile;
 
         return (
-            <StyledHeader>
+            <Container>
                 {isDesktop ? (
                     <React.Fragment>
                         <Title />
@@ -49,15 +36,14 @@ class Header extends React.PureComponent<IPropTypes> {
                                 <Column>
                                     <Hamburger 
                                         ariaLabel="Toggle Settings View"
-                                        ariaControls={"foo"}
-                                        onClick={onHamburgerClick}
-                                        isMobileMenuVisible={true} />
+                                        ariaControls="sidebar-mobile-form"
+                                        onClick={onHamburgerClick} />
                                 </Column>
                             </Row>
                         </Column>
                     </Row>
                 )}
-            </StyledHeader>
+            </Container>
         );
     }
 }

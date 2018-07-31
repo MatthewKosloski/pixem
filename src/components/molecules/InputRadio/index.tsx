@@ -1,16 +1,7 @@
 import * as React from 'react';
 import * as random from 'randomstring';
-import styled from 'styled-components';
 
-import { _vrrem } from '@util-wrappers';
-
-import StyledRadio from './StyledRadio';
-import StyledRadioLabel from './StyledRadioLabel';
-
-const StyledContainer = styled('div')`
-    display: inline-block;
-    margin-right: ${_vrrem(1)};
-`;
+import { Radio, Label, Container } from './Styles';
 
 interface IPropTypes {
     title: string;
@@ -37,19 +28,19 @@ class InputRadio extends React.PureComponent<IPropTypes, IState> {
         const {title, name, value, checked, onChange} = this.props;
         const { id } = this.state;
         return (
-            <StyledContainer>
-                <StyledRadio 
+            <Container>
+                <Radio 
                     id={id}
                     name={name}
                     value={value}
                     checked={checked}
                     onChange={onChange}
                 />
-                <StyledRadioLabel 
+                <Label 
                     htmlFor={id}>
                     {title}
-                </StyledRadioLabel>
-            </StyledContainer>
+                </Label>
+            </Container>
         );
     }
 

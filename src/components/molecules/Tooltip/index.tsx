@@ -3,8 +3,7 @@ import * as random from 'randomstring';
 
 import { HelpIcon } from '@atoms';
 
-import StyledTooltip from './StyledTooltip';
-import StyledIconContainer from './StyledIconContainer';
+import { Container, IconContainer } from './Styles';
 
 interface IPropTypes {
     text: string;
@@ -27,17 +26,17 @@ class Tooltip extends React.PureComponent<IPropTypes, IState> {
         const { text } = this.props;
         const { id } = this.state;
         return (
-            <StyledTooltip>
+            <Container>
                 <button 
                     type="button" 
                     aria-label="More info" 
                     aria-describedby={id}>
-                    <StyledIconContainer>
+                    <IconContainer>
                         <HelpIcon />
-                    </StyledIconContainer>
+                    </IconContainer>
                 </button>
                 <span id={id}>{text}</span>
-            </StyledTooltip>
+            </Container>
         );
     }
 }

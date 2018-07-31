@@ -1,8 +1,6 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
 
-import StyledPanel from './StyledPanel';
-import { _vrrem, _rem } from '@util-wrappers';
+import { Container, Title } from './Styles';
 
 interface IPropTypes {
     id: string;
@@ -10,28 +8,15 @@ interface IPropTypes {
     child: React.ReactNode;
 }
 
-const StyledTitle = styled('p')`${
-    ({theme: {colors: {shark, white}}}) => css`
-        position: absolute;
-        z-index: 5;
-        background-color: ${shark};
-        display: block;
-        width: 100%;
-        color: ${white};
-        font-size: ${_rem(14)};
-        padding: ${_vrrem(1)} 0 ${_vrrem(1)} ${_vrrem(1)};
-    `
-}`
-
 const Panel: React.SFC<IPropTypes> = ({id, title, child}) => (
-    <StyledPanel 
+    <Container 
         id={id} 
         key={id}>
-        <StyledTitle>
+        <Title>
             {title}
-        </StyledTitle>
+        </Title>
         {child}
-    </StyledPanel>
+    </Container>
 );
 
 export default Panel;

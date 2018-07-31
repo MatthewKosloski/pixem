@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Split from 'split.js';
 
 import Panel from './Panel';
-import StyledContainer from './StyledContainer';
+import { Container } from './Styles';
 
 import { getIdSequence } from '@utils';
 
@@ -51,14 +51,14 @@ class PanelManager extends React.Component<IPropTypes> {
         const panelIds = this.getPanelIds(this.props.panels.length);
 
         return (
-            <StyledContainer>
+            <Container>
                 {this.props.panels.map(({node, title}, index) =>
                     Panel({
                         child: node,
                         title: title,
                         id: panelIds[index]
                     }))}
-            </StyledContainer>  
+            </Container>  
         );
     }
 

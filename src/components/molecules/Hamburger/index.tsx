@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import StyledLabel from './StyledLabel';
-import StyledCheckbox from './StyledCheckbox';
+import { Label, Checkbox } from './Styles';
 
 interface IPropTypes {
 	ariaControls: string;
 	ariaLabel?: string;
-	isMobileMenuVisible: boolean;
 	onClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -20,6 +18,10 @@ interface IState {
 
 const Hamburger: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps, IState> {
+
+	componentWillUnmount() {
+		console.log('unmounting hamburger');
+	}
 
 	static defaultProps: IDefaultProps = {
 		ariaLabel: 'Toggle mobile navigation'
@@ -38,7 +40,6 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 	}
 
 	private handleClick(e: React.ChangeEvent<HTMLInputElement>) {
-		console.log('foo');
 		this.setState({
 			ariaExpanded: !this.state.ariaExpanded
 		});
@@ -49,23 +50,21 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 		const { 
 			ariaControls, 
 			ariaLabel,
-			isMobileMenuVisible 
 		} = this.props;
 		const { ariaExpanded } = this.state;
 		return (
-			<StyledLabel
+			<Label
 				role="button"
 				aria-controls={ariaControls}
 				aria-label={ariaLabel}
-				aria-expanded={ariaExpanded}
-				isMobileMenuVisible={isMobileMenuVisible}>
-				<StyledCheckbox 
+				aria-expanded={ariaExpanded}>
+				<Checkbox 
 					checked={ariaExpanded}
 					onChange={this.handleClick} />
 				<div aria-hidden="true">
 					<span></span>
 				</div>
-			</StyledLabel>
+			</Label>
 		);
 	}
 

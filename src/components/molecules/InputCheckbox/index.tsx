@@ -2,9 +2,7 @@ import * as React from 'react';
 
 import { CheckboxIcon } from '@atoms';
 
-import StyledContainer from './StyledContainer';
-import StyledCheckbox from './StyledCheckbox';
-import StyledCheckboxLabel from './StyledCheckboxLabel';
+import { Container, Checkbox, Label } from './Styles';
 
 interface IPropTypes {
     id: string;
@@ -17,17 +15,17 @@ class InputCheckbox extends React.PureComponent<IPropTypes, {}> {
     render() {
         const { id, name, checked, onChange } = this.props;
         return (
-            <StyledContainer>
-                <StyledCheckbox 
+            <Container>
+                <Checkbox 
                     name={name}
                     id={id}
                     checked={checked}
                     onChange={onChange}
                 />
-                <StyledCheckboxLabel htmlFor={id}>
+                <Label htmlFor={id}>
                     <CheckboxIcon />
-                </StyledCheckboxLabel>
-            </StyledContainer>
+                </Label>
+            </Container>
         );
     }
 }
