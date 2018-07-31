@@ -1,4 +1,5 @@
 import theme from '../theme';
+import { _vrrem } from '@util-wrappers';
 
 const { colors } = theme;
 
@@ -11,6 +12,7 @@ export default `
 		color: ${colors.porcelain};
 		height: 100%;
 		overflow-x: hidden !important;
+		padding-top: ${_vrrem(1.5)};
   	}
 
 	.CodeMirror-gutters {

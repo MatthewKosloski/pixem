@@ -6,11 +6,19 @@ import StyledContainer from './StyledContainer';
 
 import { getIdSequence } from '@utils';
 
-class PanelManager extends React.Component {
+interface IPanel {
+    title: string;
+    node: React.ReactNode;
+}
+
+interface IPropTypes {
+    panels: IPanel[];
+}
+
+class PanelManager extends React.Component<IPropTypes> {
 
     componentDidMount() {
-        const elements = this.getPanelIds(
-            React.Children.count(this.props.children), true);
+        const elements = this.getPanelIds(this.props.panels.length, true);
 
         const options = {
             gutterSize: 2,
@@ -39,14 +47,17 @@ class PanelManager extends React.Component {
             : ids; 
     }  
 
-    render() {
-        const panelIds = this.getPanelIds(
-            React.Children.count(this.props.children));
+    public render() {
+        const panelIds = this.getPanelIds(this.props.panels.length);
 
         return (
             <StyledContainer>
-                {React.Children.map(this.props.children, (child, index) =>
-                    Panel({child, id: panelIds[index]}))}
+                {this.props.panels.map(({node, title}, index) =>
+                    Panel({
+                        child: node,
+                        title: title,
+                        id: panelIds[index]
+                    }))}
             </StyledContainer>  
         );
     }

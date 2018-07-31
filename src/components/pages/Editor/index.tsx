@@ -335,20 +335,34 @@ class Editor extends React.Component<{}, IState> {
 	 */
 	private renderSecondColumn(): React.ReactNode {
 		const { userInput, result } = this.state;
+
+		const EditableTextarea = (
+			<Textarea 
+				value={userInput}
+				onBeforeChange={this.handleUserInputChange}
+				autoFocus={true}
+			/>
+		);
+
+		const ReadOnlyTextarea = (
+			<Textarea 
+				value={result}
+				readOnly={true}
+				cursorBlinkRate={-1}
+				onBeforeChange={() => {}}
+			/>
+		);
+
 		return (
-			<PanelManager>
-				<Textarea 
-					value={userInput}
-					onBeforeChange={this.handleUserInputChange}
-					autoFocus={true}
-				/>
-				<Textarea 
-					value={result}
-					readOnly={true}
-					cursorBlinkRate={-1}
-					onBeforeChange={() => {}}
-				/>
-			</PanelManager>
+			<PanelManager 
+				panels={[{
+					title: 'Your code',
+					node: EditableTextarea
+				},
+				{
+					title: 'Result',
+					node: ReadOnlyTextarea
+				}]}/>
 		);
 	}
 
