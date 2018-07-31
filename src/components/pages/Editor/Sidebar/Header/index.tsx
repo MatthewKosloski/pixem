@@ -40,10 +40,11 @@ class Header extends React.PureComponent<IPropTypes> {
                     </React.Fragment>
                 ) : (
                     <Row alignItems="center">
-                        <Column width={[1/2]}>
+                        <Column width={[9/12]}>
                             <Title isMobile/>
+                            <Subtitle />
                         </Column>
-                        <Column width={[1/2]}>
+                        <Column width={[3/12]}>
                             <Row justifyContent="flex-end">
                                 <Column>
                                     <Hamburger 
