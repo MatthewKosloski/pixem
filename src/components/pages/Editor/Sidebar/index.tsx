@@ -1,31 +1,8 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
-
-import { _vrrem, _rem } from '@util-wrappers';
 
 import Header from './Header';
 import Form from './Form';
-
-const StyledSidebar = styled('aside')`${
-    ({theme: {
-        media: {md}, 
-        colors: {shark, white, cadetBlue, mako}
-    }}) => css`
-        background-color: ${shark};
-        border-bottom: 2px solid ${mako};
-        color: ${cadetBlue};
-        font-size: ${_rem(14)};
-        padding: ${_vrrem(1)};
-        a {
-            color: ${white};
-        }
-        @media ${md} {
-            height: 100vh;
-            border-bottom: none;
-            border-right: 2px solid ${mako};
-            font-size: ${_rem(16)};
-        }
-`}`;
+import { Container } from './Styles';
 
 interface IPropTypes {
     base: string;
@@ -66,7 +43,7 @@ class Sidebar extends React.Component<IPropTypes, IState> {
     }
 
     isMobile() {
-        return this.state.viewportWidth <= 768;
+        return this.state.viewportWidth <= 767;
     }
 
     handleHamburgerClick() {
@@ -77,7 +54,7 @@ class Sidebar extends React.Component<IPropTypes, IState> {
 
     render() {
         return (
-            <StyledSidebar>
+            <Container>
                 <Header 
                     onHamburgerClick={this.handleHamburgerClick}
                     isMobile={this.isMobile()}/>
@@ -85,7 +62,7 @@ class Sidebar extends React.Component<IPropTypes, IState> {
                     isMobile={this.isMobile()}
                     isMobileFormVisible={this.state.isHamburgerOpen} 
                     {...this.props}/>
-            </StyledSidebar>
+            </Container>
         );   
     }
 
