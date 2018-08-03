@@ -19,10 +19,6 @@ interface IState {
 const Hamburger: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps, IState> {
 
-	componentWillUnmount() {
-		console.log('unmounting hamburger');
-	}
-
 	static defaultProps: IDefaultProps = {
 		ariaLabel: 'Toggle mobile navigation'
 	}
