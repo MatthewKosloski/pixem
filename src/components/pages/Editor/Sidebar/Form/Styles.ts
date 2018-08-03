@@ -11,11 +11,12 @@ export const FormItem = styled('div')`${
     }}) => css`
         border-bottom: 2px solid ${mako};
         margin-bottom: ${_vrrem(1.5)};
-        padding: 0 ${_vrrem(1)} 0 ${_vrrem(1)};
+        padding: 0 ${_vrrem(1)} ${_vrrem(1)} ${_vrrem(1)};
         @media ${md} {
             border-bottom: none;
             padding-left: 0;
             padding-right: 0;
+            padding-bottom: 0;
         }
     `
 }`;
