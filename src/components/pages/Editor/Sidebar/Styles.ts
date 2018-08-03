@@ -11,7 +11,7 @@ export const Container = styled('aside')`${
         border-bottom: 2px solid ${mako};
         color: ${cadetBlue};
         font-size: ${_rem(14)};
-        padding: ${_vrrem(1)};
+        padding: ${_vrrem(1)} 0;
         a {
             color: ${white};
         }
@@ -20,5 +20,6 @@ export const Container = styled('aside')`${
             border-bottom: none;
             border-right: 2px solid ${mako};
             font-size: ${_rem(16)};
+            padding: ${_vrrem(1)};
         }
 `}`;
