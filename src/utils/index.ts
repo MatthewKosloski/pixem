@@ -17,7 +17,9 @@ import { default as hexToRgb } from './hexToRgb';
 import { default as hexToRgba } from './hexToRgba';
 import { default as stripSemicolons } from './stripSemicolons';
 import { default as getLastArrayItem } from './getLastArrayItem';
-
+import { default as getMediaFromBreakpoints } from './getMediaFromBreakpoints';
+import { default as getModularscaleSequence } from './getModularscaleSequence';
+import { default as getVrSequence } from './getVrSequence';
 
 export { 
 	dynamicPrecision,
@@ -38,5 +40,8 @@ export {
 	hexToRgb,
 	hexToRgba,
 	stripSemicolons,
-	getLastArrayItem
+	getLastArrayItem,
+	getMediaFromBreakpoints,
+	getModularscaleSequence,
+	getVrSequence
 };
