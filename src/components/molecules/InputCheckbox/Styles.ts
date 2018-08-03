@@ -17,8 +17,7 @@ export const Checkbox = styled(AtomCheckbox)`${
         &:focus + label {
             border-color: ${shark};
         }
-        &:checked + label,
-        &:focus + label {
+        &:checked + label {
             svg {
                 width: 16px;
             }
