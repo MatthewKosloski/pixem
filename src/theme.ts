@@ -1,4 +1,9 @@
-import { vrrem, modularscalerem } from './utils';
+import { 
+	getMediaFromBreakpoints, 
+	getVrSequence, 
+	getModularscaleSequence
+} from '@utils';
+
 import { Theme as IRebassTheme } from 'rebass';
 
 const base = 18; // base font-size
@@ -17,19 +22,13 @@ const breakpoints = [
 	'1000px'
 ];
 
-const [ sm, md, lg ] = breakpoints;
+const media = getMediaFromBreakpoints(
+	['sm', 'md', 'lg'], 
+	breakpoints);
 
-const media = {
-    sm: `(min-width: ${sm})`,
-    md: `(min-width: ${md})`,
-    lg: `(min-width: ${lg})`
-};
+const space = getVrSequence(10, base, ratio);
 
-const space = [...Array(10)].map((_, i) => 
-	vrrem(base, ratio, i));
-
-const fontSizes = [...Array(10)].map((_, i) => 
-	modularscalerem(base, ratio, i));
+const fontSizes = getModularscaleSequence(10, base, ratio);
 
 const fonts = {
 	sans: 'Open Sans, sans-serif'
@@ -61,40 +60,10 @@ const colors = {
 interface ITheme {
 	base: number;
 	ratio: number;
-	containerWidths: {
-		default: string;
-		small: string;
-		large: string;
-		full: string;
-	}
 	breakpoints: string[];
-	media: {
-		sm: string;
-		md: string;
-		lg: string;
-	}
-	colors: {
-		black: string;
-		white: string;
-		aquamarine: string;
-		shakespeare: string;
-		shark: string;
-		darkShark: string;
-		mystic: string;
-		shuttleGray: string;
-		cadetBlue: string;
-		scienceBlue: string;
-		porcelain: string;
-		springWood: string;
-		bilobaFlower: string;
-		malibu: string;
-		froly: string;
-		yellowGreen: string;
-		goldenTainoi: string;
-		wildWatermelon: string;
-		mandy: string;
-		mako: string;
-	}
+	containerWidths: { [key: string]: string; }
+	media: { [key: string]: string; }
+	colors: { [key: string]: string; }
 }
 
 const theme: IRebassTheme & ITheme = {
@@ -104,6 +73,8 @@ const theme: IRebassTheme & ITheme = {
 	breakpoints,
 	media,
 	fonts,
+	space,
+	fontSizes,
 	colors
 };
 
