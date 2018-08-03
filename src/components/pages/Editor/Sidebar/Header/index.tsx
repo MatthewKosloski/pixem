@@ -33,7 +33,7 @@ class Header extends React.PureComponent<IPropTypes> {
                         </Column>
                         <Column width={[3/12]}>
                             <Row justifyContent="flex-end">
-                                <Column>
+                                <Column px={0}>
                                     <Hamburger 
                                         ariaLabel="Toggle Settings View"
                                         ariaControls="sidebar-mobile-form"
