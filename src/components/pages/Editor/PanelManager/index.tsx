@@ -1,5 +1,9 @@
 import * as React from 'react';
-import * as Split from 'split.js';
+
+let Split = null;
+if(typeof window !== 'undefined') {
+    Split = require('split.js');
+}
 
 import Panel from './Panel';
 import { Container } from './Styles';

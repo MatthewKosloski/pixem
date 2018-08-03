@@ -11,6 +11,6 @@ export default `
         }
     }
     .react-codemirror2 {
-        height: 50vh;
+        height: 100vh;
     }
 `;

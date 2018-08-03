@@ -21,23 +21,24 @@ class Sidebar extends React.Component<IPropTypes, IState> {
     constructor(props: IPropTypes) {
         super(props);
         this.state = {
-            viewportWidth: window.innerWidth,
+            viewportWidth: 0,
             isHamburgerOpen: false
         };
-        this.onResize = this.onResize.bind(this);
+        this.setViewportWidth = this.setViewportWidth.bind(this);
         this.isMobile = this.isMobile.bind(this);
         this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.onResize);
+        this.setViewportWidth();
+        window.addEventListener('resize', this.setViewportWidth);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.onResize);
+        window.removeEventListener('resize', this.setViewportWidth);
     }
 
-    onResize() {
+    setViewportWidth() {
         const viewportWidth = window.innerWidth;
         this.setState({viewportWidth});
     }

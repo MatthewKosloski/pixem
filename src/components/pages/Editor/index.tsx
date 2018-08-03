@@ -322,6 +322,9 @@ class Editor extends React.Component<{}, IState> {
 				onBeforeChange={this.handleUserInputChange}
 				autoFocus={true}
 			/>
+			// <p style={{position: 'absolute', bottom: '0'}}>
+			// 	EditableTextarea
+			// </p>
 		);
 
 		const ReadOnlyTextarea = (
@@ -331,6 +334,9 @@ class Editor extends React.Component<{}, IState> {
 				cursorBlinkRate={-1}
 				onBeforeChange={() => {}}
 			/>
+			// <p style={{position: 'absolute', bottom: '0'}}>
+			// 	ReadOnlyTextarea
+			// </p>
 		);
 
 		return (

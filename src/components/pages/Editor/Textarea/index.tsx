@@ -1,8 +1,14 @@
 import * as React from 'react';
-import { Controlled as CodeMirror } from 'react-codemirror2';
+import {Controlled as CodeMirror} from 'react-codemirror2';
+
+// Navigator is not defined when using SSR
+try {
+    require('codemirror/mode/css/css');
+} catch(e) {
+    console.error(e);
+}
 
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/css/css';
 
 interface IPropTypes {
     readOnly?: boolean;
