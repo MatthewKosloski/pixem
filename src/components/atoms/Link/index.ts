@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 import { Link } from 'rebass';
 
 export default styled(Link)`${
-	({theme: {colors: {blue}}}) => css`
-		color: ${blue};
+	({theme: {colors: {shakespeare}}}) => css`
+		color: ${shakespeare};
 		&:hover {
 			text-decoration: underline;
 		}
