@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import { Provider } from 'rebass';
 
-const Paragraph = styled('p')`
-    text-align: center;
-    font: sans-serif;
-`;
+import theme from '@src/theme';
+import { Home } from '@pages';
 
 export default () => {
     return (
@@ -13,7 +11,9 @@ export default () => {
             <Helmet>
                 <title>Pixem</title>
             </Helmet>
-            <Paragraph>This will be the homepage for Pixem.</Paragraph>
+            <Provider theme={theme}>
+                <Home />
+            </Provider>
         </React.Fragment>
     );
 }
