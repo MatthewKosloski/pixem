@@ -8,7 +8,10 @@ interface IPropTypes {
 }
 
 const StyledContainer = styled(RebassContainer)<IPropTypes>`${
-	({size, theme: {containerWidths}}) => css`
+	({
+		size, 
+		theme: {containerWidths}
+	}) => css`
 		max-width: ${containerWidths[size]};
 	`
 }`;
