@@ -2,14 +2,22 @@ import * as React from 'react';
 
 import { Label, Checkbox } from './Styles';
 
+import theme from '@src/theme';
+
+const { shakespeare } = theme.colors;
+
 interface IPropTypes {
 	ariaControls: string;
 	ariaLabel?: string;
+	openColor: string;
+	closeColor: string;
 	onClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface IDefaultProps {
 	readonly ariaLabel: string;
+	readonly openColor: string;
+	readonly closeColor: string;
 }
 
 interface IState {
@@ -20,7 +28,9 @@ const Hamburger: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps, IState> {
 
 	static defaultProps: IDefaultProps = {
-		ariaLabel: 'Toggle mobile navigation'
+		ariaLabel: 'Toggle mobile navigation',
+		openColor: shakespeare,
+		closeColor: shakespeare
 	}
 
 	constructor(props: IPropTypes & IDefaultProps) {
@@ -46,6 +56,8 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 		const { 
 			ariaControls, 
 			ariaLabel,
+			openColor,
+			closeColor
 		} = this.props;
 		const { ariaExpanded } = this.state;
 		return (
@@ -53,10 +65,12 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 				role="button"
 				aria-controls={ariaControls}
 				aria-label={ariaLabel}
-				aria-expanded={ariaExpanded}>
+				aria-expanded={ariaExpanded}
+				openColor={openColor}>
 				<Checkbox 
 					checked={ariaExpanded}
-					onChange={this.handleClick} />
+					onChange={this.handleClick}
+					closeColor={closeColor} />
 				<div aria-hidden="true">
 					<span></span>
 				</div>
