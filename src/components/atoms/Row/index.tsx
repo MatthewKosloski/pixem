@@ -27,7 +27,7 @@ const Row: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps> {
 
 	static defaultProps: IDefaultProps = {
-		mx: 0
+		mx: -1
 	}
 
 	render() {
