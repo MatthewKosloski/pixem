@@ -1,11 +1,18 @@
 import * as React from 'react';
 
+import { Home } from './Styles';
 import Hero from './Hero';
+import Usage from './Usage';
+import QuickConversions from './QuickConversions';
+import Footer from './Footer';
 
 export default () => {
     return (
-        <React.Fragment>
+        <Home>
             <Hero />
-        </React.Fragment>
+            <Usage />
+            <QuickConversions />
+            <Footer />
+        </Home>
     );
 }

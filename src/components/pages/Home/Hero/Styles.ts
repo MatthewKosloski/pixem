@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 import { _vrrem, _modularscalerem } from '@util-wrappers';
 
+import * as curve from './curve.svg';
+
+console.log(curve);
+
 export const Container = styled('section')`${
 	({theme: {
         colors: { aquamarine, scienceBlue, white }
@@ -9,9 +13,17 @@ export const Container = styled('section')`${
 		background: linear-gradient(-45deg, ${aquamarine}, ${scienceBlue});
 		color: ${white};
 		padding: ${_vrrem(2)} 0;
-		height: 550px;
+		height: 625px;
 		font-size: ${_modularscalerem(0)};
 		position: relative;
+		&::after {
+			content: '';
+			background: url(${curve}) 0 0/100% 50px no-repeat;
+			width: 100%;
+			height: 50px;
+			position: absolute;
+			bottom: 0;
+		}	
 	`
 }`;
 
@@ -35,4 +47,5 @@ export const Paragraph = styled('p')`
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
+	margin-bottom: ${_vrrem(3)};
 `
