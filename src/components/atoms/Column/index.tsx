@@ -13,12 +13,15 @@ import { Box } from 'grid-styled';
 type GenericValue<T> = T | T[] | null;
 type WidthValue = GenericValue<string | number>;
 type SpacingValue = GenericValue<string | number>;
+type OrderValue = GenericValue<number>;
 
 interface IPropTypes {
 	width?: WidthValue;
 	px?: SpacingValue;
+	py?: SpacingValue;
 	alignItems?: 'center';
 	justifyContent?: 'flex-end';
+	order?: OrderValue;
 }
 
 interface IDefaultProps {
@@ -30,7 +33,6 @@ const Column: React.ComponentClass<IPropTypes> =
 
 	public static defaultProps: IDefaultProps = {
 		px: 1,
-
 	};
 
 	public render() {
