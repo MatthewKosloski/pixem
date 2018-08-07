@@ -9,8 +9,8 @@ const { shakespeare } = theme.colors;
 interface IPropTypes {
 	ariaControls: string;
 	ariaLabel?: string;
-	openColor: string;
-	closeColor: string;
+	openColor?: string;
+	closeColor?: string;
 	onClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
