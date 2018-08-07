@@ -24,7 +24,9 @@ const BaseInput: React.ComponentClass<IPropTypes> =
 
     render() {
         return( 
-            <InputText {...this.props} />	
+            <InputText 
+                look="Shark" 
+                {...this.props} />	
         );
     }
 }
