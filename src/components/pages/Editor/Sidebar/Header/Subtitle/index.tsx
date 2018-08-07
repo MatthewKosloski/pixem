@@ -6,7 +6,9 @@ class Subtitle extends React.PureComponent {
     render() {
         return (
             <Container>
-                A tool made by <a href="#">Matthew Kosloski</a>
+                A tool made by <a href="//matthewkosloski.me">
+                    Matthew Kosloski
+                </a>
             </Container>
         );
     }

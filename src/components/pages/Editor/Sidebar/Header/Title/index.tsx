@@ -20,7 +20,7 @@ const Title: React.ComponentClass<IPropTypes> =
     render() {
         return (
             <Container {...this.props}>
-                <a href="#">Pixem</a>
+                <a href="/">Pixem</a>
             </Container>
         );
     }
