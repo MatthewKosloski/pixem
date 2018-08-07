@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { Text } from './Styles';
+import * as Styles from './Styles';
 
 interface IPropTypes {
+    look: 'Shark' | 'CadetBlueStroked' | 'Default';
     id: string;
     name: string;
     value: string;
@@ -10,16 +11,18 @@ interface IPropTypes {
 }
 
 const InputText: React.SFC<IPropTypes> = ({
-    name, id, value, onChange
-}) => {
-    return (
-        <Text 
-            name={name}
-            id={id}
-            value={value}
-            onChange={onChange}
-        />
-    );
+    look, 
+    id, 
+    name, 
+    value, 
+    onChange}) => {
+    const element = Styles[look];
+    const props = {id, name, value, onChange};
+    return React.createElement(element, props);
 }
+
+InputText.defaultProps = {
+    look: 'Default'
+};
 
 export default InputText;
