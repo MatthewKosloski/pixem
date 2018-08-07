@@ -4,8 +4,6 @@ import { _vrrem, _modularscalerem } from '@util-wrappers';
 
 import * as curve from './curve.svg';
 
-console.log(curve);
-
 export const Container = styled('section')`${
 	({theme: {
         colors: { aquamarine, scienceBlue, white }
