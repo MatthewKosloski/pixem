@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { TooltipLabel } from '@molecules';
+import { TooltipLabel, Media } from '@molecules';
 
 import BaseInput from './BaseInput';
 import UnitInput from './UnitInput';
@@ -8,7 +8,6 @@ import ShouldPreserveOriginalValuesInput from './ShouldPreserveOriginalValuesInp
 import { FormItem, MobileForm } from './Styles';
 
 export interface IPropTypes {
-    isMobile: boolean;
     isMobileFormVisible: boolean;
     base: string;
     unit: string;
@@ -23,13 +22,12 @@ class Form extends React.PureComponent<IPropTypes> {
         this.renderChildren = this.renderChildren.bind(this);
     }
 
-    private renderChildren() {
+    private renderChildren(isMobile: boolean = false) {
         const {
             base,
             unit,
             shouldPreserveOriginalValues,
-            handleChange,
-            isMobile  
+            handleChange
         } = this.props;
         return(
             <React.Fragment>
@@ -37,7 +35,7 @@ class Form extends React.PureComponent<IPropTypes> {
                     <TooltipLabel
                         htmlFor="base"
                         title="Base Pixel Size"
-                        tooltipText={'This should be the same as the root font-size on your webpage.  The default for most web browsers is 16 pixels.'}
+                        tooltipText={'This should be the same as the root font-size on your webpage.  The default for most web browsers is 16 pixels.  This must be an integer or floating-point greater than zero.'}
                         useParagraph={isMobile} />
                     <BaseInput
                         value={base}
@@ -68,19 +66,20 @@ class Form extends React.PureComponent<IPropTypes> {
 
     render() {
         return (
-            <React.Fragment>
-                {this.props.isMobile ? (
+            <Media>
+                {(isDesktop: boolean) =>
+                isDesktop ? (
+                    <React.Fragment>
+                        {this.renderChildren()}
+                    </React.Fragment>
+                ): (
                     <MobileForm 
                         id="sidebar-mobile-form"
                         {...this.props}>
-                        {this.renderChildren()}
+                        {this.renderChildren(true)}
                     </MobileForm>
-                    ) : (
-                     <React.Fragment>
-                        {this.renderChildren()}
-                    </React.Fragment>
                 )}
-            </React.Fragment>
+            </Media>
         );
     }
 }

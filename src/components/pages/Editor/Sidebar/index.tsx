@@ -12,7 +12,6 @@ interface IPropTypes {
 }
 
 interface IState {
-    viewportWidth: number;
     isHamburgerOpen: boolean;
 }
 
@@ -21,30 +20,9 @@ class Sidebar extends React.Component<IPropTypes, IState> {
     constructor(props: IPropTypes) {
         super(props);
         this.state = {
-            viewportWidth: 0,
             isHamburgerOpen: false
         };
-        this.setViewportWidth = this.setViewportWidth.bind(this);
-        this.isMobile = this.isMobile.bind(this);
         this.handleHamburgerClick = this.handleHamburgerClick.bind(this);
-    }
-
-    componentDidMount() {
-        this.setViewportWidth();
-        window.addEventListener('resize', this.setViewportWidth);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setViewportWidth);
-    }
-
-    setViewportWidth() {
-        const viewportWidth = window.innerWidth;
-        this.setState({viewportWidth});
-    }
-
-    isMobile() {
-        return this.state.viewportWidth <= 767;
     }
 
     handleHamburgerClick() {
@@ -56,11 +34,8 @@ class Sidebar extends React.Component<IPropTypes, IState> {
     render() {
         return (
             <Container>
-                <Header 
-                    onHamburgerClick={this.handleHamburgerClick}
-                    isMobile={this.isMobile()}/>
+                <Header onHamburgerClick={this.handleHamburgerClick} />
                 <Form 
-                    isMobile={this.isMobile()}
                     isMobileFormVisible={this.state.isHamburgerOpen} 
                     {...this.props}/>
             </Container>
