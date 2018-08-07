@@ -7,8 +7,6 @@ import { default as rem } from './rem';
 import { default as vr } from './vr';
 import { default as vrrem } from './vrrem';
 import { default as vrem } from './vrem';
-import { default as isPixel } from './isPixel';
-import { default as isQuantityNode } from './isQuantityNode';
 import { default as isEm } from './isEm';
 import { default as stripWhiteSpace } from './stripWhiteSpace';
 import { default as getIdSequence } from './getIdSequence';
@@ -20,6 +18,8 @@ import { default as getLastArrayItem } from './getLastArrayItem';
 import { default as getMediaFromBreakpoints } from './getMediaFromBreakpoints';
 import { default as getModularscaleSequence } from './getModularscaleSequence';
 import { default as getVrSequence } from './getVrSequence';
+import { default as isPositiveNumber } from './isPositiveNumber';
+import { default as isNumber } from './isNumber';
 
 export { 
 	dynamicPrecision,
@@ -31,8 +31,6 @@ export {
 	vr,
 	vrrem,
 	vrem,
-	isPixel,
-	isQuantityNode,
 	isEm,
 	stripWhiteSpace,
 	getIdSequence,
@@ -43,5 +41,7 @@ export {
 	getLastArrayItem,
 	getMediaFromBreakpoints,
 	getModularscaleSequence,
-	getVrSequence
+	getVrSequence,
+	isPositiveNumber,
+	isNumber
 };
