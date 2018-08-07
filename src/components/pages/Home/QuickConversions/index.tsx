@@ -4,6 +4,8 @@ import { Column, Row } from '@atoms';
 
 import { Title, Container, Separator } from '../../Home/Styles';
 
+import Converter from './Converter';
+
 export default () => {
     return (
         <Container>
@@ -14,7 +16,7 @@ export default () => {
             </Row>
             <Row>
                 <Column width={1}>
-                    <p>Put the conversion tool in here!</p>
+                    <Converter />
                 </Column>
             </Row>
             <Row>
