@@ -278,15 +278,46 @@ class Editor extends React.Component<{}, IState> {
 	private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const { type, checked, value, name } = e.target;
 
-		this.setState({
-			[name as any]: type === 'checkbox' 
-				? checked 
-				: value,
-		}, () => {
+		if(this.canSetState(name, value)) {
 			this.setState({
-				result: this.getResult()
+				[name as any]: type === 'checkbox' 
+					? checked 
+					: value,
+			}, () => {
+				if(this.canSetResult(name, value)) {
+					this.setState({
+						result: this.getResult()
+					});
+				}
 			});
-		});
+		}
+	}
+
+	/**
+	 * Validation done prior to setting the state and
+	 * updating values of the controlled inputs.
+	 */
+	private canSetState(name: string, value: string) {
+		switch(name) {
+			case 'base':
+				return utils.isNumber(value);
+				break;
+			default:
+				return true;
+		}
+	}
+
+	/**
+	 * Validation done prior to setting the result
+	 */
+	private canSetResult(name: string, value: string) {
+		switch(name) {
+			case 'base':
+				return utils.isPositiveNumber(value);
+				break;
+			default:
+				return true;
+		}
 	}
 
 	/**
