@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { _rem, _vrrem, _vrem, _em } from '../../../util-wrappers';
+import { _rem, _vrrem, _vrem, _em } from '@util-wrappers';
 
 export default styled('a')`
 	font-size: ${_rem(14)};
