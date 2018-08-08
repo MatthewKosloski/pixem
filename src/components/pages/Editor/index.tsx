@@ -313,7 +313,8 @@ class Editor extends React.Component<{}, IState> {
 	private canSetResult(name: string, value: string) {
 		switch(name) {
 			case 'base':
-				return utils.isPositiveNumber(value);
+				return utils.isPositiveNumber(value) && 
+				utils.isNotEmptyString(value);
 				break;
 			default:
 				return true;
@@ -353,9 +354,6 @@ class Editor extends React.Component<{}, IState> {
 				onBeforeChange={this.handleUserInputChange}
 				autoFocus={true}
 			/>
-			// <p style={{position: 'absolute', bottom: '0'}}>
-			// 	EditableTextarea
-			// </p>
 		);
 
 		const ReadOnlyTextarea = (
@@ -365,9 +363,6 @@ class Editor extends React.Component<{}, IState> {
 				cursorBlinkRate={-1}
 				onBeforeChange={() => {}}
 			/>
-			// <p style={{position: 'absolute', bottom: '0'}}>
-			// 	ReadOnlyTextarea
-			// </p>
 		);
 
 		return (
