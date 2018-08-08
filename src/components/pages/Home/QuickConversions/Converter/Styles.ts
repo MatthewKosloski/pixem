@@ -36,28 +36,21 @@ export const InputContainer = styled(AtomContainer)`${
 
 export const TableContainer = styled('div')`${
     () => css`
-        max-width: 350px;
+        max-width: 500px;
         width: 100%;
         margin: ${_vrrem(4)} auto 0 auto;
     `
 }`;
 
-export const TableColumnTitle = styled('li')`${
-    ({theme: {
-        colors: {shakespeare}
-    }}) => css`
-        color: ${shakespeare};
-        font-weight: 700;
-        font-size: ${_rem(14)};
-        text-transform: uppercase;
-        list-style: none;
-        flex: 1;
-    `
-}`;
-
 export const TableRows = styled('ul')`${
-    () => css`
+    ({theme: {
+        media: {sm}
+    }}) => css`
         margin-bottom: ${_vrrem(1)};
+        margin-left: ${_vrrem(2)};
+        @media ${sm} {
+            margin-left: ${_vrrem(3)};
+        }
     `
 }`;
 
@@ -67,6 +60,19 @@ export const TableRow = styled('li')`${
         display: flex;
         list-style: none;
         margin-bottom: ${_vrrem(1)};
+    `
+}`;
+
+export const TableColumnTitle = styled('div')`${
+    ({theme: {
+        colors: {shakespeare}
+    }}) => css`
+        color: ${shakespeare};
+        font-weight: 700;
+        font-size: ${_rem(14)};
+        text-transform: uppercase;
+        list-style: none;
+        flex: 1;
     `
 }`;
 
@@ -81,6 +87,13 @@ export const TableColumn = styled('div')`${
 
 export const TableColumnItem = styled('div')`${
     () => css`
+    `
+}`;
+
+export const ButtonContainer = styled('div')`${
+    () => css`
+        text-align: center;
+        margin-top: ${_vrrem(2)};
     `
 }`;
 
