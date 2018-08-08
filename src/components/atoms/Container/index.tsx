@@ -3,6 +3,7 @@ import { Container as RebassContainer } from 'rebass';
 import styled, { css } from 'styled-components';
 
 interface IPropTypes {
+	id?: string;
 	size?: string;
 	theme?: { containerWidths: string[]; };
 }

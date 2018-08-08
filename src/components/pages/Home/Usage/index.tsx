@@ -7,7 +7,7 @@ import UsageItem from './UsageItem';
 
 export default () => {
     return (
-        <Container>
+        <Container id="usage">
             <Row>
                 <Title>How to use Pixem</Title>
             </Row>
