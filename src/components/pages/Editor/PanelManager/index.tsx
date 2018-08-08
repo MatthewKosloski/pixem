@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-let Split = null;
+let Split: any = null;
 if(typeof window !== 'undefined') {
     Split = require('split.js');
 }
