@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import { Link } from '@atoms';
+import { Anchor } from '@atoms';
 import {  _modularscalerem } from '@util-wrappers';
 
-export const Logo = styled(Link)`${
+export const Logo = styled(Anchor)`${
     ({theme: {
         colors: { white }
     }}) => css`

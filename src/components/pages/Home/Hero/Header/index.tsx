@@ -12,18 +12,18 @@ export default () => {
             <Container>
                 <Row alignItems="center">
                     <Column width={[8/12, 4/12]}>
-                        <Logo href="#">
-                            Pixem
-                        </Logo>
+                        <Logo 
+                            text="Pixem" 
+                            href="/" />
                     </Column>
                     <Column width={[4/12, 8/12]}>
                         <Nav>
-                            <NavLink href="#">
-                                Usage
-                            </NavLink>
-                            <NavLink href="#">
-                                Quick Conversions
-                            </NavLink>
+                            <NavLink 
+                                text="Usage"
+                                href="#usage" />
+                            <NavLink 
+                                text="Quick Conversion"
+                                href="#quick-conversion" />
                         </Nav>
                     </Column>
                 </Row>
