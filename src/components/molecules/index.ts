@@ -5,6 +5,7 @@ import {default as Media} from './Media';
 import {default as Tooltip} from './Tooltip';
 import {default as TooltipLabel} from './TooltipLabel';
 import {default as Hamburger} from './Hamburger';
+import {default as Button} from './Button';
 
 export {
     InputCheckbox,
@@ -13,5 +14,6 @@ export {
     Media,
     Tooltip,
     TooltipLabel,
-    Hamburger
+    Hamburger,
+    Button
 };
