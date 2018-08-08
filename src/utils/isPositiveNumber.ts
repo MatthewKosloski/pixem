@@ -7,15 +7,12 @@ import stripWhiteSpace from './stripWhiteSpace';
  */
 export default (str: string): boolean => {
 	str = stripWhiteSpace(str);
-	const isNotEmptyString = str.length > 0;
 	const isPositive = Math.sign(Number(str)) === 1;
-	return isNumber(str) && isNotEmptyString && isPositive;
+	return isNumber(str) && isPositive;
 }
 
 /**
  * Possible test cases in the future
- * console.log(isPositiveNumber(''), false);
-console.log(isPositiveNumber(' '), false);
 console.log(isPositiveNumber('\u00A9'), false);
 console.log(isPositiveNumber('-1'), false);
 console.log(isPositiveNumber('0'), false); 

@@ -20,6 +20,7 @@ import { default as getModularscaleSequence } from './getModularscaleSequence';
 import { default as getVrSequence } from './getVrSequence';
 import { default as isPositiveNumber } from './isPositiveNumber';
 import { default as isNumber } from './isNumber';
+import { default as isNotEmptyString } from './isNotEmptyString';
 
 export { 
 	dynamicPrecision,
@@ -43,5 +44,6 @@ export {
 	getModularscaleSequence,
 	getVrSequence,
 	isPositiveNumber,
-	isNumber
+	isNumber,
+	isNotEmptyString
 };
