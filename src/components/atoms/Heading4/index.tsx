@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Heading } from 'rebass';
 
-const H4: React.SFC<{}> = (props) => {
+const Heading4: React.SFC<{}> = (props) => {
 	return (
 		<Heading {...props}
 			is='h4' 
@@ -13,4 +13,4 @@ const H4: React.SFC<{}> = (props) => {
 	);
 }
 
-export default H4;
+export default Heading4;

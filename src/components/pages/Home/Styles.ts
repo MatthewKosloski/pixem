@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { H2, Container as AtomContainer } from '@atoms';
+import { Heading2, Container as AtomContainer } from '@atoms';
 import { _vrrem } from '@util-wrappers';
 
 interface ISeparatorPropTypes {
@@ -17,7 +17,7 @@ export const Container = styled(AtomContainer)`${
     `
 }`;
 
-export const Title = styled(H2)`${
+export const Title = styled(Heading2)`${
     () => css`
         text-align: center;
         margin: 0 auto ${_vrrem(2)} auto;

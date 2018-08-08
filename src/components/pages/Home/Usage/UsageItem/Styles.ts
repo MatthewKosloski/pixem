@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { H3 } from '@atoms';
+import { Heading3 } from '@atoms';
 import { _rem, _vrrem } from '@util-wrappers';
 
 export const Container = styled('div')`${
@@ -10,7 +10,7 @@ export const Container = styled('div')`${
     `
 }`;
 
-export const Title = styled(H3)`${
+export const Title = styled(Heading3)`${
  ({theme: {
      colors: {shuttleGray, shakespeare}
  }}) => css`
