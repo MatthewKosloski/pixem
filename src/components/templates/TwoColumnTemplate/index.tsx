@@ -19,7 +19,7 @@ const TwoColumnTemplate: React.ComponentClass<IPropTypes> =
 
     static defaultProps: IDefaultProps = {
         firstColumnWidths: [1, 1, '300px'],
-        secondColumnWidths: [1, 1, 'calc(100vw - 300px)']
+        secondColumnWidths: [1, 1, 'calc(100% - 300px)']
     }
     
     render() {
