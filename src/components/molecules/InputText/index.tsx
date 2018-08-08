@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import * as Styles from './Styles';
 
+type Look = 'Shark' | 'CadetBlueStroked' | 'Default';
+
 interface IPropTypes {
-    look: 'Shark' | 'CadetBlueStroked' | 'Default';
+    look: Look;
     id: string;
     name: string;
     value: string;
@@ -15,7 +17,8 @@ const InputText: React.SFC<IPropTypes> = ({
     id, 
     name, 
     value, 
-    onChange}) => {
+    onChange
+}) => {
     const element = Styles[look];
     const props = {id, name, value, onChange};
     return React.createElement(element, props);
