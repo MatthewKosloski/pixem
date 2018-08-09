@@ -7,7 +7,7 @@ export const Container = styled('div')`${
         media: { md }
     }}) => css`
         @media ${md} {
-            margin-bottom: ${_vrrem(3)};
+            margin-bottom: ${_vrrem(2.25)};
         }
     `
 }`;
