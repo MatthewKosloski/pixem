@@ -15,7 +15,7 @@ export const Container = styled('div')`
 export const Radio = styled(AtomRadio)`${
     ({theme: {colors: {shakespeare, shark}}}) => css`
         position: absolute;
-        opacity: 0;
+        display: none;
         &:checked + label {
             &::before {
                 background-color: ${shakespeare};
