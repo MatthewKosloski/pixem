@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { TooltipLabel, Media } from '@molecules';
+import { TooltipLabel, Textbox, Media } from '@molecules';
 
 import BaseInput from './BaseInput';
 import UnitInput from './UnitInput';
 import ShouldPreserveOriginalValuesInput from './ShouldPreserveOriginalValuesInput';
+import AffectedPropsInput from './AffectedPropsInput';
 import { FormItem, MobileForm } from './Styles';
 
 export interface IPropTypes {
@@ -12,7 +13,8 @@ export interface IPropTypes {
     base: string;
     unit: string;
     shouldPreserveOriginalValues: boolean;
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    affectedProps: string;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 class Form extends React.PureComponent<IPropTypes> {
@@ -27,7 +29,8 @@ class Form extends React.PureComponent<IPropTypes> {
             base,
             unit,
             shouldPreserveOriginalValues,
-            handleChange
+            handleChange,
+            affectedProps
         } = this.props;
         return(
             <React.Fragment>
@@ -40,6 +43,16 @@ class Form extends React.PureComponent<IPropTypes> {
                     <BaseInput
                         value={base}
                         onChange={handleChange} />	
+                </FormItem>
+                <FormItem>
+                    <TooltipLabel
+                        htmlFor="affectedProps"
+                        title="Affected Properties"
+                        tooltipText={'Indicate which CSS properties should be converted by typing in a list of comma-separated properties (e.g., “font, font-size”). If the field is empty, all properties will be affected by the conversion.'}
+                        useParagraph={isMobile} />
+                    <AffectedPropsInput 
+                        value={affectedProps}
+                        onChange={handleChange} />
                 </FormItem>
                 <FormItem>
                     <TooltipLabel

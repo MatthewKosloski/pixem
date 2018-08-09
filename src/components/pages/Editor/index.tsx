@@ -33,6 +33,7 @@ interface IState {
 	result: string;
 	base: string;
 	unit: string;
+	affectedProps: string;
 	shouldPreserveOriginalValues: boolean;
 }
 
@@ -46,6 +47,7 @@ class Editor extends React.Component<{}, IState> {
 			result: '',
 			base: '16',
 			unit: 'em',
+			affectedProps: '',
 			shouldPreserveOriginalValues: false
 		};
 
@@ -182,6 +184,21 @@ class Editor extends React.Component<{}, IState> {
 	}
 
 	/**
+	 * Returns a boolean indicating if the node's
+	 * CSS property (e.g., "margin") is in the
+	 * list of affected properties.
+	 */
+	private isAffectedPropNode(
+		node: IValueParserNode, 
+		affectedProps: string
+	): boolean {
+		const affectedPropsArray = affectedProps.split(', ');
+		const { type, value } = node;
+		return type === 'word' && 
+		affectedPropsArray.indexOf(value) !== -1;
+	}
+
+	/**
 	 * Takes in a stylesheet with pixel (px)
 	 * values and returns a stylesheet with
 	 * converted values in ems or rems.
@@ -190,7 +207,8 @@ class Editor extends React.Component<{}, IState> {
 		userInput: string,
 		shouldPreserveOriginalValues: boolean,
 		unit: string,
-		base: string
+		base: string,
+		affectedProps: string
 	): string {
 		const pxRegex = /(\d+)(px;?)/;
         const parsedStylesheet = valueParser(userInput); 
@@ -200,6 +218,11 @@ class Editor extends React.Component<{}, IState> {
 			index: number, 
 			nodes: IValueParserNode[]
 		) => {
+
+			const hasAffectedProps = affectedProps.length != 0;
+
+			if(!this.isAffectedPropNode(node, affectedProps)
+		&& hasAffectedProps) return;
 
             if(this.isPropertyNode(node, index, nodes)) {
                 let propertyNodeDivider = nodes[index + 1];
@@ -218,7 +241,9 @@ class Editor extends React.Component<{}, IState> {
                     ? nodes.length 
                     : nextPropertyNodeIndex - 1;
 
-                let values = [], indices = [];
+				let values: string[] = [], 
+					indices: number[] = [];
+
                 while(currIndex < endIndex) {
                     let currNode = nodes[currIndex];
                     let quantity = valueParser.unit(currNode.value);
@@ -261,13 +286,15 @@ class Editor extends React.Component<{}, IState> {
 			userInput,
 			shouldPreserveOriginalValues,
 			unit,
-			base
+			base,
+			affectedProps
 		} = this.state;
 		return this.convertPixelNodes(
 			userInput,
 			shouldPreserveOriginalValues,
 			unit,
-			base
+			base,
+			affectedProps
 		);
 	}
 
@@ -275,7 +302,8 @@ class Editor extends React.Component<{}, IState> {
 	 * The one event handler responsible for
 	 * setting the state.
 	 */
-	private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+	private handleChange(e: React.ChangeEvent<HTMLInputElement> 
+		| React.ChangeEvent<HTMLTextAreaElement>) {
 		const { type, checked, value, name } = e.target;
 
 		if(this.canSetState(name, value)) {
@@ -326,17 +354,15 @@ class Editor extends React.Component<{}, IState> {
 	*/
 	private renderFirstColumn(): React.ReactNode {
 		const {
-			base,
-			unit,
-			shouldPreserveOriginalValues
+			userInput,
+			result,
+			...rest
 		} = this.state;
 
 		return (
 			<Sidebar 
-				base={base}
-				unit={unit}
-				shouldPreserveOriginalValues={shouldPreserveOriginalValues}
-				handleChange={this.handleChange}/>
+				handleChange={this.handleChange}
+				{...rest}/>
 		);
 	}
 
