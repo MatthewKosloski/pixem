@@ -12,6 +12,10 @@ export const FormItem = styled('div')`${
         border-bottom: 2px solid ${mako};
         margin-bottom: ${_vrrem(1.5)};
         padding: 0 ${_vrrem(1)} ${_vrrem(1)} ${_vrrem(1)};
+        &:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
         @media ${md} {
             border-bottom: none;
             padding-left: 0;
@@ -33,8 +37,7 @@ export const MobileForm = styled('div')<IPropTypes>`${
         left: 0;
         background-color: ${shark};
         width: 100%;
-        height: 100%;
-        padding: ${_vrrem(4)} 0;
+        padding-top: ${_vrrem(4)};
         transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
         transform: translateY(${isMobileFormVisible ? '0' : '-100%'});
         opacity: ${isMobileFormVisible ? '1' : '0'};
