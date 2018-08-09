@@ -6,6 +6,7 @@ import {default as Tooltip} from './Tooltip';
 import {default as TooltipLabel} from './TooltipLabel';
 import {default as Hamburger} from './Hamburger';
 import {default as Button} from './Button';
+import {default as Textbox} from './Textbox';
 
 export {
     InputCheckbox,
@@ -15,5 +16,6 @@ export {
     Tooltip,
     TooltipLabel,
     Hamburger,
-    Button
+    Button,
+    Textbox
 };
