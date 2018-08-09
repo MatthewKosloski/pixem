@@ -8,6 +8,7 @@ export const MobileLabel = Label.extend`${
         color: ${white};
         margin-bottom: ${_vrrem(0.25)};
         @media ${md} {
+            position: relative;
             margin-bottom: ${_vrrem(1)};
             color: inherit;
         }

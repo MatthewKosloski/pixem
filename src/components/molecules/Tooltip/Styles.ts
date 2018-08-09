@@ -25,7 +25,6 @@ export const Container = styled('div')`${
     ({theme: {
         colors: { black, white }
     }}) => css`
-        position: relative;
         top: 4px;
         display: inline-block;
         margin-left: ${_vrrem(0.5)};
@@ -48,27 +47,16 @@ export const Container = styled('div')`${
             position: absolute;
             bottom: 150%;
             left: 50%;
-            width: 225px;
-            margin-left: -112.5px;
+            width: 270px;
+            margin-left: -135px;
             padding: ${_vrem(1)};
             background-color: ${hexToRgba(black, 0.92)};
             border-radius: 4px;
             text-transform: none;
             font-weight: 400;
             color: ${white};
-            font-size: ${_rem(12)};
+            font-size: ${_rem(14)};
             z-index: 6;
-            &::after {
-                content: '';
-                width: 0; 
-                height: 0; 
-                border-left: 8px solid transparent;
-                border-right: 8px solid transparent;
-                border-top: 8px solid ${hexToRgba(black, 0.85)};
-                position: absolute;
-                left: calc(50% - 8px);
-                bottom: -8px;
-            }
         }
     `
 }`;
