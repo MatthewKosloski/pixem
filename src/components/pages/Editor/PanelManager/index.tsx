@@ -30,10 +30,10 @@ class PanelManager extends React.Component<IPropTypes> {
             direction: 'vertical',
             elementStyle: (_: 'width' | 'height', 
             size: number, gutterSize: number) => ({
-                'flex-basis': `calc(${size}% - ${gutterSize}px)`
+                'height': `calc(${size}% - ${gutterSize}px)`
             }),
             gutterStyle: (_: 'width' | 'height', gutterSize: number) => ({
-                'flex-basis': `${gutterSize}px`
+                'height': `${gutterSize}px`
             })
         };
 

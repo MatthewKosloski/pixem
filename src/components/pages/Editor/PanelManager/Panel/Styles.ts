@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 import { _vrrem, _rem } from '@util-wrappers';
 
 export const Container = styled('div')`
-    overflow-y: scroll;
-    overflow-x: auto;
+    overflow: auto;
     position: relative;
 `;
 
