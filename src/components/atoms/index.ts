@@ -13,6 +13,7 @@ import {default as Radio} from './Radio';
 import {default as Row} from './Row';
 import {default as Text} from './Text';
 import {default as Anchor} from './Anchor';
+import {default as Textarea} from './Textarea';
 
 export {
     Checkbox,
@@ -29,5 +30,6 @@ export {
     Radio,
     Row,
     Text,
-    Anchor
+    Anchor,
+    Textarea
 };
