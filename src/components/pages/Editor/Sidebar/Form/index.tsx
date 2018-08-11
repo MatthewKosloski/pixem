@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { TooltipLabel, Textbox, Media } from '@molecules';
+import { common, editor } from '@data';
 
 import BaseInput from './BaseInput';
 import UnitInput from './UnitInput';
@@ -8,13 +9,21 @@ import ShouldPreserveOriginalValuesInput from './ShouldPreserveOriginalValuesInp
 import AffectedPropsInput from './AffectedPropsInput';
 import { FormItem, MobileForm } from './Styles';
 
+const { 
+    baseLabel,
+    affectedPropsLabel,
+    unitLabel,
+    shouldPreserveOriginalValuesLabel    
+} = editor.form.labels;
+
 export interface IPropTypes {
     isMobileFormVisible: boolean;
     base: string;
     unit: string;
     shouldPreserveOriginalValues: boolean;
     affectedProps: string;
-    handleChange: (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement> 
+        | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 class Form extends React.PureComponent<IPropTypes> {
@@ -37,8 +46,8 @@ class Form extends React.PureComponent<IPropTypes> {
                 <FormItem>
                     <TooltipLabel
                         htmlFor="base"
-                        title="Base Pixel Size"
-                        tooltipText={'This should be the same as the root font-size on your webpage.  The default for most web browsers is 16 pixels.  This must be an integer or floating-point greater than zero.'}
+                        title={baseLabel.title}
+                        tooltipText={baseLabel.text}
                         useParagraph={isMobile} />
                     <BaseInput
                         value={base}
@@ -47,8 +56,8 @@ class Form extends React.PureComponent<IPropTypes> {
                 <FormItem>
                     <TooltipLabel
                         htmlFor="affectedProps"
-                        title="Affected Properties"
-                        tooltipText={'Indicate which CSS properties should be converted by typing in a list of comma-separated properties (e.g., “font, font-size”). If the field is empty, all properties will be affected by the conversion.'}
+                        title={affectedPropsLabel.title}
+                        tooltipText={affectedPropsLabel.text}
                         useParagraph={isMobile} />
                     <AffectedPropsInput 
                         value={affectedProps}
@@ -56,8 +65,8 @@ class Form extends React.PureComponent<IPropTypes> {
                 </FormItem>
                 <FormItem>
                     <TooltipLabel
-                        title="Conversion Unit"
-                        tooltipText={'Choose a unit to convert pixel values to—em or rem.  The former is relative to the font-size of the direct parent and the latter is relative to the font-size of the root element.'}
+                        title={unitLabel.title}
+                        tooltipText={unitLabel.text}
                         useParagraph={isMobile} />
                     <UnitInput
                         unit={unit}
@@ -66,8 +75,8 @@ class Form extends React.PureComponent<IPropTypes> {
                 <FormItem>
                     <TooltipLabel
                         htmlFor="shouldPreserveOriginalValues"
-                        title="Preserve Original Values"
-                        tooltipText={'Check whether to preserve original values with CSS comments.  This simply means that the original pixel value before the conversion is preserved in a comment next to the converted value.'}
+                        title={shouldPreserveOriginalValuesLabel.title}
+                        tooltipText={shouldPreserveOriginalValuesLabel.text}
                         useParagraph={isMobile} />
                     <ShouldPreserveOriginalValuesInput
                         checked={shouldPreserveOriginalValues}
