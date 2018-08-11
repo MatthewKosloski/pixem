@@ -9,11 +9,13 @@ import Sidebar from './Sidebar';
 import PanelManager from './PanelManager';
 import Textarea from './Textarea';
 
-const defaultUserInput = `.foo {
-	margin: 16px 148px;
-	font-size: 14px;
-	color: #fff;
-	padding: 5px;
+const defaultUserInput = `.my_awesome_class {
+	margin: 16px 24px;
+	font: 18px/1.3 'Open Sans', sans-serif;
+	padding: 48px 0 144px;
+	color: #df4747;
+	text-align: center;
+	display: flex;
 }`;  
 
 interface IValueParserNode {
