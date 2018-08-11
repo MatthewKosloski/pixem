@@ -14,6 +14,7 @@ export default ({children}) =>
             <meta name="twitter:site" content={twitter} />
             <meta property="og:image" content={image} />
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" /> 
+            <meta name="google-site-verification" content="dL2xwuommRGgMm-_s6GVJllVuSgAk6C4x5I0wJa0Rm4" />
         </Helmet>
         {children()}
     </React.Fragment>
