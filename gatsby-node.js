@@ -5,6 +5,7 @@ exports.modifyWebpackConfig = ({config, stage}) => {
         resolve: {
             alias: {
                 '@src': path.resolve(__dirname, 'src'),
+                '@data': path.resolve(__dirname, 'src/data'),
                 '@utils': path.resolve(__dirname, 'src/utils'),
                 '@util-wrappers': path.resolve(__dirname, 'src/util-wrappers'),
                 '@atoms': path.resolve(__dirname, 'src/components/atoms'),
