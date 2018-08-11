@@ -21,6 +21,7 @@ import { default as getVrSequence } from './getVrSequence';
 import { default as isPositiveNumber } from './isPositiveNumber';
 import { default as isNumber } from './isNumber';
 import { default as isNotEmptyString } from './isNotEmptyString';
+import { default as padNumber } from './padNumber';
 
 export { 
 	dynamicPrecision,
@@ -45,5 +46,6 @@ export {
 	getVrSequence,
 	isPositiveNumber,
 	isNumber,
-	isNotEmptyString
+	isNotEmptyString,
+	padNumber
 };
