@@ -10,6 +10,7 @@
         "keyofStringsOnly": true,
         "baseUrl": "./",
         "paths": {
+            "@data": ["src/data"],
             "@utils": ["src/utils"],
             "@util-wrappers": ["src/util-wrappers"],
             "@atoms": ["src/components/atoms"],
