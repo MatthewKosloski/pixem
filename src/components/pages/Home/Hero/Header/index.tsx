@@ -1,10 +1,14 @@
 import * as React from 'react';
+import * as random from 'randomstring';
+
+import { Row, Column, Container } from '@atoms';
+import { home, common } from '@data';
 
 import Nav from './Nav';
 import NavLink from './NavLink';
-
-import { Row, Column, Container } from '@atoms';
 import { Logo } from './Styles';
+
+const { navLinks } = home.hero;
 
 export default () => {
     return (
@@ -13,17 +17,16 @@ export default () => {
                 <Row alignItems="center">
                     <Column width={[8/12, 4/12]}>
                         <Logo 
-                            text="Pixem" 
-                            href="/" />
+                            text={common.siteName} 
+                            href={common.pathPrefix} />
                     </Column>
                     <Column width={[4/12, 8/12]}>
                         <Nav>
-                            <NavLink 
-                                text="Usage"
-                                href="#usage" />
-                            <NavLink 
-                                text="Quick Conversion"
-                                href="#quick-conversion" />
+                            {navLinks.map(link => (
+                                <NavLink 
+                                    key={random.generate()} 
+                                    {...link} />
+                            ))}
                         </Nav>
                     </Column>
                 </Row>

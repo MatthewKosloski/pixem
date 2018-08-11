@@ -1,17 +1,20 @@
 import * as React from 'react';
 
 import { Column, Row } from '@atoms';
+import { home } from '@data';
 
 import { Title, Container, Separator } from '../../Home/Styles';
 
 import Converter from './Converter';
+
+const { title } = home.quickConversions;
 
 export default () => {
     return (
         <Container id="quick-conversion">
             <Row>
                 <Column width={1}>
-                    <Title>Quick Conversions</Title>
+                    <Title>{title}</Title>
                 </Column>
             </Row>
             <Row>
