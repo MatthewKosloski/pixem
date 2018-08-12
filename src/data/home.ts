@@ -36,8 +36,8 @@ interface IHome {
 const home: IHome = {
     meta: {
         url: `${common.pathPrefix}`,
-        title: 'Pixem — Convert Your Entire CSS Stylesheet to Ems or Rems',
-        description: 'Pixem allows you to convert px units in a style sheet to either ems or rems.  You can even specify which CSS properties are affected by the unit conversion.'
+        title: 'Pixem — Convert Your CSS Stylesheet to Em or Rem Units',
+        description: 'Pixem allows you to convert px units in a style sheet to either em or rem units.  You can even specify which CSS properties are affected by the conversion.'
     },
     hero: {
         navLinks: [
