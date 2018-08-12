@@ -11,8 +11,7 @@ const common = {
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-                trackingId: "UA-117972211-1",
-                head: false
+                trackingId: "UA-117972211-1"
             }
         },
         {
