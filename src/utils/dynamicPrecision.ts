@@ -1,13 +1,12 @@
-import isNumberEven from './isNumberEven';
+import isInt from './isInt';
 
 /*
-*	In the event that num is odd,
-*	return a floating point number to
-*	a specified level of precision.
+*	In the event that $num is a float,
+*	return $num to the specified precision.
+*	If $num is an integer, do nothing to $num.
 */
-export const dynamicPrecision = (num: number, precision: number = 4): number => {
-	num = Number(num);
-	return isNumberEven(num) 
+const dynamicPrecision = (num: number, precision: number = 4): number => {
+	return isInt(num) 
 		? num 
 		: Number(num.toFixed(precision));
 };
