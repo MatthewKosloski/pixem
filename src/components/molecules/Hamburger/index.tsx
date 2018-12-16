@@ -27,11 +27,11 @@ interface IState {
 const Hamburger: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps, IState> {
 
-	static defaultProps: IDefaultProps = {
+	public static defaultProps: IDefaultProps = {
 		ariaLabel: 'Toggle mobile navigation',
 		openColor: shakespeare,
 		closeColor: shakespeare
-	}
+	};
 
 	constructor(props: IPropTypes & IDefaultProps) {
 		super(props);
@@ -52,7 +52,7 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 		this.props.onClick(e);
 	}
 
-	render() {
+	public render() {
 		const { 
 			ariaControls, 
 			ariaLabel,
@@ -78,6 +78,6 @@ const Hamburger: React.ComponentClass<IPropTypes> =
 		);
 	}
 
-  }
+  };
 
 export default Hamburger;

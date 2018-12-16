@@ -9,18 +9,18 @@ import { home } from '@data';
 const { url, title, description } = home.meta;
 
 export default () => {
-    return (
-        <React.Fragment>
-            <Helmet>
-                <meta property="og:url" content={url} />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta name="description" content={description} />
-                <title>{title}</title>
-            </Helmet>
-            <Provider theme={theme}>
-                <Home />
-            </Provider>
-        </React.Fragment>
-    );
-}
+	return (
+		<React.Fragment>
+			<Helmet>
+				<meta property="og:url" content={url} />
+				<meta property="og:title" content={title} />
+				<meta property="og:description" content={description} />
+				<meta name="description" content={description} />
+				<title>{title}</title>
+			</Helmet>
+			<Provider theme={theme}>
+				<Home />
+			</Provider>
+		</React.Fragment>
+	);
+};

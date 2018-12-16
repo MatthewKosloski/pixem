@@ -7,13 +7,13 @@
  * getIdSequence(3, "foo")
  */
 const getIdSequence = (quantity: number, str: string): string[] => {
-    let arr: string[] = [];
+	const arr: string[] = [];
 
-    for(let i = 0; i < quantity; i++) {
-        arr.push(`${str}${i+1}`);
-    }
+	for (let i = 0; i < quantity; i++) {
+		arr.push(`${str}${i + 1}`);
+	}
 
-    return arr;
-}
+	return arr;
+};
 
 export default getIdSequence;

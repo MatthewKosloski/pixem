@@ -9,13 +9,13 @@ import {default as Button} from './Button';
 import {default as Textbox} from './Textbox';
 
 export {
-    InputCheckbox,
-    InputRadio,
-    InputText,
-    Media,
-    Tooltip,
-    TooltipLabel,
-    Hamburger,
-    Button,
-    Textbox
+	InputCheckbox,
+	InputRadio,
+	InputText,
+	Media,
+	Tooltip,
+	TooltipLabel,
+	Hamburger,
+	Button,
+	Textbox
 };

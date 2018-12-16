@@ -75,7 +75,7 @@ export const Label = styled('label')<ILabelPropTypes>`${
 Label.defaultProps = {
 	theme: {
 		colors: {
-			shakespeare: 'blue',
+			shakespeare: 'blue'
 		}
 	}
 };

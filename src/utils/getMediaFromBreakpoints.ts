@@ -1,5 +1,5 @@
 interface IMedia {
-    [key: string]: string;
+	[key: string]: string;
 }
 
 /**
@@ -13,7 +13,7 @@ interface IMedia {
  */
 export default (names: string[], breakpoints: string[]): IMedia => {
 
-	let media: IMedia = {};
+	const media: IMedia = {};
 
 	breakpoints.forEach((breakpoint, index) => {
 		const key = names[index];
@@ -21,4 +21,4 @@ export default (names: string[], breakpoints: string[]): IMedia => {
 	});
 
 	return media;
-}
+};

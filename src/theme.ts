@@ -61,9 +61,9 @@ interface ITheme {
 	base: number;
 	ratio: number;
 	breakpoints: string[];
-	containerWidths: { [key: string]: string; }
-	media: { [key: string]: string; }
-	colors: { [key: string]: string; }
+	containerWidths: { [key: string]: string; };
+	media: { [key: string]: string; };
+	colors: { [key: string]: string; };
 }
 
 const theme: IRebassTheme & ITheme = {

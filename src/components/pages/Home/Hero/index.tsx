@@ -10,17 +10,17 @@ import { Container, Inner, Paragraph } from './Styles';
 const { hero } = home;
 
 export default () => {
-    return (
-        <Container>
-            <Header/>
-            <Inner>
-                <Heading1>{hero.title}</Heading1>
-                <Paragraph>{hero.subtitle}</Paragraph>
-                <Button 
-                    look="Shark"
-                    text={hero.ctaText} 
-                    href={`${common.pathPrefix}/editor`} />
-            </Inner>
-        </Container>
-    );
-}
+	return (
+		<Container>
+			<Header/>
+			<Inner>
+				<Heading1>{hero.title}</Heading1>
+				<Paragraph>{hero.subtitle}</Paragraph>
+				<Button 
+					look="Shark"
+					text={hero.ctaText} 
+					href={`${common.pathPrefix}/editor`} />
+			</Inner>
+		</Container>
+	);
+};

@@ -7,12 +7,12 @@ import QuickConversions from './QuickConversions';
 import Footer from './Footer';
 
 export default () => {
-    return (
-        <Home>
-            <Hero />
-            <Usage />
-            <QuickConversions />
-            <Footer />
-        </Home>
-    );
-}
+	return (
+		<Home>
+			<Hero />
+			<Usage />
+			<QuickConversions />
+			<Footer />
+		</Home>
+	);
+};

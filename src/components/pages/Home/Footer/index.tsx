@@ -8,15 +8,15 @@ import { Footer } from './Styles';
 const { name, url } = common.author;
 
 export default () => {
-    return (
-        <Container>
-            <Row>
-                <Column width={1}>
-                    <Footer>
-                        A product designed and developed by <Anchor text={name} href={url} />
-                    </Footer>
-                </Column>
-            </Row>
-        </Container>
-    );
-}
+	return (
+		<Container>
+			<Row>
+				<Column width={1}>
+					<Footer>
+						A product designed and developed by <Anchor text={name} href={url} />
+					</Footer>
+				</Column>
+			</Row>
+		</Container>
+	);
+};

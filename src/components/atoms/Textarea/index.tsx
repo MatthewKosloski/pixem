@@ -1,18 +1,18 @@
 import * as React from 'react';
 
 export interface ITextareaPropTypes {
-    value: string;
-    id?: string;
-    name?: string;
-    onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+	value: string;
+	id?: string;
+	name?: string;
+	onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 class Textarea extends React.PureComponent<ITextareaPropTypes> {
-    render() {
-        return (
-            <textarea {...this.props} />
-        );
-    }
+	public render() {
+		return (
+			<textarea {...this.props} />
+		);
+	}
 }
 
 export default Textarea;

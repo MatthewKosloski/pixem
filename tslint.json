@@ -5,9 +5,33 @@
     ],
     "jsRules": {},
     "rules": {
-        "quotemark": [false, "single", "jsx-single"],
-        "indent": [false, "tabs", 4],
-        "ordered-imports": [false, "any"]
+        "quotemark": [true, "single", "jsx-double"],
+        "indent": [true, "tabs", 4],
+        "eofline": false,
+        "align": false,
+        "object-literal-sort-keys": false,
+        "trailing-comma": [
+            true, 
+            {
+                "multiline": "never", 
+                "singleline": "never"
+            }
+        ],
+        "ordered-imports": [
+            true,
+            {
+                "grouped-imports": true,
+                "import-sources-order": "any",
+                "named-imports-order": "any"
+            }
+        ],
+        "max-line-length": [
+            true,
+            {
+                "limit": 80,
+                "ignore-pattern": "^import |^export {(.*?)}"
+            }
+        ]
     },
     "rulesDirectory": []
 }

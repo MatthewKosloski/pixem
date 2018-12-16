@@ -5,10 +5,10 @@ import rem from './rem';
 *	Returns a modular scale value in rems.
 */
 const modularscalerem = (
-	base: number, 
-	ratio: number, 
+	base: number,
+	ratio: number,
 	step: number
-): string => 
+): string =>
 	rem(base, modularscale(base, ratio, step));
 
 export default modularscalerem;

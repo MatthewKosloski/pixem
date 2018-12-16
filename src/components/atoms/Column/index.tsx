@@ -32,7 +32,7 @@ const Column: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps> {
 
 	public static defaultProps: IDefaultProps = {
-		px: 1,
+		px: 1
 	};
 
 	public render() {

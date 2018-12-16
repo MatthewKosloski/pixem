@@ -6,16 +6,16 @@ import * as Styles from './Styles';
 type Look = 'Shark' | 'Shakespeare' | 'Default';
 
 interface IPropTypes {
-    look?: Look;
+	look?: Look;
 }
 
 const Button: React.SFC<IPropTypes & IAnchorPropTypes> = ({look, ...rest}) => {
-    const element = Styles[look];
-    return React.createElement(element, rest);
-}
+	const element = Styles[look];
+	return React.createElement(element, rest);
+};
 
 Button.defaultProps = {
-    look: 'Default'
+	look: 'Default'
 };
 
 export default Button;

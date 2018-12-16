@@ -26,11 +26,11 @@ interface IDefaultProps {
 const Row: React.ComponentClass<IPropTypes> =
   class extends React.Component<IPropTypes & IDefaultProps> {
 
-	static defaultProps: IDefaultProps = {
+	public static defaultProps: IDefaultProps = {
 		mx: -1
-	}
+	};
 
-	render() {
+	public render() {
 		return (
 			<Flex {...this.props}
 				flexWrap={'wrap'}>
@@ -38,6 +38,6 @@ const Row: React.ComponentClass<IPropTypes> =
 			</Flex>
 		);
 	}
-}
+};
 
 export default Row;

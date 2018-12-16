@@ -10,7 +10,7 @@ interface IPropTypes {
 
 const StyledContainer = styled(RebassContainer)<IPropTypes>`${
 	({
-		size, 
+		size,
 		theme: {containerWidths}
 	}) => css`
 		max-width: ${containerWidths[size]};
@@ -18,7 +18,7 @@ const StyledContainer = styled(RebassContainer)<IPropTypes>`${
 }`;
 
 StyledContainer.defaultProps = {
-	size: 'default',
+	size: 'default'
 };
 
 const Container: React.SFC<IPropTypes> = (props) => {

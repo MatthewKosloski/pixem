@@ -9,11 +9,11 @@ export default (
 	base: number, 
 	ratio: number
 ): number[] => {
-	let spaces = [];
+	const spaces = [];
 
-	for(let i = 0; i < quantity; i++) {
+	for (let i = 0; i < quantity; i++) {
 		spaces.push(vr(base, ratio, i));
 	}
 
 	return spaces;
-}
+};

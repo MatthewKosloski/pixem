@@ -7,7 +7,7 @@ import dynamicPrecision from './dynamicPrecision';
 *	of text (line-height) and spacing
 *	between elements (margin/padding).
 */
-const vr = (base: number, ratio: number, step: number): number => 
+const vr = (base: number, ratio: number, step: number): number =>
 	dynamicPrecision((base * ratio) * step);
 
 export default vr;

@@ -3,4 +3,4 @@
  * $str is not empty.
  */
 export default (str: string): boolean =>
-    str.length > 0;
+	str.length > 0;

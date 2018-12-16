@@ -6,16 +6,17 @@ import * as Styles from './Styles';
 type Look = 'Shark' | 'Default';
 
 interface IPropTypes {
-    look?: Look;
+	look?: Look;
 }
 
-const Textbox: React.SFC<IPropTypes & ITextareaPropTypes> = ({look, ...rest}) => {
-    const element = Styles[look];
-    return React.createElement(element, rest);
-}
+const Textbox: React.SFC<IPropTypes & 
+ITextareaPropTypes> = ({look, ...rest}) => {
+	const element = Styles[look];
+	return React.createElement(element, rest);
+};
 
 Textbox.defaultProps = {
-    look: 'Default'
+	look: 'Default'
 };
 
 export default Textbox;

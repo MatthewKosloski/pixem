@@ -9,11 +9,11 @@ export default (
 	base: number, 
 	ratio: number
 ): number[] => {
-	let sequence = [];
+	const sequence = [];
 
-	for(let i = 0; i < quantity; i++) {
+	for (let i = 0; i < quantity; i++) {
 		sequence.push(modularscale(base, ratio, i));
 	}
 
 	return sequence;
-}
+};

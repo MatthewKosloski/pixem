@@ -4,4 +4,4 @@
  * True for empty strings.
  */
 export default (str: string): boolean =>
-    Number(str) === Number(str);
+	Number(str) === Number(str);

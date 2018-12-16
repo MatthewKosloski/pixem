@@ -29,11 +29,11 @@ export const Inner = styled('div')`${
 			padding: 0;
 		}
 	`
-}`
+}`;
 
 export const Paragraph = styled('p')`
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: ${_vrrem(3)};
-`
+`;

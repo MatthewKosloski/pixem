@@ -3,30 +3,30 @@ import * as React from 'react';
 import { InputCheckbox } from '@molecules';
 
 interface IPropTypes {
-    id?: string;
-    name?: string;
-    checked: boolean;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	id?: string;
+	name?: string;
+	checked: boolean;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface IDefaultProps {
-    id: string;
-    name: string;
+	id: string;
+	name: string;
 }
 
 const ShouldPreserveOriginalValuesInput: React.ComponentClass<IPropTypes> =
   class extends React.PureComponent<IPropTypes & IDefaultProps> {
 
-    static defaultProps: IDefaultProps = {
-        id: 'shouldPreserveOriginalValues',
-        name: 'shouldPreserveOriginalValues'
-    }
+	public static defaultProps: IDefaultProps = {
+		id: 'shouldPreserveOriginalValues',
+		name: 'shouldPreserveOriginalValues'
+	};
 
-    render() {
-        return( 
-            <InputCheckbox {...this.props} />	
-        );
-    }
-}
+	public render() {
+		return( 
+			<InputCheckbox {...this.props} />	
+		);
+	}
+};
 
 export default ShouldPreserveOriginalValuesInput;

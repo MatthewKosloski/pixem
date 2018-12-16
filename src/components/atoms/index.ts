@@ -16,20 +16,20 @@ import {default as Anchor} from './Anchor';
 import {default as Textarea} from './Textarea';
 
 export {
-    Checkbox,
-    CheckboxIcon,
-    Column,
-    Container,
-    Heading1,
-    Heading2,
-    Heading3,
-    Heading4,
-    HelpIcon,
-    Label,
-    Link,
-    Radio,
-    Row,
-    Text,
-    Anchor,
-    Textarea
+	Checkbox,
+	CheckboxIcon,
+	Column,
+	Container,
+	Heading1,
+	Heading2,
+	Heading3,
+	Heading4,
+	HelpIcon,
+	Label,
+	Link,
+	Radio,
+	Row,
+	Text,
+	Anchor,
+	Textarea
 };
