@@ -20,7 +20,6 @@
         }
     },
     "include": [
-        "src",
-        "svg.d.ts"
+        "src"
     ]
 }
